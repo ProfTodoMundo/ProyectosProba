@@ -1,0 +1,549 @@
+%===========================================
+\documentclass[12pt]{article}
+%===========================================
+\usepackage[latin1]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage[a4paper]{geometry}
+\geometry{top=1.5cm, bottom=1.0cm, left=1.25cm, right=1.25cm}
+\usepackage{amsmath, amsthm, amsfonts}
+\usepackage{hyperref}
+\usepackage{fancyhdr}
+\usepackage{titlesec}
+\usepackage{listings}
+\usepackage{graphicx,graphics}
+\usepackage{multicol}
+\usepackage{multirow}
+\usepackage{color}
+\usepackage{subfig}
+\usepackage[figuresright]{rotating}
+\usepackage{enumerate}
+\usepackage{anysize} 
+\usepackage{url}
+\usepackage{imakeidx}
+\usepackage{float}
+%===========================================
+\newtheorem{Criterio}{Criterio}%[section]
+\newtheorem{Sup}{Supuesto}%[section]
+\newtheorem{Note}{Nota}%[section]
+\newtheorem{Ejem}{Ejemplo}%[section]
+\newtheorem{Prop}{Proposici\'on}%[section]
+\newtheorem{Def}{Definici\'on}
+\newtheorem{Teo}{Teorema}
+\newtheorem{Algthm}{Algoritmo}
+\newtheorem{Sol}{Soluci\'on}
+\newtheorem{Obs}{Observaci\'on}
+
+%===========================================
+\title{Notas de Estadística y Probabilidad}
+\author{Carlos E Martínez-Rodríguez\\
+  \small Academia de Matemáticas\\
+  \small Plantel Casa Libertad\\
+  \small Cubículo XXXX\\
+  \texttt{carlos.martinez@uacm.edu.mx}
+}
+\date{Agosto 2025}
+%===========================================
+\begin{document}
+%===========================================
+\maketitle
+\tableofcontents
+\newpage
+
+%===========================================
+\section{Estad\'istica: Fundamentos}
+%===========================================
+%____________________________________________________________
+%____________________________________________________________
+%
+%____________________________________________________________
+\subsection{Definición de Estadística}
+%____________________________________________________________
+La Estadística es una ciencia formal que estudia la recolección, análisis e interpretación de datos de una muestra representativa, ya sea para ayudar en la toma de decisiones o para explicar condiciones regulares o irregulares de algún fenómeno o estudio aplicado, de ocurrencia en forma aleatoria o condicional. Sin embargo, la estadística es más que eso, es decir, es el vehículo que permite llevar a cabo el proceso relacionado con la investigación científica. Es transversal a una amplia variedad de disciplinas, desde la física hasta las ciencias sociales, desde las ciencias de la salud hasta el control de calidad. Se usa para la toma de decisiones en áreas de negocios o instituciones gubernamentales.\bigskip
+
+La Estadística es mucho más que sólo números apilados y gráficas bonitas. Es una ciencia con tanta antigüedad como la escritura, y es por sí misma auxiliar de todas las demás ciencias. Los mercados, la medicina, la ingeniería, los gobiernos, etc.  La Estadística que conocemos hoy en día debe gran parte de su realización a los trabajos matemáticos de aquellos hombres que desarrollaron la teoría de las probabilidades, con la cual se adhirió a la Estadística a las ciencias formales. 
+
+\begin{Def}
+La Estadística es la ciencia cuyo objetivo es reunir una información cuantitativa concerniente a individuos, grupos, series de hechos, etc. y deducir de ello gracias al análisis de estos datos unos significados precisos o unas previsiones para el futuro.
+\end{Def}
+
+La estadística, en general, es la ciencia que trata de la recopilación, organización presentación, análisis e interpretación de datos numéricos con el fin de realizar una toma de decisión más efectiva. Otros autores la definen como la expresión cuantitativa del conocimiento dispuesta en forma adecuada para el escrutinio y análisis.
+
+\begin{itemize}
+\item la palabra estadística, en primer término se usa para referirse a la información estadística; 
+\item también se utiliza para referirse al conjunto de técnicas y métodos que se utilizan para analizar la información estadística; y
+\item  el término estadístico, en singular y en masculino, se refiere a una medida derivada de una muestra.
+\end{itemize}
+
+Los métodos estadísticos tradicionalmente se utilizan para propósitos descriptivos, para organizar y resumir datos numéricos. La estadística descriptiva, por ejemplo trata de la tabulación de datos, su presentación en forma gráfica o ilustrativa y el cálculo de medidas descriptivas.
+
+%____________________________________________________________
+\subsection{Historia de la Estadística}
+%____________________________________________________________
+Es difícil conocer los orígenes de la Estadística. Desde los comienzos de la civilización han existido formas sencillas de estadística, pues ya se utilizaban representaciones gráficas y otros símbolos en pieles, rocas, palos de madera y paredes de cuevas para contar el número de personas, animales o ciertas cosas. Su origen inicia posiblemente en la isla de Cerdeña, donde existen monumentos prehistóricos pertenecientes a los Nuragas, las primeros habitantes de la isla; estos monumentos constan de bloques de basalto superpuestos sin mortero y en cuyas paredes de encontraban grabados toscos signos que han sido interpretados con mucha verosimilidad como muescas que servían para llevar la cuenta del ganado y la caza.\medskip
+
+Los babilonios usaban pequeñas tablillas de arcilla para recopilar datos en tablas sobre la producción agrícola y los géneros vendidos o cambiados mediante trueque.  Otros vestigios pueden ser hallados en el antiguo Egipto, cuyos faraones lograron recopilar, hacia el año 3050 antes de Cristo,  datos relativos a la población y la riqueza del país. De acuerdo al historiador griego Heródoto, dicho registro de riqueza y población se hizo con el objetivo de preparar la construcción de las pirámides. En el mismo Egipto, Ramsés II hizo un censo de las tierras con el objeto de verificar un nuevo reparto. \medskip
+
+En el antiguo Israel la Biblia da referencias, en el libro de los Números, de los datos estadísticos obtenidos en dos recuentos de la población hebrea. El rey David por otra parte, ordenó a Joab, general del ejército hacer un censo de Israel con la finalidad de conocer el número de la población.También los chinos efectuaron censos hace más de cuarenta siglos. Los griegos efectuaron censos periódicamente con fines tributarios, sociales (división de tierras) y militares (cálculo de recursos y hombres disponibles). La investigación histórica revela que se realizaron 69 censos para calcular los impuestos, determinar los derechos de voto y ponderar la potencia guerrera.\medskip
+
+Pero fueron los romanos, maestros de la organización política, quienes mejor supieron emplear los recursos de la estadística. Cada cinco años realizaban un censo de la población y sus funcionarios públicos tenían la obligación de anotar nacimientos, defunciones y matrimonios, sin olvidar los recuentos periódicos del ganado y de las riquezas contenidas en las tierras conquistadas. Para el nacimiento de Cristo sucedía uno de estos empadronamientos de la población bajo la autoridad del imperio.  Durante los mil años siguientes a la caída del imperio Romano se realizaron muy pocas operaciones Estadísticas, con la notable excepción de las relaciones de tierras pertenecientes a la Iglesia, compiladas por Pipino el Breve en el 758 y por Carlomagno en el 762 DC. Durante el siglo IX se realizaron en Francia algunos censos parciales de siervos. En Inglaterra, Guillermo el Conquistador recopiló el Domesday Book o libro del Gran Catastro para el año 1086, un documento de la propiedad, extensión y valor de las tierras de Inglaterra. Esa obra fue el primer compendio estadístico de Inglaterra. Aunque Carlomagno, en Francia; y Guillermo el Conquistador, en Inglaterra, trataron de revivir la técnica romana, los métodos estadísticos permanecieron casi olvidados durante la Edad Media.\medskip
+
+Durante los siglos XV, XVI, y XVII, hombres como Leonardo de Vinci, Nicolás Copérnico, Galileo, Neper, William Harvey, Sir Francis Bacon y René Descartes, hicieron grandes operaciones al método científico, de tal forma que cuando se crearon los Estados Nacionales y surgió como fuerza el comercio internacional existía ya un método capaz de aplicarse a los datos económicos. Para el año 1532 empezaron a registrarse en Inglaterra las defunciones debido al temor que Enrique VII tenía por la peste. Más o menos por la misma época, en Francia la ley exigió a los clérigos registrar los bautismos, fallecimientos y matrimonios. Durante un brote de peste que apareció a fines de la década de 1500, el gobierno inglés comenzó a publicar estadística semanales de los decesos. Esa costumbre continuó muchos años, y en 1632 estos Bills of Mortality (Cuentas de Mortalidad) contenían los nacimientos y fallecimientos por sexo.\medskip
+
+En 1662, el capitán John Graunt usó documentos que abarcaban treinta años y efectuó predicciones sobre el número de personas que morirían de varias enfermedades y sobre las proporciones de nacimientos de varones y mujeres que cabría esperar. El trabajo de Graunt, condensado en su obra \textit{Natural and
+Political Observations...Made upon the Bills of Mortality}, fue un esfuerzo innovador en el análisis estadístico.\medskip
+
+Los eruditos del siglo XVII demostraron especial interés por la Estadística Demográfica como resultado de la especulación sobre si la población aumentaba, decrecía o permanecía estática. En los tiempos modernos tales métodos fueron resucitados por algunos reyes que necesitaban conocer las riquezas monetarias y el potencial humano de sus respectivos países. El primer empleo de los datos estadísticos para fines ajenos a la política tuvo lugar en 1691 y estuvo a cargo de Gaspar Neumann, un profesor alemán que vivía en Breslau. Este investigador se propuso destruir la antigua creencia popular de que en los años terminados en siete moría más gente que en los restantes, y para lograrlo hurgó pacientemente en los archivos parroquiales de la ciudad. Después de revisar miles de partidas de defunción pudo demostrar que en tales años no fallecían más personas que en los demás.  Los procedimientos de Neumann fueron conocidos por el astrónomo inglés Halley, descubridor del cometa que lleva su nombre, quien los aplicó al estudio de la vida humana. Sus cálculos sirvieron de base para las tablas de mortalidad que hoy utilizan todas las compañías de seguros. \medskip
+
+Durante el siglo XVII y principios del XVIII, matemáticos como Bernoulli, Francis Maseres, Lagrange y Laplace desarrollaron la teoría de probabilidades. No obstante durante cierto tiempo, la teoría de las probabilidades limitó su aplicación a los juegos de azar y hasta el siglo XVIII no comenzó a aplicarse a los grandes problemas científicos. Godofredo Achenwall, profesor de la Universidad de Gotinga, acuñó en 1760 la palabra estadística, que extrajo del término italiano statista (estadista). Creía, y con sobrada razón, que los datos de la nueva ciencia serían el aliado más eficaz del gobernante consciente. La raíz remota de la palabra se halla, por otra parte, en el término latino status, que significa estado o situación; Esta etimología aumenta el valor intrínseco de la palabra, por cuanto la estadística revela el sentido cuantitativo de las más variadas situaciones. Jacques Quételect es quien aplica las Estadísticas a las ciencias sociales. Este interpretó la teoría de la probabilidad para su uso en las ciencias sociales y resolver la aplicación del principio de promedios y de la variabilidad a los fenómenos sociales. Quételect fue el primero en realizar la aplicación práctica de todo el método Estadístico, entonces conocido, a las diversas ramas de la ciencia.\medskip
+
+Entretanto, en el período del 1800 al 1820 se desarrollaron dos conceptos matemáticos fundamentales para la teoría Estadística; la teoría de los errores de observación, aportada por Laplace y Gauss; y la teoría de los mínimos cuadrados desarrollada por Laplace, Gauss y Legendre. A finales del siglo XIX, Sir Francis Gaston ideó el método conocido por Correlación, que tenía por objeto medir la influencia relativa de los factores sobre las variables. De aquí partió el desarrollo del coeficiente de correlación creado por Karl Pearson y otros cultivadores de la ciencia biométrica como J. Pease Norton, R. H. Hooker y G. Udny Yule, que efectuaron amplios estudios sobre la medida de las relaciones. Los progresos más recientes en el campo de la Estadística se refieren al ulterior desarrollo del cálculo de probabilidades, particularmente en la rama denominada indeterminismo o relatividad, se ha demostrado que el determinismo fue reconocido en la Física como resultado de las investigaciones atómicas y que este principio se juzga aplicable tanto a las ciencias sociales como a las físicas.
+%____________________________________________________________
+\subsection{Etapas de Desarrollo de la Estadística}
+%____________________________________________________________
+La historia de la estadística está resumida en tres grandes etapas o fases.
+\begin{itemize}
+\item Primera Fase.  \textbf{Los Censos:} Desde el momento en que se constituye una autoridad política, la idea de inventariar de una forma más o menos regular la población y las riquezas existentes en el territorio está ligada a la conciencia de soberanía y a los primeros esfuerzos administrativos.
+\item Segunda Fase.  \textbf{De la Descripción de los Conjuntos a la Aritmética Política:} Las ideas mercantilistas extrañan una intensificación de este tipo de investigación. Colbert multiplica las encuestas sobre artículos manufacturados, el comercio y la población: los intendentes del Reino envían a París sus memorias. Vauban, más conocido por sus fortificaciones o su Dime Royale, que es la primera propuesta de un impuesto sobre los ingresos, se señala como el verdadero precursor de los sondeos. Más tarde, Bufón se preocupa de esos problemas antes de dedicarse a la historia natural. La escuela inglesa proporciona un nuevo progreso al superar la fase puramente descriptiva. Sus tres principales representantes son Graunt, Petty y Halley. El penúltimo es autor de la famosa Aritmética Política. Chaptal, ministro del interior francés, publica en 1801 el primer censo general de población, desarrolla los estudios industriales, de las producciones y los cambios, haciéndose sistemáticos durantes las dos terceras partes del siglo XIX.
+\item Tercera Fase.  \textbf{Estadística y Cálculo de Probabilidades:} El cálculo de probabilidades se incorpora rápidamente como un instrumento de análisis extremadamente poderoso para el estudio de los fenómenos económicos y sociales y en general para el estudio de fenómenos cuyas causas son demasiados complejas para conocerlos totalmente y hacer posible su análisis.
+\end{itemize}
+%____________________________________________________________
+\subsection{División de la Estadística}
+%____________________________________________________________
+
+La Estadística para su mejor estudio se ha dividido en dos grandes ramas: \textbf{la Estadística Descriptiva y la Estadística Inferencial}.
+\begin{itemize}
+\item \textbf{Descriptiva:} consiste sobre todo en la presentación de datos en forma de tablas y gráficas. Esta comprende cualquier actividad relacionada con los datos y está diseñada para resumir o describir los mismos sin factores pertinentes adicionales; esto es, sin intentar inferir nada que vaya más allá de los datos, como tales.
+\item \textbf{Inferencial:} se realiza a partir de muestras,  observaciones hechas sólo acerca de una parte de un conjunto numeroso de elementos y esto implica que su análisis requiere de generalizaciones que van más allá de los datos. Como consecuencia, la característica más importante del reciente crecimiento de la estadística ha sido un cambio en el énfasis de los métodos que describen a métodos que sirven para hacer generalizaciones. La Estadística Inferencial investiga o analiza una población a partir de una muestra.
+\end{itemize}
+
+%____________________________________________________________
+\subsection{Método Estadístico}
+%____________________________________________________________
+
+El conjunto de los métodos que se utilizan para medir las características de la información, para resumir los valores individuales, y para analizar los datos a fin de
+extraerles el máximo de información, es lo que se llama \textit{métodos estadísticos}. Los métodos de análisis para la información cuantitativa se pueden dividir en los siguientes seis pasos:
+\begin{enumerate}
+\item Definición del problema.
+\item Recopilación de la información existente.
+\item Obtención de información original.
+\item Clasificación.
+\item Presentación.
+\item Análisis.
+\end{enumerate}
+El centro de la metodología estadística comienza a desplazarse hacia técnicas de computación intensiva aplicadas a grandes masas de datos, y se empieza a considerar el método estadístico como un proceso iterativo de búsqueda del modelo ideal. 
+
+
+%____________________________________________________________
+\subsection{Errores Estadísticos Comunes}
+%____________________________________________________________
+
+Al momento de recopilar los datos que serán procesados es posible cometer errores así como durante los cómputos de los mismos. No obstante, hay otros errores que no tienen nada que ver con la digitación y que no son tan fácilmente identificables. Algunos de éstos errores son:
+\begin{itemize}
+\item\textbf{Sesgo:} Es imposible ser completamente objetivo o no tener ideas preconcebidas antes de comenzar a estudiar un problema, y existen muchas maneras en que una perspectiva o estado mental pueda influir en la recopilación y en el análisis de la información. En estos casos se dice que hay un sesgo cuando el individuo da mayor peso a los datos que apoyan su opinión que a aquellos que la contradicen. Un caso extremo de sesgo sería la situación donde primero se toma una decisión y después se utiliza el análisis estadístico para justificar la decisión ya tomada.
+\item\textbf{Datos No Comparables:} el establecer comparaciones es una de las partes más importantes del análisis estadístico, pero es extremadamente importante que tales comparaciones se hagan entre datos que sean comparables.
+\item \textbf{Proyección descuidada de tendencias:} la proyección simplista de tendencias pasadas hacia el futuro es uno de los errores que más ha desacreditado el uso del análisis estadístico.
+\item\textbf{Muestreo Incorrecto:} en la mayoría de los estudios sucede que el volumen de información disponible es tan inmenso que se hace necesario estudiar muestras, para derivar conclusiones acerca de la población a que pertenece la muestra. Si la muestra se selecciona correctamente, tendrá básicamente las mismas propiedades que la población de la cual fue extraída; pero si el muestreo se realiza incorrectamente, entonces puede suceder que los resultados no signifiquen nada
+\end{itemize}
+
+%____________________________________________________________
+\subsection{Refuerzo}
+%____________________________________________________________
+
+La estadística es un conjunto de procedimientos para reunir, clasificar, codificar, procesar, analizar y resumir información numérica adquirida sistemáticamente. Permite hacer inferencias a partir de una muestra para extrapolarlas a una población. Aunque normalmente se asocia a muchos cálculos y operaciones aritméticas, y aunque las matemáticas están involucradas, en su mayor parte sus fundamentos y uso apropiado pueden dominarse sin hacer referencia a habilidades matemáticas avanzadas.  De esta manera la estadística se relaciona con el método científico complementándolo como herramienta de análisis y, aunque la investigación científica no requiere necesariamente de la estadística, ésta valida muchos de los resultados cuantitativos derivados de la investigación. La obtención del conocimiento debe hacerse de manera sistemática por lo que deben planearse todos los pasos que llevan desde el planteamiento de un problema, pasando por la elaboración de hipótesis y la manera en que van a ser probadas; la selección de sujetos (muestreo), los escenarios, los instrumentos que se utilizarán para obtener los datos, definir el procedimiento que se seguirá para esto último, los controles que se deben hacer para asegurar que las intervenciones son las causas más probables de los cambios esperados (diseño); hasta la elección del plan de análisis idóneo para el tipo de datos que se están obteniendo, es aquí donde la estadística entra en el estudio, aunque pueden existir otras herramientas de análisis si se está haciendo una investigación de corte cualitativo.\medskip
+
+Una buena planeación permitirá que los resultados puedan ser reproducidos, mediante la comprobación empírica, por cualquier investigador interesado en refutar o comprobar las conclusiones que se hagan del estudio. De esta manera también se logrará la predicción de los fenómenos que se están estudiando, ayudando a conocer y prevenir los problemas sociales e individuales que forman parte del objeto de estudio de la psicología. El tratamiento de los datos de la investigación científica tiene varias etapas:
+\begin{itemize}
+\item En la etapa de recolección de datos del método científico, se define a la población de interés y se selecciona una muestra o conjunto de personas representativas de la misma, se realizan experimentos o se emplean instrumentos ya existentes o de nueva creación, para medir los atributos de interés necesarios para responder a las preguntas de investigación.Durante lo que es llamado trabajo de campo se obtienen los datos en crudo, es decir las respuestas directas de los sujetos uno por uno, se codifican (se les asignan valores a las respuestas), se capturan y se verifican para ser utilizados en las siguientes etapas.
+
+\item En la etapa de recuento, se organizan y ordenan los datos obtenidos de la muestra. Esta será descrita en la siguiente etapa utilizando la estadística descriptiva, todas las investigaciones utilizan estadística descriptiva, para conocer de manera organizada y resumida las características de la muestra.
+
+\item En la etapa de análisis se utilizan las pruebas estadísticas (estadística inferencial) y en la interpretación se acepta o rechaza la hipótesis nula.
+
+\item En investigación, el fenómeno en estudio puede ser cualitativo que implicaría comprenderlo y explicarlo, o cuantitativo para compararlo y hacer inferencias. Se puede decir que si se hace análisis se usan métodos cuantitativos y si se hace descripción se usan métodos cualitativos. Medición Para poder emplear el método estadístico en un estudio es necesario medir las variables. 
+\begin{itemize}
+\item Medir: es asignar valores a las propiedades de los objetos bajo ciertas reglas, esas reglas son los niveles de medición.
+
+\item Cuantificar: es asignar valores a algo tomando un patrón de referencia. Por ejemplo, cuantificar es ver cuántos hombres y cuántas mujeres hay.
+
+\item Variable: es una característica o propiedad que asume diferentes valores dentro de una población de interés y cuya variación es susceptible de medirse. Las variables pueden clasificarse de acuerdo al tipo de valores que puede tomar como:
+\begin{itemize}
+\item Discretas o categóricas: en las que los valores se relacionan a nombres, etiquetas o categorías, no existe un significado numérico directo.
+\item Continuas: los valores tienen un correlato numérico directo, son continuos y susceptibles de fraccionarse y de poder utilizarse en operaciones aritméticas De acuerdo a la cantidad de valores.
+\item Dicotómica: sólo tienen dos valores posibles, la característica está ausente o presente.
+\item Policotómica: pueden tomar tres valores o más, pueden tomarse matices diferentes, en grados, jerarquías o magnitudes continuas.
+\end{itemize}
+\end{itemize}
+\item Niveles de Medición
+\begin{itemize}
+\item Nominal Las propiedades de la medición nominal son:
+\begin{itemize}
+\item Exhaustiva: implica a todas las opciones. 
+\item A los sujetos se les asignan categorías, por lo que son mutuamente excluyentes. Es decir, la variable está presente o no; tiene o no una característica
+\end{itemize}
+\item Ordinal: Las propiedades de la medición ordinal son:
+\begin{itemize}
+\item El nivel ordinal posee transitividad, por lo que se tiene la capacidad de identificar que esto es mejor o mayor que aquello, en ese sentido se pueden establecer jerarquías
+\item Las distancias entre un valor y otro no son iguales.
+\end{itemize}
+\item Intervalo
+\begin{itemize}
+\item  El nivel de medición por intervalo requiere distancias iguales entre cada valor. Por lo general utiliza datos cuantitativos. Por ejemplo: temperatura, atributos psicológicos (CI, nivel de autoestima, pruebas de conocimientos, etc.)
+\item Las unidades de calificación son equivalentes en todos los puntos de la escala. Una escala de intervalos implica: clasificación, magnitud y unidades de tamaños iguales.
+\item Se pueden hacer operaciones aritméticas
+\item Cuando se le pide al sujeto que califique una situación del 0 al 10 puede tomarse como un nivel de medición por intervalo, siempre y cuando se incluya el 0.
+\end{itemize}
+\item Razón
+\begin{itemize}
+\item La escala empieza a partir del 0 absoluto, por lo tanto incluye sólo los números por su valor en sí, por lo que no pueden existir los números con signo negativo. Por ejemplo: Peso corporal en kg., edad en años, estatura en cm.
+\item Convencionalmente los datos que son de nivel absoluto o de razón son manejados como los datos intervalares.
+\end{itemize}
+\end{itemize}
+\end{itemize}
+
+%____________________________________________________________
+\subsubsection{Malos Usos de la Estadística}
+%____________________________________________________________
+
+\textbf{Datos estadísticos inadecuados} Los datos estadísticos son usados como la materia prima para un estudio estadístico. Cuando los datos son inadecuados, la conclusión extraída del estudio de los datos se vuelve obviamente inválida. Por ejemplo, supongamos que deseamos encontrar el ingreso familiar típico del año pasado en la ciudad Y de 50,000 familias y tenemos una muestra consistente del ingreso de solamente tres familias: 1 millón, 2 millones y no ingreso. Si sumamos el ingreso de las tres familias y dividimos el total por 3, obtenemos un promedio de 1 millón. Entonces, extraemos una conclusión basada en la muestra de que el ingreso familiar promedio durante el año pasado en la ciudad fue de  1 millón. Es obvio que la conclusión es falsa, puesto que las cifras son extremas y el tamaño de la muestra es demasiado pequeño; por lo tanto la muestra no es representativa. Hay muchas otras clases de datos inadecuados. Por ejemplo, algunos datos son respuestas inexactas de una encuesta, porque las preguntas usadas en la misma son vagas o engañosas, algunos datos son toscas estimaciones porque no hay disponibles datos exactos o es demasiado costosa su obtención, y algunos datos son irrelevantes en un problema dado, porque el estudio estadístico no está bien planeado.
+%____________________________________________________________
+\subsubsection{Un sesgo del usuario}
+%____________________________________________________________
+
+Sesgo significa que un usuario dé los datos perjudicialmente de más énfasis a los hechos, los cuales son empleados para mantener su predeterminada posición u opinión. Hay dos clases de sesgos: conscientes e inconscientes. Ambos son comunes en el análisis estadístico. Hay numerosos ejemplos de sesgos conscientes. 
+\begin{itemize}
+\item Un anunciante frecuentemente usa la estadística para probar que su producto es muy superior al producto de su competidor. 
+'.item Un político prefiere usar la estadística para sostener su punto de vista. 
+\item Gerentes y líderes de trabajadores pueden simultáneamente situar sus respectivas cifras estadísticas sobre la misma tabla de trato para mostrar que sus rechazos o peticiones son justificadas. 
+\end{itemize}
+
+Es casi imposible que un sesgo inconsciente esté completamente ausente en un trabajo estadístico. En lo que respecta al ser humano, es difícil obtener una actitud completamente objetiva al abordar un problema.
+
+%____________________________________________________________
+\subsubsection{ Supuestos falsos}
+%____________________________________________________________
+
+Es muy frecuente que un análisis estadístico contemple supuestos. Un investigador debe ser muy cuidadoso en este hecho, para evitar que éstos sean falsos. Los supuestos falsos pueden ser originados por:
+
+\begin{itemize}
+\item Quien usa los datos
+\item Quien está tratando de confundir (con intencionalidad)
+\item Ignorancia
+\item Descuido.
+\end{itemize}
+
+%____________________________________________________________
+\subsection{Términos comunes utilizados en estadística}
+%____________________________________________________________
+
+
+\begin{itemize}
+  \item Variable: Característica o fenómeno que puede tomar distintos valores.
+  \item Dato: Mediciones o cualidades que han sido recopiladas como resultado de observaciones.
+  \item Población: Área o conjunto del cual son extraídos los datos; es el conjunto de elementos o individuos que poseen una característica común y medible acerca de la cual se desea información. También llamada \emph{universo}.
+  \item Muestra: Subconjunto de la población, seleccionado de acuerdo con una regla o plan de muestreo.
+  \item Censo: Recopilación de todos los datos de interés para la investigación de la población.
+  \item Estadística: Función o fórmula que depende de los datos de la muestra (es variable).
+  \item Parámetro: Característica medible de la población.
+\end{itemize}
+
+\begin{Ejem}
+La universidad está interesada en determinar el ingreso de las familias de sus alumnos.
+\begin{itemize}
+  \item \textbf{Variable:} Ingreso \emph{per cápita} de las familias.
+  \item \textbf{Dato:} Ingreso \emph{per cápita} de la familia de un alumno específico.
+  \item \textbf{Población:} Las familias de todos los alumnos de la universidad.
+  \item \textbf{Estadística:} Ingreso \emph{per cápita} promedio de las familias seleccionadas en la muestra.
+  \item \textbf{Parámetro:} Ingreso \emph{per cápita} promedio de la población.
+\end{itemize}
+\end{Ejem}
+
+%____________________________________________________________
+\subsection{Muestreo}
+%____________________________________________________________
+
+Una muestra es representativa en la medida en que es imagen de la población. En general, el tamaño de una muestra depende principalmente de:
+\begin{itemize}
+  \item Nivel de precisión deseado.
+  \item Recursos disponibles.
+  \item Tiempo involucrado en la investigación.
+\end{itemize}
+
+Además, el plan de muestreo debe considerar:
+\begin{itemize}
+  \item La población.
+  \item Los parámetros a medir.
+\end{itemize}
+
+Existe una gran cantidad de tipos de muestreo. En la práctica, los más utilizados son los siguientes:
+\begin{itemize}
+\item \textbf{Muestreo aleatorio simple} Es un método de selección de $n$ unidades extraídas de $N$, de tal manera que cada muestra posible tiene la misma probabilidad de ser escogida. En la práctica, se enumeran las unidades de $1$ a $N$, y a continuación se seleccionan $n$ números aleatorios entre $1$ y $N$, ya sea de tablas o de una urna con fichas numeradas.
+
+\begin{Ejem}
+Considere la producción de TV de una compañía en un determinado turno ($N=35$ televisores). Para efectos de control de calidad de la pantalla, se desea extraer una muestra aleatoria simple de tamaño $n=5$. Si los 35 TV producidos son numerados del 1 al 35, una posible muestra podría ser: $3,5,18,23,30$.
+
+\emph{¿Cuántas muestras posibles hay?} (respuesta combinatoria: $\binom{35}{5}$).
+\end{Ejem}
+
+\item \textbf{Muestreo estratificado aleatorio} Se usa cuando la población está agrupada en pocos estratos (cada uno con muchas entidades). Consiste en sacar una muestra aleatoria simple de cada uno de los estratos, generalmente de tamaño proporcional al estrato.
+
+\item \textbf{Muestreo sistemático} Se utiliza cuando las unidades de la población están ordenadas. Para seleccionar una muestra de $n$ unidades, se divide la población en $n$ subpoblaciones de tamaño $K = N/n$. Se toma al azar una unidad de las primeras $K$ y, a partir de ahí, cada $K$-ésima unidad. Si $n_0$ es la primera unidad seleccionada, la muestra es:
+$$\{\, n_0,\; n_0+K,\; n_0+2K,\; \ldots,\; n_0+(n-1)K \,\}.$$
+
+\item \textbf{Muestreo por conglomerado} Se emplea cuando la población está dividida en grupos o conglomerados pequeños. Consiste en obtener una muestra aleatoria simple de conglomerados y luego \textsc{censar} cada uno de éstos.
+
+\item \textbf{Muestreo en dos etapas (bietápico)} La muestra se toma en dos pasos:
+\begin{itemize}
+  \item Seleccionar una muestra de unidades primarias.
+  \item Seleccionar una muestra de elementos a partir de cada unidad primaria escogida.
+\end{itemize}
+\end{itemize}
+
+\begin{Obs}
+En la realidad, a veces no es posible aplicar libremente un solo tipo de muestreo; incluso podemos estar obligados a mezclarlos.
+\end{Obs}
+
+%-----------------------------------
+\subsection{Variables}
+%-----------------------------------
+
+Las variables se pueden clasificar en dos grandes grupos:
+
+\begin{itemize}
+
+\item \textbf{Variables categóricas} Son aquellas que pueden ser representadas a través de símbolos, letras o palabras. Los valores que toman se denominan \emph{categorías}, y los elementos que pertenecen a estas categorías se consideran idénticos respecto a la característica que se está midiendo.
+
+\begin{Ejem} Variable: Profesión.  Valores posibles:Programador, Técnico en Control de Alimentos, Técnico en Prevención de Riesgos, Técnico en Control del Medio Ambiente, Químico Analítico, Técnico Mecánico,  Etc.
+\end{Ejem}
+
+Las variables categóricas se dividen en dos tipos:
+\begin{itemize}
+  \item \textbf{Ordinales:} Las categorías tienen un orden implícito; admiten grados de calidad (hay relación total entre categorías). \\
+\begin{Ejem} Variable: Nivel de estudio de Enseñanza Básica. Valores: Primero Básico, Segundo Básico, Tercero Básico, \dots, Octavo Básico. A pesar de que admite grados de calidad, no es posible cuantificar la diferencia entre niveles adyacentes.
+\end{Ejem}
+  \item \textbf{Nominales:} No existe una relación de orden entre categorías.
+\end{itemize}
+
+\item \textbf{Variables numéricas} Son aquellas que pueden tomar valores numéricos exclusivamente (mediciones). Se dividen en dos tipos: \emph{discretas} y \emph{continuas}.
+\begin{itemize}
+  \item \textbf{Discretas:} Toman valores en un conjunto finito o infinito numerable. \\
+  \emph{Ejemplo (Variable: Número de sillas por sala).} Valores: $0,1,2,3,\dots,n$.
+  \item \textbf{Continuas:} Toman valores en un subconjunto de los números reales, típicamente un intervalo. \\
+  \emph{Ejemplo (Variable: Temperatura de Ixtapa).} Valores entre $25^\circ$ y $35^\circ$.
+\end{itemize}
+\end{itemize}
+
+\begin{Obs} Para variables continuas, el ser humano ha debido \emph{definir} unidades para medirlas (por ejemplo: el metro, la hora).\end{Obs}
+
+%-----------------------------------
+\subsection{Inferencia, estimación y contraste de hipótesis}
+%-----------------------------------
+Los métodos básicos de la estadística inferencial son la \textbf{estimación} y el \textbf{contraste de hipótesis}; juegan un papel fundamental en la investigación.
+\begin{itemize}
+  \item Calcular parámetros de la distribución de medias o proporciones muestrales de tamaño $n$, extraídas de una población de media y varianza conocidas.
+  \item Estimar la media o la proporción de una población a partir de la media o proporción muestral.
+  \item Utilizar distintos tamaños muestrales para controlar la confianza y el error admitido.
+  \item Contrastar resultados obtenidos a partir de muestras.
+  \item Visualizar gráficamente, mediante las respectivas curvas normales, las estimaciones realizadas.
+\end{itemize}
+
+En la mayoría de las investigaciones resulta imposible estudiar a todos los individuos de la población (por costo o inaccesibilidad). Mediante la inferencia estadística se obtienen conclusiones para una población no observada en su totalidad, a partir de estimaciones o resúmenes numéricos efectuados sobre la base informativa extraída de una muestra. En definitiva: a partir de una población se extrae una muestra con alguno de los métodos existentes; con sus datos se generan \emph{estadísticos} para realizar estimaciones o contrastes poblacionales.
+
+Existen dos formas de estimar parámetros:
+\begin{itemize}
+  \item \textbf{Estimación puntual:} con base en los datos muestrales, se propone un único valor para el parámetro.
+  \item \textbf{Estimación por intervalo de confianza:} se determina un intervalo dentro del cual se encuentra el valor del parámetro con cierta probabilidad.
+\end{itemize}
+
+Si el objetivo del tratamiento inferencial es generalizar sobre poblaciones no observadas a partir de una parte de la población, la muestra debe ser \textbf{representativa y aleatoria}. Además, el tamaño muestral depende de múltiples factores: recursos (dinero y tiempo), importancia del tema, confiabilidad esperada, características del fenómeno, etc. A partir de la muestra se estiman parámetros como la media, varianza, desviación estándar o la forma de la distribución.
+%____________________________________________________________
+\subsection{Conceptos básicos}
+%____________________________________________________________
+Recordemos 	los conceptos elementales
+\begin{itemize}
+  \item Población: Conjunto de elementos sobre los que se observa un carácter común. Se representa con la letra $N$ (tamaño poblacional).
+  \item Muestra: Conjunto de unidades extraídas de la población. Cuanto más significativa, mejor será la muestra. Se representa con $n$ (tamaño muestral).
+  \item Unidad de muestreo: Está formada por uno o más elementos de la población. El total de unidades de muestreo constituye la población; son disjuntas entre sí.
+  \item Parámetro: Resumen numérico de una variable de la población. Parámetros habituales: media poblacional $\mu$, total poblacional $T$ (p.ej.\ $T=N\mu$), proporción $p$.
+  \item Estimador: Un estimador $\hat{\theta}$ de un parámetro $\theta$ es un \emph{estadístico} usado para conocer el parámetro desconocido.
+  \item Estadístico: Función de los valores muestrales; es una variable aleatoria cuya distribución se denomina \emph{distribución muestral del estadístico}.
+  \item Estimación: A partir de la muestra se extrapola el resultado a la población. Puede ser \emph{puntual} o por \emph{intervalo de confianza}.
+  \item Prueba de Hipótesis: Determina si, con datos muestrales, es aceptable que una característica o parámetro poblacional tome cierto valor o pertenezca a un conjunto de valores.
+  \item Intervalos de confianza: Proporción de veces que acertaríamos al afirmar que el parámetro $\theta$ está dentro del intervalo al seleccionar muchas muestras.
+\end{itemize}
+
+
+%____________________________________________________________
+\subsection{El concepto de estadístico y distribución muestral}
+%____________________________________________________________
+El objetivo de la inferencia es generalizar resultados de la muestra a la población. Interesa estudiar la distribución de ciertas funciones de la muestra (estadísticos muestrales).
+
+Sea $x_1,\ldots,x_n$ una muestra aleatoria simple (m.a.s.) de la v.a.\ $X$ con función de distribución $F_0$. Un \emph{estadístico} $T$ es cualquier función de la muestra que no contiene cantidades desconocidas.
+
+Los estadísticos más usuales (para un carácter cuantitativo) y sus distribuciones asociadas:
+\begin{align}
+\text{Media muestral:}\quad & \bar X=\frac{1}{n}\sum_{i=1}^n X_i, 
+& \bar X \sim \mathcal{N}\!\left(\mu,\frac{\sigma^2}{n}\right). \label{eq:mean}\\[4pt]
+\text{Cuasivarianza:}\quad & s^2=\frac{1}{n-1}\sum_{i=1}^n (X_i-\bar X)^2,
+& \frac{(n-1)s^2}{\sigma^2}\sim \chi^2_{\,n-1}. \label{eq:var}\\[4pt]
+\text{Total muestral:}\quad & t=\sum_{i=1}^n X_i, 
+& t \sim \mathcal{N}(n\mu,\,n\sigma^2). \label{eq:total}
+\end{align}
+% Nota: en \eqref{eq:mean} y \eqref{eq:total} la normalidad exacta requiere normalidad poblacional (o n grande, por CLT).
+%____________________________________________________________
+\subsection{Estimación puntual}
+%____________________________________________________________
+Un estimador de un parámetro poblacional es una función de los datos muestrales. Por ejemplo, para estimar la talla media de un grupo, se extrae una muestra y se usa la media muestral como estimación puntual.
+
+La media de la muestra estima a la media poblacional; la cuasivarianza muestral estima la varianza poblacional; el total muestral estima el total poblacional.
+
+Sea $X_1,\ldots,X_n$ una m.a.s. Decimos que $\hat{\theta}$ es estimador de $\theta$ si el estadístico empleado para conocer $\theta$ es $\hat{\theta}$.
+%____________________________________________________________
+\subsubsection{Propiedades deseables de un estimador}
+%____________________________________________________________
+
+\begin{itemize}
+  \item \textbf{Insesgadez:} $\,\mathbb{E}[\hat{\theta}]=\theta$. Si no coincide, es sesgado.
+  \item \textbf{Eficiencia:} Dados $\hat{\theta}_1$ y $\hat{\theta}_2$ para $\theta$, $\hat{\theta}_1$ es más eficiente si $\operatorname{Var}(\hat{\theta}_1)<\operatorname{Var}(\hat{\theta}_2)$.
+  \item \textbf{Suficiencia:} Usa toda la información de la muestra relativa a $\theta$.
+  \item \textbf{Consistencia:} $\hat{\theta}_n \xrightarrow{p} \theta$, es decir, $\lim_{n\to\infty} \mathbb{P}\big(|\hat{\theta}_n-\theta|<\varepsilon\big)=1$ para todo $\varepsilon>0$.
+\end{itemize}
+%____________________________________________________________
+\subsubsection{Métodos para obtener estimadores puntuales}
+%____________________________________________________________
+
+\begin{itemize}
+  \item \textbf{Método de los momentos:} iguala momentos poblacionales a muestrales (suelen ser consistentes).
+  \item \textbf{Mínimos cuadrados:} minimiza una función de pérdida (p.ej.\ suma de cuadrados de residuos).
+  \item \textbf{Máxima verosimilitud:} elige el valor del parámetro que hace más verosímil la muestra (suele dar estimadores consistentes y eficientes).
+\end{itemize}
+
+La probabilidad de que $\bar X$ sea \emph{exactamente} igual a $\mu$ es cero ($\mathbb{P}[\bar X=\mu]=0$) en variables continuas; por ello, en la práctica se prefiere el uso de \emph{intervalos de confianza} y \emph{contrastes de hipótesis}.
+%____________________________________________________________
+\subsection{Estimación por intervalos de confianza}
+%____________________________________________________________
+Un intervalo de confianza está determinado por dos valores dentro de los cuales afirmamos que está el verdadero parámetro con cierta probabilidad (nivel de confianza $1-\alpha$). Es una expresión del tipo $[L,U]$ o $L\le \theta \le U$.
+
+Conceptos clave:
+\begin{itemize}
+  \item \textbf{Variabilidad del parámetro:} si no se conoce $\sigma$, puede aproximarse con datos previos o un estudio piloto.
+  \item \textbf{Error de la estimación:} amplitud del intervalo (precisión). A mayor precisión, intervalo más estrecho y mayor tamaño muestral. Denotemos $E=U-L$.
+  \item \textbf{Nivel de confianza $(1-\alpha)$:} probabilidad de que el intervalo contenga al parámetro (típicamente $95\%$ o $99\%$).
+  \item \textbf{Nivel de significación $\alpha$:} $\alpha=1-(1-\alpha)$. Para $95\%$, $\alpha=0{,}05$.
+  \item \textbf{Valor crítico:} para normal estándar $Z$, $z_{\alpha/2}$ satisface $\mathbb{P}(|Z|\le z_{\alpha/2})=1-\alpha$ (p.ej.\ si $\alpha=0{,}05$, $z_{0.025}\approx 1{,}96$).
+\end{itemize}
+
+Con estas definiciones, si tras extraer una muestra se afirma que ``$3$ es una estimación de la media con un margen de error de $0{,}6$ y un nivel de confianza del $99\%$'', el intervalo es $[2{,}7,\;3{,}3]$.
+
+A tamaño muestral fijo, error y nivel de confianza están relacionados: mayor confianza requiere intervalos más amplios (o mayor $n$). El tamaño muestral puede despejarse de la fórmula del intervalo deseado según el error máximo permitido.
+
+\paragraph{Unilaterales y bilaterales.}
+\begin{align*}
+\text{Unilateral:}& \quad \mathbb{P}(Z \le z_{\alpha}) = 1-\alpha \quad \text{o} \quad \mathbb{P}(Z \ge z_{1-\alpha}) = 1-\alpha.\\
+\text{Bilateral:}& \quad \mathbb{P}\big(-z_{\alpha/2} \le Z \le z_{\alpha/2}\big)=1-\alpha.
+\end{align*}
+
+%____________________________________________________________
+\subsection{Ejemplos y Ejercicios}
+%____________________________________________________________
+
+\begin{Ejem}
+Indica si cada variable es: \textbf{Nominal, Ordinal, Discreta, Continua, Binaria, Politómica, Intervalo o Razón}.
+
+\begin{itemize}
+  \item Nivel de satisfacción: muy insatisfecho, insatisfecho, neutral, satisfecho, muy satisfecho.
+  \item Número de goles en un partido.
+  \item Color de ojos: azul, verde, café, negro, gris.
+  \item Ingreso mensual en pesos.
+  \item Edad en años.
+  \item Clasificación de hoteles: 1, 2, 3, 4, 5 estrellas.
+  \item Licencia de conducir: sí / no.
+  \item Nacionalidad: mexicana, argentina, chilena, española, colombiana.
+  \item Distancia recorrida en kilómetros.
+  \item Número de hijos en una familia.
+  \item Peso corporal en kilogramos.
+  \item Temperatura corporal en grados Celsius.
+  \item Tipo de sangre: A, B, AB, O, RH-positivo.
+  \item Marca de celular: Apple, Samsung, Huawei, Xiaomi, Motorola.
+  \item Número de estudiantes en un salón.
+  \item Hora del día (1:00, 2:00, ?, 12:00).
+  \item Grado de dolor: sin dolor, leve, moderado, severo, insoportable.
+  \item Examen final: aprobado / reprobado.
+  \item Rango militar: soldado, cabo, sargento, teniente, capitán.
+  \item Tiempo de reacción en segundos.
+  \item Estado civil: soltero, casado, divorciado, viudo, unión libre.
+  \item Fumador: sí / no.
+  \item Ocupación: estudiante, empleado, desempleado, jubilado, empresario.
+  \item Estatura en metros.
+  \item Nivel educativo: primaria, secundaria, preparatoria, licenciatura, posgrado.
+\end{itemize}
+\end{Ejem}
+
+
+\begin{Ejem}
+Considera los siguientes tipos de variables Nominales:
+  \begin{enumerate}
+    \item Sexo: NA, NA, NA, Femenino, NA, Femenino, Femenino, Femenino, NA, Masculino, Femenino, Femenino, Masculino, Femenino, NA, Masculino, NA, NA, Masculino, Masculino, Masculino, Masculino, NA, Femenino, NA.
+    \item Nacionalidad: Boliviana, Peruana, Venezolana, Cubana, Mexicana, Colombiana, Colombiana, Brasileña, Colombiana, Venezolana, Chilena, Argentina, Mexicana, Mexicana, Argentina, Mexicana, Argentina, Brasileña, Mexicana, Uruguaya, Argentina, Argentina, Colombiana, Cubana, Boliviana, Peruana, Boliviana, Boliviana, Peruana, Uruguaya, Chilena, Uruguaya, Venezolana, Uruguaya, Argentina, Venezolana, Uruguaya, Cubana, Venezolana, Cubana, Chilena, Argentina, Peruana, Boliviana, Cubana, Venezolana, Colombiana, Mexicana, Uruguaya, Argentina .
+    \item Color de ojos: Gris, Azul, Ambar, Negro, Avellana, Café, Avellana, Azul, Verde, Ambar, Avellana, Café, Café, Azul, Verde, Azul, Avellana, Verde, Verde, Verde, Gris, Negro, Avellana, Negro, Gris, Negro, Avellana, Azul, Ambar, Verde.
+    \item Marca de celular: Apple, Samsung, LG, Huawei, OnePlus, Sony, Apple, Samsung, Huawei, Huawei, Nokia, OnePlus, Motorola, Xiaomi, Samsung, Apple, Apple, Motorola, Samsung, Samsung, Huawei, Motorola, Nokia, OnePlus, Huawei, Huawei, Apple, LG, Apple, Xiaomi, LG, OnePlus, OnePlus, LG, Sony, Samsung, Apple, Xiaomi, Oppo, Motorola, LG, Samsung, Motorola, Samsung, Nokia, OnePlus, OnePlus, Oppo, Sony, Nokia, Huawei, LG, Sony, Xiaomi, LG, Huawei, LG, Nokia, Xiaomi, Sony, OnePlus, LG, Xiaomi, OnePlus, Oppo, Nokia, Huawei, Xiaomi, Oppo, Oppo .
+    \item Estado civil: Viudo, Viudo, Union libre, Soltero, Viudo, Union libre, Divorciado, Casado, Union libre, Viudo, Viudo, Soltero, Divorciado, Divorciado, Divorciado, Union libre, Casado, Union libre, Casado, Soltero, Viudo, Casado, Casado, Divorciado, Union libre, Soltero, Divorciado, Divorciado, Casado, Union libre, Soltero, Viudo, Viudo, Soltero, Divorciado, Viudo, Viudo, Soltero, Union libre, Divorciado.
+  \end{enumerate}
+\end{Ejem}
+
+
+\begin{Ejem} \textbf{Ordinales}
+  \begin{enumerate}
+    \item Nivel educativo: posdoctorado, preparatoria, preparatoria, doctorado, primaria, doctorado, preparatoria, secundaria, preparatoria, preparatoria, primaria, doctorado, secundaria, secundaria, secundaria, licenciatura, doctorado, primaria, maestria, posdoctorado, maestria, preparatoria, posdoctorado, doctorado, preparatoria, doctorado, maestria, primaria, licenciatura, secundaria, maestria, posdoctorado, doctorado, licenciatura, doctorado, posdoctorado, maestria, primaria, secundaria, preparatoria.
+    \item Nivel de satisfacción: satisfecho, muy satisfecho, muy insatisfecho, neutral, muy satisfecho, muy insatisfecho, muy satisfecho, insatisfecho, muy insatisfecho, insatisfecho, muy satisfecho, insatisfecho, muy satisfecho, muy satisfecho, mas o menos insatisfecho, insatisfecho, satisfecho, muy satisfecho, neutral, mas o menos insatisfecho, muy insatisfecho, mas o menos satisfecho, insatisfecho, neutral, mas o menos satisfecho, satisfecho, mas o menos satisfecho, satisfecho, neutral, satisfecho, muy insatisfecho, muy insatisfecho, neutral, satisfecho, insatisfecho, mas o menos satisfecho, mas o menos insatisfecho, muy insatisfecho, neutral, neutral, satisfecho, neutral, insatisfecho, mas o menos insatisfecho, mas o menos insatisfecho, insatisfecho, mas o menos satisfecho, satisfecho, neutral, insatisfecho, insatisfecho, muy insatisfecho, muy satisfecho, mas o menos satisfecho, mas o menos satisfecho.
+    \item Grado de dolor: severo, leve, leve, severo, leve, leve, leve, moderado, moderado, moderado, moderado, severo, severo, moderado, leve, severo, leve, severo, severo, severo, leve, moderado, severo, severo, leve, leve, leve, severo, severo, leve .
+    \item Reseñas de hoteles: 4 estrellas, 5 estrellas, 1.5 estrellas, 4.5 estrellas, 5 estrellas, 4.5 estrellas, 2.5 estrellas, 4 estrellas, 4.5 estrellas, 1.5 estrellas, 3.5 estrellas, 1 estrella, 3.5 estrellas, 3 estrellas, 5 estrellas, 1.5 estrellas, 2 estrellas, 2 estrellas, 1.5 estrellas, 4.5 estrellas, 4.5 estrellas, 1.5 estrellas, 3.5 estrellas, 4 estrellas, 1 estrella, 4 estrellas, 4.5 estrellas, 3.5 estrellas, 1 estrella, 4 estrellas, 4 estrellas, 2 estrellas, 1 estrella, 4.5 estrellas, 1 estrella.
+    \item Rangos: Principiante, Principiante, Aprendiz, Intermedio, Experto, Intermedio, Experto, Aprendiz, Principiante, Avanzado, Intermedio, Experto, Experto, Experto, Avanzado, Intermedio, Intermedio, Principiante, Principiante, Principiante, Principiante, Principiante, Intermedio, Aprendiz, Aprendiz, Aprendiz, Aprendiz, Intermedio, Aprendiz, Principiante, Intermedio, Avanzado, Avanzado, Intermedio, Avanzado, Principiante, Intermedio, Avanzado, Intermedio, Avanzado.
+  \end{enumerate}
+\end{Ejem}
+
+
+\begin{Ejem}  \textbf{Cuantitativas Discretas}
+  \begin{enumerate}
+    \item Número de hijos en una familia:2, 2, 4, 4, 1, 3, 1, 3, 3, 3, 5, 2, 1, 5, 3, 3, 3, 3, 1, 3, 3, 2, 5, 5, 2, 5, 2, 3, 1, 3 .
+    \item Número de estudiantes en un salón: 35, 37, 13, 6, 40, 42, 11, 24, 24, 33, 8, 34, 21, 23, 34, 24, 45, 39, 38, 35, 9, 39, 38, 45, 7, 35, 22, 28, 38, 6, 5, 45, 36, 18, 37, 45, 13, 31, 23, 43.
+    \item Número de autos por familia:2, 1, 0, 0, 1, 1, 0, 0, 3, 3, 1, 0, 1, 1, 1, 0, 1, 1, 3, 2, 1, 2, 1, 0, 1, 1, 2, 1, 2, 1, 1, 2, 1, 1, 0, 1, 0, 1, 0, 0, 1, 1, 1, 2, 0, 0, 1, 0, 1, 2, 2, 0, 0, 1, 1, 0, 1, 0, 1, 0, 1, 1, 2, 2, 1, 2, 1, 0, 0, 0, 0, 0, 3, 3, 1.
+    \item Goles en un partido:0, 1, 1, 0, 0, 1, 2, 0, 4, 0, 0, 0, 3, 0, 2, 3, 1, 1, 0, 1, 3, 0, 0, 4, 0, 1, 0, 4, 3, 3, 1, 2, 0, 0, 4, 4, 1, 2, 0, 0, 1, 0, 0, 4, 1, 3, 1, 0, 1, 0, 0, 3, 0, 0, 0, 0, 0, 0, 3, 4, 3, 1, 1, 0, 0, 3, 0, 1, 1, 0, 1, 0, 1, 1, 0, 3, 0, 1, 3, 0, 0, 3, 1, 3, 1, 3, 0, 1, 2, 0, 1, 1, 3, 0, 1, 0, 0, 1, 1, 2 .
+    \item Accidentes en una vialidad: 22, 24, 35, 8, 12, 33, 17, 31, 24, 12, 6, 14, 26, 8, 41, 3, 15, 7, 3, 23, 10, 17, 3, 7, 1, 11, 19, 4, 33, 7, 10, 2, 2, 19, 1, 15, 7, 16, 13, 3, 26, 4, 16, 18, 27, 18, 17, 32, 25, 22, 34, 40, 47, 35, 19, 27, 12, 44, 37, 27, 40, 18, 28, 16, 31, 37, 32, 44, 29, 35, 25, 28, 27, 31, 33, 21, 41, 20, 39, 28, 22, 34, 27, 28, 37, 26, 29, 37, 38, 26, 38, 53, 39, 41, 35, 57, 27, 41, 41, 72, 53, 64, 67, 46, 44, 31, 47, 56, 56, 63, 47, 58, 44, 32, 70, 53, 59, 51, 70, 44, 51, 52, 46, 44, 46, 41, 54, 63, 46, 47, 37, 60, 34, 49, 63, 42, 48, 44, 65, 63, 45, 63, 42, 58, 43, 54, 90, 55, 57, 54, 55, 46, 46, 46, 55, 23, 39, 35, 44, 58, 68, 44, 11, 23, 24, 13, 47, 49.
+  \end{enumerate}
+\end{Ejem}
+
+\begin{Ejem} \textbf{Cuantitativas Continuas}
+  \begin{enumerate}
+    \item Estatura en metros: 1.57, 1.97, 1.85, 1.78, 1.62, 1.67, 1.92, 1.96, 1.76, 1.94, 1.85, 1.71, 1.65, 1.98, 1.56, 1.84, 1.91, 1.61, 1.8, 1.58, 1.7, 1.62, 1.76, 1.84, 1.95, 1.67, 1.62, 1.65, 1.61, 1.56, 1.63, 1.96, 1.53, 1.75, 1.9, 1.92, 1.79, 1.62, 1.79, 1.57, 1.74, 1.55, 1.65, 1.84, 1.6, 1.7, 1.9, 1.61, 1.54, 1.89, 1.84, 1.76, 1.61, 1.59, 1.81, 1.52, 1.61, 1.91, 1.65, 1.51, 1.98, 1.54, 1.87, 1.92, 1.51, 1.93, 1.78, 1.67, 1.66, 1.82, 1.56, 1.66, 1.79, 1.88, 1.78, 1.84, 1.69, 1.95, 1.99, 1.88, 1.51, 1.76, 1.9, 1.6, 1.69, 1.77, 1.87, 1.67, 1.66, 1.71, 1.64, 1.81, 1.52, 1.8, 1.71, 1.52, 2, 1.81, 1.92, 1.7 .
+    \item Peso corporal en kilogramos:100.5, 91.3, 60.4, 83.2, 49.6, 103.1, 60.3, 109.3, 83.5, 63.9, 106, 50, 47, 89.7, 108.5, 78.9, 82.7, 60.7, 98.7, 85.2, 48.7, 106.7, 63.9, 84.1, 69.5, 53.3, 108.9, 91.8, 108.6, 54.5, 95.1, 90.6, 115.9, 88.5, 67.7, 115.1, 108.3, 76.8, 81.4, 102.6, 63.9, 105.9, 106.7, 76.3, 113.7, 50.3, 105.8, 81.4, 67.9, 91.3, 68.9, 93.9, 113.7, 87.7, 92.8, 76.2, 104.7, 109.7, 72.6, 81.6, 112.2, 79.8, 60.7, 95.7, 100.1, 94, 60.5, 117.1, 45.5, 112.7, 51.7, 107.8, 86.6, 90.3, 105.9, 64.7, 48, 55.4, 52.9, 58.2, 117.1, 59.6, 69.9, 96.9, 97, 66.5, 67.4, 77.2, 73.7, 113.
+    \item  Nivel de contaminación en la delegación Iztapalapa en el mes de julio: 0.7, 0.4, 0.4, 0.5, 0.3, 0.3, 0.7, 0.5, 0.2, 0.2, 0.5, 0.8, 0.3, 0.9, 0.5, 0.2, 0.4, 0.4, 0.7, 0.6, 0.8, 0.3, 1, 0.7, 1.5, 0.1, 0.1, 0.9, 0.1, 0.3, 0.9, 0.3, 1.2, 1.2, 1.2, 0.6, 0.7, 0.4, 1.8, 0.2, 0.6, 0.7, 1.7, 0.4, 0.9, 0.2, 0.8, 1, 0.7, 0.6, 0.7, 0.3, 0.5, 0.2, 1.2, 0.5, 0.8, 0.2, 0.4, 0.3, 0.4, 0.5, 0.5, 1.4, 0.4.
+    \item Temperatura en grados Celsius:20.1, 23.1, 30.6, 32.3, 31.7, 5, 21.1, 27.4, 21.3, 29, 19.8, 15.3, 28.7, 25.1, 14.3, 23.3, 28.7, 17.7, 30.3, 26.7, 26.2, 11.4, 25.5, 15, 23.8, 23.9, 16.2, 26, 12.7, 32.8, 19.2, 37.2, 10.3, 25, 14.9, 30.9, 19, 23.64, 24.1, 13.1, 17.6, 31.9, 25.7, 13.6, 21.6, 14.4, 29.5, 7.75, 33.7, 35.2 .
+    \item Tiempos de traslado en horas:1.5, 1.3, 1.1, 0.6, 0.9, 1.4, 0.8, 1.7, 1.7, 1.6, 1.7, 1.3, 1.5, 0.5, 1.4, 0.6, 1.5, 1.9, 0.7, 1.9, 2, 1.6, 0.7, 1.6, 0.7, 0.5, 0.6, 1.6, 1.4, 1.9, 1.9, 1, 1.7, 1.7, 1.8, 1.6, 1.4, 1.4, 0.7, 0.8, 1.5, 0.8, 1.9, 1.2, 1.9, 1.8, 1.7, 1.5, 1.5, 0.7, 1.8, 1.3, 1.8, 0.6, 1.5, 1.4, 1.3, 1.3, 0.8, 1.4, 0.6, 1.1, 1.1, 0.6, 1.7, 0.5, 2, 1.7, 0.7, 1, 0.6, 1.8, 1.1, 1.6, 1, 1.1, 1.8, 0.8, 1.1, 1.7, 1.4, 1.4, 1.2, 1.5, 1.6, 1.6, 1.5, 0.5, 1.4, 1.1, 1, 0.9, 0.6, 1.7, 1.6, 1.2, 0.6, 1.2, 1.2, 1.8 
+  \end{enumerate}
+\end{Ejem}
+
+\begin{Ejem} \textbf{Binarias o dicotómicas}
+  \begin{enumerate}
+    \item Licencia de conducir: No, Si, No, Si, Si, No, Si, No, No, No, Si, Si, No, No, Si, No, No, Si, No, No, Si, Si, Si, No, No, Si, No, Si, No, No, No, No, Si, Si, No, Si, Si, No, Si, Si, No, Si, No, No, Si, No, No, No, No, Si, Si, Si, No, Si, No, No, No, No, Si, Si, No, Si, No, Si, No, No, No, Si, No, Si, No, Si, Si, No, No .
+    \item Examen: Reprobado, Aprobado, Aprobado, Aprobado, Aprobado, Reprobado, Aprobado, Reprobado, Reprobado, Aprobado, Reprobado, Reprobado, Reprobado, Reprobado, Aprobado, Reprobado, Reprobado, Aprobado, Aprobado, Reprobado, Aprobado, Aprobado, Aprobado, Aprobado, Reprobado, Aprobado, Reprobado, Aprobado, Reprobado, Reprobado, Aprobado, Reprobado, Aprobado, Reprobado, Aprobado, Reprobado, Reprobado, Aprobado, Reprobado, Reprobado, Reprobado, Aprobado, Aprobado, Aprobado, Aprobado, Reprobado, Reprobado, Reprobado, Aprobado, Reprobado.
+    \item COVID: Negativo, Positivo, Negativo, Negativo, Negativo, Positivo, Positivo, Negativo, Negativo, Positivo, Negativo, Positivo, Positivo, Negativo, Negativo, Negativo, Negativo, Negativo, Negativo, Negativo, Positivo, Positivo, Negativo, Negativo, Positivo, Negativo, Positivo, Negativo, Negativo, Positivo, Positivo, Negativo, Positivo, Positivo, Negativo, Positivo, Negativo, Negativo, Negativo, Negativo, Positivo, Negativo, Positivo, Negativo, Negativo, Negativo, Negativo, Negativo, Negativo, Negativo.
+  \end{enumerate}
+\end{Ejem}
+
+\begin{Ejem} \textbf{Politómicas}
+  \begin{enumerate}
+    \item Tipo de sangre: A-, AB-, AB+, B+, O-, O+, B+, A-, O-, B-, A-, A-, O+, A+, O+, AB+, B+, AB+, AB-, B-, O-, O+, B+, O+, O+, O+, A+, O-, AB-, A-, B+, O-, B-, A-, A-, AB-, B+, AB-, A-, B+, A-, AB-, O-, AB+, B+, O+, B-, O-, A-, AB-, O+, AB+, AB+, B+, O-, AB+, AB+, AB-, A-, O-, AB+, AB+, A+, A+, O+, B+, AB-, O-, A-, A+, A+, B-, B-, B-, A+, A-, AB-, A-, A-, AB+.
+    \item Ocupación: Desempleado, Estudiante, Empleado, Empleado, Estudiante, Empleado, Empleado, Empleado, Jubilado, Jubilado, Jubilado, Jubilado, Jubilado, Estudiante, Desempleado, Desempleado, Jubilado, Empleado, Estudiante, Estudiante, Empleado, Desempleado, Estudiante, Desempleado, Jubilado, Empleado, Jubilado, Desempleado, Desempleado, Desempleado.
+  \end{enumerate}
+\end{Ejem}
+
+% Bibliografía.
+%-----------------------------------------------------------------
+\begin{thebibliography}{99}
+\bibitem{ApuntesEst} David Ruíz Muños y Ana María Sánchez Sánchez, Universidad Nacional de Mar del Plata, Facultad de Ciencias Económicas y Sociales.
+
+\bibitem{Cd94} Autor, \emph{Título}, Revista/Editor, (año)
+
+\end{thebibliography}
+
+\end{document}
