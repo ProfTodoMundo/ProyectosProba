@@ -116,4 +116,44 @@ legend(
   cex = 0.5,
   bty = "n"                    # sin borde en la caja
 )
+#---- Graficos de pastel ----
+# Tus datos
+nbreaks <- 10
+intervalos <- cut(kgs, breaks = nbreaks); (intervalos)
+tabla <- table(intervalos); (tabla)
+porcentajes <- round(prop.table(tabla) * 100, 1); (porcentajes)
+pie(tabla,
+    main = "Distribución de pesos (10 intervalos)",
+    col = rainbow(length(tabla)),
+    labels = paste0(porcentajes, "%"))
+#---- Grafica de Ojiva ----
+##---- Grafica sencilla ----
+nbreaks <- 10
+h <- hist(kgs, breaks = nbreaks, plot = FALSE)
+freq_acum <- cumsum(h$counts) / sum(h$counts) * 100
+x_vals <- h$breaks[-1]
+plot(x_vals, freq_acum, type = "o",
+     main = "Ojiva de pesos",
+     xlab = "Peso (kg)",
+     ylab = "Frecuencia acumulada (%)",
+     col = "blue", pch = 19, lwd = 2,
+     ylim = c(0, 100))
+abline(h = 100, col = "red", lty = 2)
+##---- Grafica combinada ----
+nbreaks <- 10
+h <- hist(kgs, breaks = nbreaks, plot = FALSE)
+hist(kgs,
+     breaks = nbreaks,
+     col = "lightblue",
+     main = "Histograma y Ojiva (%)",
+     xlab = "Peso (kg)",
+     ylab = "Frecuencia")
+freq_acum_pct <- cumsum(h$counts) / sum(h$counts) * 100
+x_vals <- h$breaks[-1]
+par(new = TRUE)
+plot(x_vals, freq_acum_pct,
+     type = "o", pch = 19, lwd = 2, col = "red",
+     axes = FALSE, xlab = "", ylab = "",
+     xlim = range(h$breaks), ylim = c(0, 100))
+axis(4)                           # eje derecho
 #---- Fin ----
