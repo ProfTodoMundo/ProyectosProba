@@ -1,0 +1,664 @@
+---
+title: "Clase de Proba 167 septiembre"
+author: "Carlos E Martínez-Rodríguez"
+date: "`r format(Sys.time(), '%d %B, %Y')`"
+output:
+  html_document:
+    toc: true
+    toc_float: true
+    toc_depth: 3
+    code_folding: show
+    theme: bootstrap
+  word_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Generación de números aleatorios normales
+
+## Generación de 1000 VA normales(0,1)
+
+```{r}
+n1 <- rnorm(1000,0,1); head(n1,20)
+```
+
+## Generación de 15,000 VA normales(0,1)
+
+```{r}
+n2 <- rnorm(15000,0,1); head(n2,20)
+```
+
+## Generación de 30,000 VA normales(0,1)
+
+```{r}
+n3 <- rnorm(30000,0,1); head(n3,20)
+```
+
+## Grafica de N(0,1)
+
+```{r}
+par(mfrow = c(1, 3))
+plot(n1,col="blue",
+     main = "1000 VA N(0,1)",
+     xlab="Num de VA",
+     ylab = "N(0,1)")
+plot(n2,col="green",
+     main = "15000 VA N(0,1)",
+     xlab="Num de VA",
+     ylab = "N(0,1)")
+plot(n3,col="red",
+     main = "30000 VA N(0,1)",
+     xlab="Num de VA",
+     ylab = "N(0,1)")
+```
+
+
+### Grafica mejorada de N(0,1)
+
+```{r}
+par(mfrow = c(1, 3))
+hist(n1,main="Histograma 1,000 VA N(0,1)",
+     col = "lightgreen",
+     xlab = "VA generadas",
+     ylab = "N(0,1)")
+hist(n2,main="Histograma 15,000 VA N(0,1)",
+     col = "orange",
+     xlab = "VA generadas",
+     ylab = "N(0,1)")
+hist(n3,main="Histograma 30,000 VA N(0,1)",
+     col = "brown",
+     xlab = "VA generadas",
+     ylab = "N(0,1)")
+```
+
+### Gráfica de la función de densidad de N(0,1)
+
+```{r}
+x <- seq(-1, 1, length = 100)
+curve(dnorm(x, mean=0, sd=1), 
+      from=-4, to=4, lwd=3, col="blue",
+      main = "N(0, 1)", xlab = "X", ylab = "f(x)")
+```
+### Comparación de Histogramas para n1, n2, n3
+
+```{r}
+par(mfrow = c(1, 4))
+hist(n1,main="Histograma 1,000 VA N(0,1)",
+     col = "lightgreen",
+     xlab = "VA generadas",
+     ylab = "N(0,1)")
+hist(n2,main="Histograma 15,000 VA N(0,1)",
+     col = "orange",
+     xlab = "VA generadas",
+     ylab = "N(0,1)")
+hist(n3,main="Histograma 30,000 VA N(0,1)",
+     col = "brown",
+     xlab = "VA generadas",
+     ylab = "N(0,1)")
+x <- seq(-1, 1, length = 100)
+curve(dnorm(x, mean=0, sd=1), 
+      from=-3, to=3, lwd=2, col="blue",
+      main = "Gráfica de la N(0, 1)", xlab = "X", ylab = "f(x)")
+```
+
+### Comparación de histogramas de n1,n2,n3,n4,n5 y n6
+
+```{r}
+n4 <- rnorm(50000,0,1);
+n5 <- rnorm(75000,0,1); 
+n6 <- rnorm(100000,0,1);
+par(mfrow = c(2, 3))
+hist(n1,main="Histograma 1,000 VA N(0,1)",
+     col = "lightgreen",
+     xlab = "VA generadas",ylab = "N(0,1)")
+hist(n2,main="Histograma 15,000 VA N(0,1)",
+     col = "orange",
+     xlab = "VA generadas",ylab = "N(0,1)")
+hist(n3,main="Histograma 30,000 VA N(0,1)",
+     col = "brown",
+     xlab = "VA generadas",ylab = "N(0,1)")
+hist(n4,main="Histograma 50,000 VA N(0,1)",
+     col = "gray",
+     xlab = "VA generadas",ylab = "N(0,1)")
+hist(n5,main="Histograma 75,000 VA N(0,1)",
+     col = "blue",
+     xlab = "VA generadas",ylab = "N(0,1)")
+hist(n6,main="Histograma 100,000 VA N(0,1)",
+     col = "purple",
+     xlab = "VA generadas",ylab = "N(0,1)")
+
+```
+
+## Grafica  de Normales N(-1,1)
+
+```{r}
+n1 <- rnorm(50000,-1,1);
+n2 <- rnorm(75000,-1,1); 
+n3 <- rnorm(100000,-1,1);
+n4 <- rnorm(50000,-1,1);
+n5 <- rnorm(75000,-1,1); 
+n6 <- rnorm(100000,-1,1);
+par(mfrow = c(2, 3))
+hist(n1,main="Histograma 1,000 VA N(-1,1)",
+     col = "lightgreen",
+     xlab = "VA generadas",ylab = "N(-1,1)")
+hist(n2,main="Histograma 15,000 VA N(-1,1)",
+     col = "orange",
+     xlab = "VA generadas",ylab = "N(-1,1)")
+hist(n3,main="Histograma 30,000 VA N(-1,1)",
+     col = "brown",
+     xlab = "VA generadas",ylab = "N(-1,1)")
+hist(n4,main="Histograma 50,000 VA N(-1,1)",
+     col = "gray",
+     xlab = "VA generadas",ylab = "N(-1,1)")
+hist(n5,main="Histograma 75,000 VA N(-1,1)",
+     col = "blue",
+     xlab = "VA generadas",ylab = "N(-1,1)")
+hist(n6,main="Histograma 100,000 VA N(-1,1)",
+     col = "purple",
+     xlab = "VA generadas",ylab = "N(-1,1)")
+```
+
+
+
+## Grafica  de Normales N(0,2)
+
+
+```{r}
+n1 <- rnorm(50000,0,2);
+n2 <- rnorm(75000,0,2); 
+n3 <- rnorm(100000,0,2);
+n4 <- rnorm(50000,0,2);
+n5 <- rnorm(75000,0,2); 
+n6 <- rnorm(100000,0,2);
+par(mfrow = c(2, 3))
+hist(n1,main="Histograma 1,000 VA N(0,2)",
+     col = "lightgreen",
+     xlab = "VA generadas",ylab = "N(0,2)")
+hist(n2,main="Histograma 15,000 VA N(0,2)",
+     col = "orange",
+     xlab = "VA generadas",ylab = "N(0,2)")
+hist(n3,main="Histograma 30,000 VA N(0,2)",
+     col = "brown",
+     xlab = "VA generadas",ylab = "N(0,2)")
+hist(n4,main="Histograma 50,000 VA N(-1,1)",
+     col = "gray",
+     xlab = "VA generadas",ylab = "N(0,2)")
+hist(n5,main="Histograma 75,000 VA N(-1,1)",
+     col = "blue",
+     xlab = "VA generadas",ylab = "N(0,2)")
+hist(n6,main="Histograma 100,000 VA N(0,2)",
+     col = "purple",
+     xlab = "VA generadas",ylab = "N(0,2)")
+```
+
+
+## Grafica  de Normales N(mu,sigma^2)
+
+```{r}
+media <- 0
+desvstd <- 2.5
+q1 <- 1000; q2 <- 10000; q3 <- 30000;
+q4 <- 50000; q5 <- 75000; q6 <- 100000
+n1 <- rnorm(q1,media,desvstd);
+n2 <- rnorm(q2,media,desvstd); 
+n3 <- rnorm(q3,media,desvstd);
+n4 <- rnorm(q4,media,desvstd);
+n5 <- rnorm(q5,media,desvstd); 
+n6 <- rnorm(q6,media,desvstd);
+mititulo1 <- paste0("Histograma de ",q1," VA N(",media,",",desvstd,")")
+mititulo2 <- paste0("Histograma de ",q2," VA N(",media,",",desvstd,")")
+mititulo3 <- paste0("Histograma de ",q3," VA N(",media,",",desvstd,")")
+mititulo4 <- paste0("Histograma de ",q4," VA N(",media,",",desvstd,")")
+mititulo5 <- paste0("Histograma de ",q5," VA N(",media,",",desvstd,")")
+mititulo6 <- paste0("Histograma de ",q6," VA N(",media,",",desvstd,")")
+etiquetay <- paste0("N(",media,",",desvstd,")")
+
+par(mfrow = c(2, 3))
+hist(n1,main=mititulo1,
+     col = "lightgreen",
+     xlab = "VA generadas",ylab = etiquetay)
+hist(n2,main=mititulo2,
+     col = "orange",
+     xlab = "VA generadas",ylab = etiquetay)
+hist(n3,main=mititulo3,
+     col = "brown",
+     xlab = "VA generadas",ylab = etiquetay)
+hist(n4,main=mititulo4,
+     col = "gray",
+     xlab = "VA generadas",ylab = etiquetay)
+hist(n5,main=mititulo5,
+     col = "blue",
+     xlab = "VA generadas",ylab = etiquetay)
+hist(n6,main=mititulo6,
+     col = "purple",
+     xlab = "VA generadas",ylab = etiquetay)
+```
+
+## Grafica de histogramas y pdf
+
+
+```{r}
+library(MASS)
+set.seed(1)
+q1 <- 1000; q2 <- 10000; q3 <- 30000;
+q4 <- 50000; q5 <- 75000; q6 <- 100000
+media <- 0; desvstd <- 2.5
+mititulo <- paste0()
+n1 <- rnorm(q1,media,desvstd);
+n2 <- rnorm(q2,media,desvstd); 
+n3 <- rnorm(q3,media,desvstd);
+n4 <- rnorm(q4,media,desvstd);
+n5 <- rnorm(q5,media,desvstd); 
+n6 <- rnorm(q6,media,desvstd);
+mititulo1 <- paste0("Histograma y densidad de ",q1," VA N(",media,",",desvstd,")")
+mititulo2 <- paste0("Histograma y densidad de ",q2," VA N(",media,",",desvstd,")")
+mititulo3 <- paste0("Histograma y densidad de ",q3," VA N(",media,",",desvstd,")")
+mititulo4 <- paste0("Histograma y densidad de ",q4," VA N(",media,",",desvstd,")")
+mititulo5 <- paste0("Histograma y densidad de ",q5," VA N(",media,",",desvstd,")")
+mititulo6 <- paste0("Histograma y densidad de ",q6," VA N(",media,",",desvstd,")")
+
+par(mfrow = c(2, 3))
+fit1 <- fitdistr(n1, "normal")       
+fit1
+hist(n1, 
+     freq = FALSE, 
+     col = "lightblue", 
+     border = "black",
+     main = mititulo1,
+     xlab = "",
+     ylab = "Densidad")
+
+curve(dnorm(x, 
+            mean = fit1$estimate["mean"], 
+            sd   = fit1$estimate["sd"]),
+      from = min(n1), to=max(n1),
+      add = TRUE, 
+      lwd = 3, 
+      col = "tomato")
+
+lines(density(n1), lwd = 2)
+legend("topleft",
+       legend = c("Ajuste", "Empírica"),
+       lwd = c(3,2), col = c("tomato","black"), bty = "n")
+
+fit2 <- fitdistr(n2, "normal")       
+fit2
+hist(n2, 
+     freq = FALSE, 
+     col = "yellow", 
+     border = "black",
+     main = "Histograma y densidad ajustada",
+     xlab = "",
+     ylab = "Densidad")
+
+curve(dnorm(x, 
+            mean = fit2$estimate["mean"], 
+            sd   = fit2$estimate["sd"]),
+      from = min(n2), to=max(n2),
+      add = TRUE, 
+      lwd = 3, 
+      col = "tomato")
+
+lines(density(n2), lwd = 2)
+legend("topleft",
+       legend = c("Ajuste", "Empírica"),
+       lwd = c(3,2), col = c("tomato","black"), bty = "n")
+
+
+fit3 <- fitdistr(n3, "normal")       
+fit3
+hist(n3, 
+     freq = FALSE, 
+     col = "cyan", 
+     border = "black",
+     main = "Histograma y densidad ajustada",
+     xlab = "",
+     ylab = "Densidad")
+
+curve(dnorm(x, 
+            mean = fit3$estimate["mean"], 
+            sd   = fit3$estimate["sd"]),
+      from = min(n1), to=max(n1),
+      add = TRUE, 
+      lwd = 3, 
+      col = "tomato")
+
+lines(density(n3), lwd = 2)
+legend("topleft",
+       legend = c("Ajuste", "Empírica"),
+       lwd = c(3,2), col = c("tomato","black"), bty = "n")
+
+fit4 <- fitdistr(n4, "normal")       
+fit4
+hist(n4, 
+     freq = FALSE, 
+     col = "brown", 
+     border = "black",
+     main = "Histograma y densidad ajustada",
+     xlab = "",
+     ylab = "Densidad")
+
+curve(dnorm(x, 
+            mean = fit4$estimate["mean"], 
+            sd   = fit4$estimate["sd"]),
+      from = min(n4), to=max(n4),
+      add = TRUE, 
+      lwd = 3, 
+      col = "tomato")
+
+lines(density(n4), lwd = 2)
+legend("topleft",
+       legend = c("Ajuste", "Empírica"),
+       lwd = c(3,2), col = c("tomato","black"), bty = "n")
+
+fit5 <- fitdistr(n5, "normal")       
+fit5
+hist(n5, 
+     freq = FALSE, 
+     col = "lightgreen", 
+     border = "black",
+     main = "Histograma y densidad ajustada",
+     xlab = "",
+     ylab = "Densidad")
+
+curve(dnorm(x, 
+            mean = fit5$estimate["mean"], 
+            sd   = fit5$estimate["sd"]),
+      from = min(n5), to=max(n5),
+      add = TRUE, 
+      lwd = 3, 
+      col = "tomato")
+
+lines(density(n5), lwd = 2)
+legend("topleft",
+       legend = c("Ajuste", "Empírica"),
+       lwd = c(3,2), col = c("tomato","black"), bty = "n")
+
+fit6 <- fitdistr(n6, "normal")       
+fit6
+hist(n6, 
+     freq = FALSE, 
+     col = "gray", 
+     border = "black",
+     main = "Histograma y densidad ajustada",
+     xlab = "",
+     ylab = "Densidad")
+
+curve(dnorm(x, 
+            mean = fit6$estimate["mean"], 
+            sd   = fit6$estimate["sd"]),
+      from = min(n6), to=max(n6),
+      add = TRUE, 
+      lwd = 3, 
+      col = "tomato")
+
+lines(density(n6), lwd = 2)
+legend("topleft",
+       legend = c("Ajuste", "Empírica"),
+       lwd = c(3,2), col = c("tomato","black"), bty = "n")
+
+
+```
+
+# Distribución Exponencial
+
+```{r}
+lambda <- 0.5
+q1 <- 1000; q2 <- 10000; q3 <- 30000;
+q4 <- 50000; q5 <- 75000; q6 <- 100000
+n1 <- rexp(q1,lambda);
+n2 <- rexp(q2,lambda);
+n3 <- rexp(q3,lambda);
+n4 <- rexp(q4,lambda);
+n5 <- rexp(q5,lambda);
+n6 <- rexp(q6,lambda);
+
+mititulo1 <- paste0("Histograma de ",q1," VA exp(",lambda,")")
+mititulo2 <- paste0("Histograma de ",q2," VA exp(",lambda,")")
+mititulo3 <- paste0("Histograma de ",q3," VA exp(",lambda,")")
+mititulo4 <- paste0("Histograma de ",q4," VA exp(",lambda,")")
+mititulo5 <- paste0("Histograma de ",q5," VA exp(",lambda,")")
+mititulo6 <- paste0("Histograma de ",q6," VA exp(",lambda,")")
+etiquetay <- paste0("exp(",lambda,")")
+
+par(mfrow = c(2, 3))
+hist(n1,main=mititulo1,
+     freq = FALSE,
+     col = "lightgreen",
+     xlab = "VA generadas",ylab = etiquetay)
+curve(dexp(x, rate = lambda), 
+      from = 0, to = max(n1), 
+      add = TRUE, col = "tomato", lwd = 2)
+
+hist(n2,main=mititulo2,
+     freq = FALSE,
+     col = "orange",
+     xlab = "VA generadas",ylab = etiquetay)
+curve(dexp(x, rate = lambda), 
+      from = 0, to = max(n2), 
+      add = TRUE, col = "tomato", lwd = 2)
+
+hist(n3,main=mititulo3,
+     freq = FALSE,
+     col = "brown",
+     xlab = "VA generadas",ylab = etiquetay)
+curve(dexp(x, rate = lambda), 
+      from = 0, to = max(n3), 
+      add = TRUE, col = "tomato", lwd = 2)
+
+hist(n4,main=mititulo4,
+     freq = FALSE,
+     col = "gray",
+     xlab = "VA generadas",ylab = etiquetay)
+curve(dexp(x, rate = lambda), 
+      from = 0, to = max(n4), 
+      add = TRUE, col = "tomato", lwd = 2)
+
+hist(n5,main=mititulo5,
+     freq = FALSE,
+     col = "blue",
+     xlab = "VA generadas",ylab = etiquetay)
+curve(dexp(x, rate = lambda), 
+      from = 0, to = max(n5), 
+      add = TRUE, col = "tomato", lwd = 2)
+
+
+
+hist(n6,main=mititulo6,
+     freq = FALSE,
+     col = "purple",
+     xlab = "VA generadas",ylab = etiquetay)
+curve(dexp(x, rate = lambda), 
+      from = 0, to = max(n6), 
+      add = TRUE, col = "tomato", lwd = 2)
+
+```
+
+
+
+
+
+
+"Binomial"    = rbinom(input$nvar, input$n, input$p),
+                   "Poisson"     = rpois(input$nvar, input$lambda),
+                   "Geométrica"  = rgeom(input$nvar, input$p),
+                   "Exponencial" = rexp(input$nvar, input$lambda),
+                   "Normal"      = rnorm(input$nvar, input$mu, input$sd),
+                   "Gamma"       = rgamma(input$nvar, input$alpha, input$beta),
+                   "Beta"        = rbeta(input$nvar, input$alpha, input$beta),
+                   "T-Student"   = rt(input$nvar, input$alpha)
+
+
+dnorm(x,           # Valores del eje X (rejilla)
+      mean = 0,    # Número o vector representando la/s media/s
+      sd = 1,      # Número o vector representando la/s desviación/es típica/s
+      log = FALSE) # Si TRUE, las probabilidades se devuelven como logaritmos
+
+# Por incluir en clase
+
+x <- -4:4
+# x <- seq(-4, 4, length = 100) # Más observaciones
+dnorm(x, mean = 1, sd = 3) 
+
+
+dnorm(x, mean = c(1, 2), sd = c(3, 4))
+
+
+par(mfrow = c(1, 2))
+
+## Rejilla de valores para el eje X
+x <- seq(-4, 8, 0.1)
+
+#-----------------------------------------
+# Misma desviación típica, distinta media
+#-----------------------------------------
+# Media 0, desviación típica 1
+plot(x, dnorm(x, mean = 0, sd = 1), type = "l",
+     ylim = c(0, 0.6), ylab = "", lwd = 2, col = "red")
+# Media 3, desviación típica 1
+lines(x, dnorm(x, mean = 3, sd = 1), col = "blue", lty = 1, lwd = 2)
+
+# Añadimos una leyenda
+legend("topright", c(expression(paste(, mu, " ", sigma)), "0 1", "3 1"),
+       lty = c(0, 1, 1), col = c("blue", "red"), box.lty = 0, lwd = 2)
+
+#-----------------------------------------
+# Misma media, distinta desviación típica
+#-----------------------------------------
+# Media 1, desviación típica 1
+plot(x, dnorm(x, mean = 1, sd = 1), type = "l",
+     ylim = c(0, 1), ylab = "", lwd = 2, col = "red")
+# Media 1, desviación típica 0.5
+lines(x, dnorm(x, mean = 1, sd = 0.5), col = "blue", lty = 1, lwd = 2)
+
+# Añadimos una leyenda
+legend("topright", c(expression(paste(, mu, " ", sigma)), "1 1", "1 0.5"),
+       lty = c(0, 1, 1), col = c("blue", "red"), box.lty = 0, lwd = 2)
+
+par(mfrow = c(1, 1))
+
+
+# Media y desviación típica
+mu <- 1000
+sigma <- 10
+
+# Grid para una distribución normal no estándar
+x <- seq(-3, 3, length = 100) * sigma + mu
+
+# Función de densidad
+f <- dnorm(x, mu, sigma)
+
+plot(x, f, type = "l", lwd = 2, col = "blue", ylab = "", xlab = "Weight")
+abline(v = mu) # Línea vertical en la media
+
+
+
+lb <- min(x) # Límite inferior
+ub <- 1010   # Límite superior
+
+x2 <- seq(min(x), ub, length = 100) # Nueva rejilla
+y <- dnorm(x2, mu, sigma) # Densidad
+
+plot(x, f, type = "l", lwd = 2, col = "blue", ylab = "", xlab = "Peso")
+abline(v = ub) 
+
+polygon(c(lb, x2, ub), c(0, y, 0), col = rgb(0, 0, 1, alpha = 0.5))
+text(995, 0.01, "84.13%")
+
+
+
+# mean: media de la variable normal
+# sd: desviación típica de la variable normal
+# lb: límite inferior del área
+# ub: límite superior del área
+# acolor: color del área
+# ...: argumentos adicionales para ser pasados a la función lines
+
+normal_area <- function(mean = 0, sd = 1, lb, ub, acolor = "lightgray", ...) {
+    x <- seq(mean - 3 * sd, mean + 3 * sd, length = 100) 
+    
+    if (missing(lb)) {
+       lb <- min(x)
+    }
+    if (missing(ub)) {
+        ub <- max(x)
+    }
+
+    x2 <- seq(lb, ub, length = 100)    
+    plot(x, dnorm(x, mean, sd), type = "n", ylab = "")
+   
+    y <- dnorm(x2, mean, sd)
+    polygon(c(lb, x2, ub), c(0, y, 0), col = acolor)
+    lines(x, dnorm(x, mean, sd), type = "l", ...)
+}
+
+
+normal_area(mean = mu, sd = sigma, lb = 980, acolor = rgb(0, 0, 1, alpha = 0.5))
+text(1000, 0.01, "97.72%")
+
+
+
+normal_area(mean = mu, sd = sigma, lb = 990, ub = 1000,
+            acolor = rgb(0, 0, 1, alpha = 0.5))
+text(995, 0.01, "34.13%", srt = 90)   
+
+
+
+par(mfrow = c(1, 2))
+
+# Rejilla de valores para el eje X
+x <- seq(-4, 8, 0.1)
+
+#-----------------------------------------
+# Misma desviación típica, distinta media
+#-----------------------------------------
+# Media 0, desviación típica 1
+plot(x, pnorm(x, mean = 0, sd = 1), type = "l",
+     ylim = c(0, 1), ylab = "", lwd = 2, col = "red")
+# Media 3, desviación típica 1
+lines(x, pnorm(x, mean = 3, sd = 1), col = "blue", lty = 1, lwd = 2)
+
+# Leyenda
+legend("topleft", c(expression(paste(, mu, " ", sigma)), "0 1", "3 1"),
+       lty = c(0, 1, 1), col = c("blue", "red"), box.lty = 0, lwd = 2)
+
+#-----------------------------------------
+# Misma media, distinta desviación típica
+#-----------------------------------------
+# Media 1, desviación típica 1
+plot(x, pnorm(x, mean = 1, sd = 1), type = "l",
+     ylim = c(0, 1), ylab = "", lwd = 2, col = "red")
+# Media 0, desviación típica 0.5
+lines(x, pnorm(x, mean = 1, sd = 0.5), col = "blue", lty = 1, lwd = 2)
+
+# Leyenda
+legend("topleft", c(expression(paste(, mu, " ", sigma)), "1 1", "1 0.5"),
+       lty = c(0, 1, 1), col = c("blue", "red"), box.lty = 0, lwd = 2)
+
+par(mfrow = c(1, 1))
+
+
+x <- seq(-4, 4, 0.1)
+plot(x, pnorm(x, mean = 0, sd = 1), type = "l",
+     ylim = c(0, 1), ylab = "P(X < x)", lwd = 2, col = "red")
+segments(0, 0, 0, 0.5, lwd = 2, lty = 2)
+segments(-4, 0.5, 0, 0.5, lwd = 2, lty = 2)
+
+
+x <- pnorm(-1.5, mean = 0, sd = 1) # 0.0668072
+qnorm(x, mean = 0, sd = 1) # -1.5
+
+
+qnorm(p,                 # Número o vector de probabilidades
+      mean = 0,          # Número o vector representando la/s media/s
+      sd = 1,            # Número o vector representando la/s desviación/es típica/s
+      lower.tail = TRUE, # Si TRUE, las probabilidades son P(X <= x), o P(X > x) si FALSE
+      log.p = FALSE)     # Si TRUE, las probabilidades vienen dadas como logaritmos
+
+normal_area(mean = 0, sd = 1, ub = -1.5,
+            lwd = 2, acolor = rgb(0, 0, 1, alpha = 0.5))
+arrows(-0.5, 0.1, -1.45, 0, lwd = 2, length = 0.2)
+text(-0.25, 0.13, "-1.5", cex = 1.5)
