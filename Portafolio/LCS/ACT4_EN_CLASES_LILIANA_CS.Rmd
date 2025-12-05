@@ -1,0 +1,301 @@
+---
+title: "Clase de Probabilidad y Estadística"
+author: "Liliana Contreras Segundo"
+date:    "`r format(Sys.time(), '%d %B, %Y')`"
+output:
+  html_document:
+    toc: true
+    toc_float: true
+    toc_depth: 3
+    code_folding: show
+    theme: bootstrap
+    word_document: default
+---
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+# Generación de números aleatorios uniformes 
+
+## Generación de 10 VA uniformes
+
+```{r}
+u<- runif(10, 0,1);head (u, 20)
+plot(u, col="pink")
+
+```
+
+
+
+## Generación de 100 VA uniformes
+
+```{r}
+u<- runif(100, 0,1);head (u, 20)
+plot(u, col="red")
+
+```
+
+
+
+## Generación de 1000 VA uniformes
+
+```{r}
+u<- runif(1000, 0,1);head (u, 20)
+plot(u, col="gold")
+
+```
+
+
+
+## Generación de 10000 VA uniformes
+
+```{r}
+u<- runif(10000, 0,1);head (u, 20)
+plot(u, col="brown")
+
+```
+
+
+
+## Generación de 15000 VA uniformes
+
+```{r}
+u<- runif(15000, 0,1);head (u, 20)
+plot(u, col="purple")
+
+```
+
+
+
+## Generación de 20000 VA uniformes
+
+```{r}
+u<- runif(20000, 0,1);head (u, 20)
+plot(u, col="gray")
+
+```
+
+
+
+## Generación de 25000 VA uniformes
+
+```{r}
+u<- runif(25000, 0,1);head (u, 20)
+plot(u, col="orange")
+
+```
+
+
+
+## Generación de 50000 VA uniformes
+
+```{r}
+u<- runif(50000, 0,1);head (u, 20)
+plot(u, col="green")
+```
+
+
+## Generación de 1000000 VA uniformes
+
+```{r}
+u<- runif(1000000, 0,1);head (u, 20)
+plot(u, col="gray")
+
+```
+
+
+# Extracción de muestras
+
+## Muestra1
+
+```{r}
+muestra1 <- sample(u, 100, replace=
+                     FALSE)
+plot(muestra1,
+     main= "Muestra de tamaño
+     100",
+     xlab="Uniformes(0,1)",
+     col="purple")
+
+```
+
+### Histograma 1
+
+```{r}
+colores_morados <- colorRampPalette(c("#F2EBF7", "#673AB7"))(20) # De morado claro a oscuro
+hist(u, col = colores_morados, main = "Números aleatorios uniformes ")
+```
+
+```{r}
+hist(muestra1,  col="orange",
+     main="Histograma de muestra 1")
+```
+
+
+
+## Muestra2
+
+```{r}
+muestra2 <- sample(u, 250, replace=
+                     FALSE)
+plot(muestra2,
+     main= "Muestra de tamaño
+     250",
+     xlab="Uniformes(0,1)",
+     col="red")
+
+```
+
+
+### Histograma 2
+
+```{r}
+colores_rojos <- colorRampPalette(c("#FFCCCB", "#8B0000"))(20) # De rojo claro a oscuro
+hist(u, col = colores_rojos, main = "Números aleatorios uniformes ")
+```
+
+```{r}
+hist(muestra2,  col="orange",
+     main = "Histograma de muestra 2")
+```
+
+
+# Generación de números aleatorios normales 
+
+## Generación de 10 VA normales(0,1)
+
+```{r}
+u<- rnorm(10, 0,1);head (u, 20)
+plot(u, col="pink")
+
+```
+
+
+## Generación de 100 VA uniformes
+
+```{r}
+u<- rnorm(100, 0,1);head (u, 20)
+plot(u, col="gold")
+
+```
+
+
+## Generación de 1000 VA uniformes
+
+```{r}
+u<- rnorm(1000, 0,1);head (u, 20)
+plot(u, col="brown")
+
+```
+
+
+## Generación de 10000 VA uniformes
+
+```{r}
+u<- rnorm(10000, 0,1);head (u, 20)
+plot(u, col="purple")
+
+```
+
+## Generación de 15000 VA uniformes
+
+```{r}
+u<- rnorm(15000, 0,1);head (u, 20)
+plot(u, col="red")
+
+```
+
+
+## Generación de 20000 VA uniformes
+
+```{r}
+u<- rnorm(20000, 0,1);head (u, 20)
+plot(u, col="gray")
+
+```
+## Generación de 25000 VA uniformes
+
+```{r}
+u<- rnorm(25000, 0,1);head (u, 20)
+plot(u, col="orange")
+
+```
+
+
+## Generación de 50000 VA uniformes
+
+```{r}
+u<- rnorm(50000, 0,1);head (u, 20)
+plot(u, col="green")
+
+```
+
+
+## Generación de 1000000 VA uniformes
+
+```{r}
+u<- rnorm(1000000, 0,1);head (u, 20)
+plot(u, col="red")
+
+```
+
+
+
+# Extracción de muestras
+
+## Muestra1
+
+```{r}
+muestra1 <- sample(u, 100, replace=
+                     FALSE)
+plot(muestra1,
+     main= "Muestra de tamaño
+     100",
+     xlab="Uniformes(0,1)",
+     col="pink")
+
+```
+
+
+### Histograma 1
+
+```{r}
+colores_rosas <- colorRampPalette(c("#FFE4E1", "#FF69B4"))(20)
+hist(u, col = colores_rosas, main = "Números aleatorios normales")
+```
+
+```{r}
+hist(muestra1,  col="red",
+     main="Histograma de muestra 1")
+```
+
+
+## Muestra2
+
+```{r}
+muestra2 <- sample(u, 250, replace=
+                     FALSE)
+plot(muestra2,
+     main= "Muestra de tamaño
+     250",
+     xlab="Uniformes(0,1)",
+     col="green")
+
+```
+
+
+### Histograma 2
+
+```{r}
+colores_verdes <- colorRampPalette(c("#E8F5E8", "#006400"))(20)
+hist(u, col = colores_verdes, main = "Números aleatorios normales")
+```
+
+```{r}
+hist(muestra2,  col="gold",
+     main="Histograma de muestra 2 ")
+```
+

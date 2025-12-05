@@ -1,0 +1,430 @@
+---
+title: "Probabilidad y Estadística (act. 5 en clases)"
+author: "Liliana Contreras Segundo"
+date:    "`r format(Sys.time(), '%d %B, %Y')`"
+output:
+  html_document:
+    toc: true
+    toc_float: true
+    toc_depth: 3
+    code_folding: show
+    theme: bootstrap
+    word_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+
+# Generación de números aleatorios normales 
+
+## Generación de 1000 VA uniformes n(0,1)
+```{r}
+n1<- rnorm(1000, 0,1);head (n1, 20)
+```
+
+## Generación de 15000 VA uniformes n(0,1)
+```{r}
+n2<- rnorm(15000, 0,1);head (n2, 20)
+```
+
+## Generación de 30000 VA uniformes n(0,1)
+```{r}
+n3<- rnorm(30000, 0,1);head (n3, 20)
+```
+
+## Graficas de dispersión en una sola fila
+```{r}
+par(mfrow=c(1,3)) #renglon por columna
+plot(n1, col="pink",
+main= "1000 va n(0,1",
+xlab="Num valor",
+ylab="N(0,1)")
+plot(n2, col="gold",
+main= "15000 va n(0,1)",
+xlab="Num valor",
+ylab="N(0,1)")
+plot(n3, col="brown",
+main= "30000 va n(0,1)",
+xlab="Num valor",
+ylab="N(0,1)")
+```
+
+## Histogramas en una sola fila junto con la curva (0,1)
+```{r}
+par(mfrow=c(1,4)) #renglon por columna
+hist(n1, col="pink",
+main= "1000 va n(0,1",
+xlab="Num valor",
+ylab="N(0,1)")
+hist(n2, col="gold",
+main= "15000 va n(0,1",
+xlab="Num valor",
+ylab="N(0,1)")
+hist(n3, col="brown",
+main= "30000 va n(0,1",
+xlab="Num valor",
+ylab="N(0,1)")
+n<- seq(-1, 1, length=100)
+curve(dnorm(x,  mean=0,  sd=1),
+      from = -3, to=3,  lwd=2, col="red",
+      main="Graficas de la N(0,1)",
+      xlab="x",
+      ylab="f(x)")
+```
+
+
+
+# Generación de números aleatorios normales de forma más ordenada
+
+```{r}
+# Datos
+q1 <- 1000; q2 <- 10000; q3 <- 30000;
+q4 <- 50000; q5 <- 75000; q6 <- 100000;
+```
+
+## Generación de VA normales(0,1)
+
+```{r}
+media <- 0
+desvstd <- 1
+n1 <- rnorm(q1,media,desvstd);
+n2 <- rnorm(q2,media,desvstd); 
+n3 <- rnorm(q3,media,desvstd);
+n4 <- rnorm(q4,media,desvstd);
+n5 <- rnorm(q5,media,desvstd); 
+n6 <- rnorm(q6,media,desvstd);
+```
+
+```{r}
+mititulo1 <- paste0("Num de ",q1," VA N(",media,",",desvstd,")")
+mititulo2 <- paste0("Num de ",q2," VA N(",media,",",desvstd,")")
+mititulo3 <- paste0("Num de ",q3," VA N(",media,",",desvstd,")")
+mititulo4 <- paste0("Num de ",q4," VA N(",media,",",desvstd,")")
+mititulo5 <- paste0("Num de ",q5," VA N(",media,",",desvstd,")")
+mititulo6 <- paste0("Num de ",q6," VA N(",media,",",desvstd,")")
+etiquetay <- paste0("N(",media,",",desvstd,")")
+
+par(mfrow = c(2, 3))
+plot(n1, main = mititulo1,
+     col = "cadetblue3",    
+     xlab = "VA generadas", ylab = etiquetay)
+plot(n2, main = mititulo2,
+     col = "seagreen3", 
+     xlab = "VA generadas", ylab = etiquetay)
+plot(n3, main = mititulo3,
+     col = "darkseagreen4", 
+     xlab = "VA generadas", ylab = etiquetay)
+plot(n4, main = mititulo4,
+     col = "lightcoral",
+     xlab = "VA generadas", ylab = etiquetay)
+plot(n5, main = mititulo5,
+     col = "mediumorchid3", 
+     xlab = "VA generadas", ylab = etiquetay)
+plot(n6, main = mititulo6,
+     col = "peru",          
+     xlab = "VA generadas", ylab = etiquetay)
+```
+
+### Histogramas
+
+```{r}
+mititulo1 <- paste0("Histograma de ",q1," VA N(",media,",",desvstd,")")
+mititulo2 <- paste0("Histograma de ",q2," VA N(",media,",",desvstd,")")
+mititulo3 <- paste0("Histograma de ",q3," VA N(",media,",",desvstd,")")
+mititulo4 <- paste0("Histograma de ",q4," VA N(",media,",",desvstd,")")
+mititulo5 <- paste0("Histograma de ",q5," VA N(",media,",",desvstd,")")
+mititulo6 <- paste0("Histograma de ",q6," VA N(",media,",",desvstd,")")
+etiquetay <- paste0("N(",media,",",desvstd,")")
+
+par(mfrow = c(2, 3))
+hist(n1,main=mititulo1,
+     col = "cadetblue3",
+     xlab = "VA generadas",ylab = etiquetay)
+hist(n2,main=mititulo2,
+     col = "seagreen3",
+     xlab = "VA generadas",ylab = etiquetay)
+hist(n3,main=mititulo3,
+     col = "darkseagreen4",
+     xlab = "VA generadas",ylab = etiquetay)
+hist(n4,main=mititulo4,
+     col = "lightcoral",
+     xlab = "VA generadas",ylab = etiquetay)
+hist(n5,main=mititulo5,
+     col = "mediumorchid3",
+     xlab = "VA generadas",ylab = etiquetay)
+hist(n6,main=mititulo6,
+     col = "peru",
+     xlab = "VA generadas",ylab = etiquetay)
+```
+
+### Curva de va normales (0,1)
+
+```{r}
+x <- seq(-1, 1, length = 100)
+curve(dnorm(x, mean=0, sd=1), 
+      from=-4, to=4, lwd=3, col="pink",
+      main = "N(0, 1)", xlab = "X", ylab = "f(x)")
+```
+
+
+
+## Gráficas de va normales (-1,1)
+
+### Gráficas de dispersión
+
+```{r}
+media <- -1 
+desvstd <- 1
+n1 <- rnorm(q1,media,desvstd);
+n2 <- rnorm(q2,media,desvstd); 
+n3 <- rnorm(q3,media,desvstd);
+n4 <- rnorm(q4,media,desvstd);
+n5 <- rnorm(q5,media,desvstd); 
+n6 <- rnorm(q6,media,desvstd);
+```
+
+```{r}
+mititulo1 <- paste0("Num de ",q1," VA N(",media,",",desvstd,")")
+mititulo2 <- paste0("Num de ",q2," VA N(",media,",",desvstd,")")
+mititulo3 <- paste0("Num de ",q3," VA N(",media,",",desvstd,")")
+mititulo4 <- paste0("Num de ",q4," VA N(",media,",",desvstd,")")
+mititulo5 <- paste0("Num de ",q5," VA N(",media,",",desvstd,")")
+mititulo6 <- paste0("Num de ",q6," VA N(",media,",",desvstd,")")
+etiquetay <- paste0("N(",media,",",desvstd,")")
+
+par(mfrow = c(2, 3))
+plot(n1, main = mititulo1,
+     col = "seagreen3",
+     xlab = "VA generadas", ylab = etiquetay)
+plot(n2, main = mititulo2,
+     col = "darkorange3",
+     xlab = "VA generadas", ylab = etiquetay)
+plot(n3, main = mititulo3,
+     col = "sienna3",
+     xlab = "VA generadas", ylab = etiquetay)
+plot(n4, main = mititulo4,
+     col = "slategray3",
+     xlab = "VA generadas", ylab = etiquetay)
+plot(n5, main = mititulo5,
+     col = "dodgerblue3",
+     xlab = "VA generadas", ylab = etiquetay)
+plot(n6, main = mititulo6,
+     col = "mediumpurple3",
+     xlab = "VA generadas", ylab = etiquetay)
+```
+
+### Histogramas
+
+```{r}
+mititulo1 <- paste0("Histograma de ",q1," VA N(",media,",",desvstd,")")
+mititulo2 <- paste0("Histograma de ",q2," VA N(",media,",",desvstd,")")
+mititulo3 <- paste0("Histograma de ",q3," VA N(",media,",",desvstd,")")
+mititulo4 <- paste0("Histograma de ",q4," VA N(",media,",",desvstd,")")
+mititulo5 <- paste0("Histograma de ",q5," VA N(",media,",",desvstd,")")
+mititulo6 <- paste0("Histograma de ",q6," VA N(",media,",",desvstd,")")
+etiquetay <- paste0("N(",media,",",desvstd,")")
+
+par(mfrow = c(2, 3))
+hist(n1,main=mititulo1,
+     col = "seagreen3",
+     xlab = "VA generadas",ylab = etiquetay)
+hist(n2,main=mititulo2,
+     col = "darkorange3",
+     xlab = "VA generadas",ylab = etiquetay)
+hist(n3,main=mititulo3,
+     col = "sienna3",
+     xlab = "VA generadas",ylab = etiquetay)
+hist(n4,main=mititulo4,
+     col = "slategray3",
+     xlab = "VA generadas",ylab = etiquetay)
+hist(n5,main=mititulo5,
+     col = "dodgerblue3",
+     xlab = "VA generadas",ylab = etiquetay)
+hist(n6,main=mititulo6,
+     col = "mediumpurple3",
+     xlab = "VA generadas",ylab = etiquetay)
+```
+
+### Curva de va normales (-1,1)
+
+```{r}
+x <- seq(-1, 1, length = 100)
+curve(dnorm(x, mean=-1, sd=1), 
+      from=-4, to=4, lwd=4, col="pink",
+      main = "N(-1, 1)", xlab = "X", ylab = "f(x)")
+```
+
+## Gráficas de va normales (0,2)
+
+### Gráficas de dispersión
+
+```{r}
+media <- -0 
+desvstd <- 2
+n1 <- rnorm(q1,media,desvstd);
+n2 <- rnorm(q2,media,desvstd); 
+n3 <- rnorm(q3,media,desvstd);
+n4 <- rnorm(q4,media,desvstd);
+n5 <- rnorm(q5,media,desvstd); 
+n6 <- rnorm(q6,media,desvstd);
+```
+
+```{r}
+mititulo1 <- paste0("Num de ",q1," VA N(",media,",",desvstd,")")
+mititulo2 <- paste0("Num de ",q2," VA N(",media,",",desvstd,")")
+mititulo3 <- paste0("Num de ",q3," VA N(",media,",",desvstd,")")
+mititulo4 <- paste0("Num de ",q4," VA N(",media,",",desvstd,")")
+mititulo5 <- paste0("Num de ",q5," VA N(",media,",",desvstd,")")
+mititulo6 <- paste0("Num de ",q6," VA N(",media,",",desvstd,")")
+etiquetay <- paste0("N(",media,",",desvstd,")")
+
+par(mfrow = c(2, 3))
+plot(n1,main=mititulo1,
+     col = "lightgreen",
+     xlab = "VA generadas",ylab = etiquetay)
+plot(n2,main=mititulo2,
+     col = "orange",
+     xlab = "VA generadas",ylab = etiquetay)
+plot(n3,main=mititulo3,
+     col = "brown",
+     xlab = "VA generadas",ylab = etiquetay)
+plot(n4,main=mititulo4,
+     col = "gray",
+     xlab = "VA generadas",ylab = etiquetay)
+plot(n5,main=mititulo5,
+     col = "pink",
+     xlab = "VA generadas",ylab = etiquetay)
+plot(n6,main=mititulo6,
+     col = "purple",
+     xlab = "VA generadas",ylab = etiquetay)
+```
+
+### Histogramas
+
+```{r}
+mititulo1 <- paste0("Histograma de ",q1," VA N(",media,",",desvstd,")")
+mititulo2 <- paste0("Histograma de ",q2," VA N(",media,",",desvstd,")")
+mititulo3 <- paste0("Histograma de ",q3," VA N(",media,",",desvstd,")")
+mititulo4 <- paste0("Histograma de ",q4," VA N(",media,",",desvstd,")")
+mititulo5 <- paste0("Histograma de ",q5," VA N(",media,",",desvstd,")")
+mititulo6 <- paste0("Histograma de ",q6," VA N(",media,",",desvstd,")")
+etiquetay <- paste0("N(",media,",",desvstd,")")
+
+par(mfrow = c(2, 3))
+hist(n1,main=mititulo1,
+     col = "lightgreen",
+     xlab = "VA generadas",ylab = etiquetay)
+hist(n2,main=mititulo2,
+     col = "orange",
+     xlab = "VA generadas",ylab = etiquetay)
+hist(n3,main=mititulo3,
+     col = "brown",
+     xlab = "VA generadas",ylab = etiquetay)
+hist(n4,main=mititulo4,
+     col = "gray",
+     xlab = "VA generadas",ylab = etiquetay)
+hist(n5,main=mititulo5,
+     col = "pink",
+     xlab = "VA generadas",ylab = etiquetay)
+hist(n6,main=mititulo6,
+     col = "purple",
+     xlab = "VA generadas",ylab = etiquetay)
+```
+
+### Curva de va normales (0,2)
+
+```{r}
+x <- seq(-1, 1, length = 100)
+curve(dnorm(x, mean=0, sd=2), 
+      from=-4, to=4, lwd=3, col="green",
+      main = "N(0, 2)", xlab = "X", ylab = "f(x)")
+```
+
+## Gráficas de va normales (0,2.5)
+
+### Gráficas de dispersión
+
+```{r}
+media <- 0 
+desvstd <- 2.5
+n1 <- rnorm(q1,media,desvstd);
+n2 <- rnorm(q2,media,desvstd); 
+n3 <- rnorm(q3,media,desvstd);
+n4 <- rnorm(q4,media,desvstd);
+n5 <- rnorm(q5,media,desvstd); 
+n6 <- rnorm(q6,media,desvstd);
+```
+
+```{r}
+mititulo1 <- paste0("Num de ",q1," VA N(",media,",",desvstd,")")
+mititulo2 <- paste0("Num de ",q2," VA N(",media,",",desvstd,")")
+mititulo3 <- paste0("Num de ",q3," VA N(",media,",",desvstd,")")
+mititulo4 <- paste0("Num de ",q4," VA N(",media,",",desvstd,")")
+mititulo5 <- paste0("Num de ",q5," VA N(",media,",",desvstd,")")
+mititulo6 <- paste0("Num de ",q6," VA N(",media,",",desvstd,")")
+etiquetay <- paste0("N(",media,",",desvstd,")")
+
+par(mfrow = c(2, 3))
+plot(n1,main=mititulo1,
+     col = "lightblue",
+     xlab = "VA generadas",ylab = etiquetay)
+plot(n2,main=mititulo2,
+     col = "orange",
+     xlab = "VA generadas",ylab = etiquetay)
+plot(n3,main=mititulo3,
+     col = "brown",
+     xlab = "VA generadas",ylab = etiquetay)
+plot(n4,main=mititulo4,
+     col = "gray",
+     xlab = "VA generadas",ylab = etiquetay)
+plot(n5,main=mititulo5,
+     col = "green",
+     xlab = "VA generadas",ylab = etiquetay)
+plot(n6,main=mititulo6,
+     col = "gray",
+     xlab = "VA generadas",ylab = etiquetay)
+```
+
+### Histogramas
+
+```{r}
+mititulo1 <- paste0("Histograma de ",q1," VA N(",media,",",desvstd,")")
+mititulo2 <- paste0("Histograma de ",q2," VA N(",media,",",desvstd,")")
+mititulo3 <- paste0("Histograma de ",q3," VA N(",media,",",desvstd,")")
+mititulo4 <- paste0("Histograma de ",q4," VA N(",media,",",desvstd,")")
+mititulo5 <- paste0("Histograma de ",q5," VA N(",media,",",desvstd,")")
+mititulo6 <- paste0("Histograma de ",q6," VA N(",media,",",desvstd,")")
+etiquetay <- paste0("N(",media,",",desvstd,")")
+
+par(mfrow = c(2, 3))
+hist(n1,main=mititulo1,
+     col = "lightblue",
+     xlab = "VA generadas",ylab = etiquetay)
+hist(n2,main=mititulo2,
+     col = "orange",
+     xlab = "VA generadas",ylab = etiquetay)
+hist(n3,main=mititulo3,
+     col = "brown",
+     xlab = "VA generadas",ylab = etiquetay)
+hist(n4,main=mititulo4,
+     col = "gray",
+     xlab = "VA generadas",ylab = etiquetay)
+hist(n5,main=mititulo5,
+     col = "green",
+     xlab = "VA generadas",ylab = etiquetay)
+hist(n6,main=mititulo6,
+     col = "gray",
+     xlab = "VA generadas",ylab = etiquetay)
+```
+
+### Curva de va normales (0,2.5)
+
+```{r}
+x <- seq(-1, 1, length = 100)
+curve(dnorm(x, mean=0, sd=2.5), 
+      from=-4, to=4, lwd=3, col="red",
+      main = "N(0, 2.5)", xlab = "X", ylab = "f(x)")
+```

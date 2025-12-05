@@ -1,0 +1,1109 @@
+---
+title: "Probabilidad y Estadística (act. 6 en clases)"
+author: "Liliana Contreras Segundo"
+date:    "`r format(Sys.time(), '%d %B, %Y')`"
+output:
+  html_document:
+    toc: true
+    toc_float: true
+    toc_depth: 3
+    code_folding: show
+    theme: bootstrap
+    word_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Discretas
+## Generación de Bimonial
+
+```{r}
+n1 <- 100;
+k <- 25
+p <- 0.3
+```
+
+```{r}
+mibinomial <- rbinom (n1, k, p)
+```
+
+```{r}
+plot(mibinomial, col="green",
+main= "1000 va n(0,1",
+xlab="Num valor",
+ylab="N(0,1)")
+```
+
+```{r}
+hist(mibinomial, col="green",
+main= "1000 va n(0,1",
+xlab="Num valor",
+ylab="N(0,1)")
+```
+
+
+### n1=500
+```{r}
+n1 <- 500;
+k <- 25
+p <- 0.3
+```
+
+```{r}
+mibinomial11 <- rbinom (n1, k, p)
+```
+
+```{r}
+plot(mibinomial11, col="gold",
+main= "500 biminales(k, p)",
+xlab="Num Binominal",
+ylab="N")
+```
+
+```{r}
+hist(mibinomial11, col="gold",
+main= "500 biminales(k, p)",
+xlab="Num Binominal",
+ylab="N=500")
+```
+
+
+### n2=1000
+```{r}
+n2 <- 1000;
+k <- 25
+p <- 0.3
+```
+
+```{r}
+mibinomial12 <- rbinom (n2, k, p)
+```
+
+```{r}
+plot(mibinomial12, col="gray",
+main= "1000 biminales(k, p)",
+xlab="Num Binominal",
+ylab="N=1000")
+```
+
+```{r}
+hist(mibinomial12, col="gray",
+main= "1000 biminales(k, p)",
+xlab="Num Binominal",
+ylab="N=1000")
+```
+
+### n3=5000
+```{r}
+n3 <- 5000;
+k <- 25
+p <- 0.3
+```
+
+```{r}
+mibinomial13 <- rbinom (n3, k, p)
+```
+
+```{r}
+plot(mibinomial13, col="lightblue",
+main= "5000 biminales(k, p)",
+xlab="Num Binominal",
+ylab="N=5000")
+```
+
+```{r}
+hist(mibinomial13, col="lightblue",
+main= "5000 biminales(k, p)",
+xlab="Num Binominal",
+ylab="N=5000")
+```
+
+### n4=10000
+```{r}
+n4 <- 100;
+k <- 25
+p <- 0.3
+```
+
+```{r}
+mibinomial14 <- rbinom (n4, k, p)
+```
+
+```{r}
+plot(mibinomial14, col="brown",
+main= "10000 biminales(k, p)",
+xlab="Num Binominal",
+ylab="N=10000")
+```
+
+```{r}
+hist(mibinomial14, col="brown",
+main= "10000 biminales(k, p)",
+xlab="Num Binominal",
+ylab="N=10000")
+```
+
+
+
+### n5=15000
+```{r}
+n5 <- 15000;
+k <- 25
+p <- 0.3
+```
+
+```{r}
+mibinominal <- rbinom (n5, k, p)
+```
+
+```{r}
+plot(mibinomial, col="lightgreen",
+main= "15000 biminales(k, p)",
+xlab="Num Binominal",
+ylab="N=15000")
+```
+
+```{r}
+hist(mibinomial, col="lightgreen",
+main= "15000 biminales(k, p)",
+xlab="Num Binominal",
+ylab="N=15000")
+```
+
+
+
+## Ahora variamos la p, por un valor de p=0.8
+
+### n1=500
+```{r}
+n1 <- 500;
+k <- 25
+p <- 0.8
+```
+
+```{r}
+mibinomial21 <- rbinom (n1, k, p)
+```
+
+```{r}
+plot(mibinomial21, col="gold",
+main= "500 biminales(k, p)",
+xlab="Num Binominal",
+ylab="N")
+```
+
+```{r}
+hist(mibinomial21, col="gold",
+main= "500 biminales(k, p)",
+xlab="Num Binominal",
+ylab="N=500")
+```
+
+
+### n2=1000
+```{r}
+n2 <- 1000;
+k <- 25
+p <- 0.8
+```
+
+```{r}
+mibinomial22 <- rbinom (n2, k, p)
+```
+
+```{r}
+plot(mibinomial22, col="gray",
+main= "1000 biminales(k, p)",
+xlab="Num Binominal",
+ylab="N=1000")
+```
+
+```{r}
+hist(mibinomial22, col="gray",
+main= "1000 biminales(k, p)",
+xlab="Num Binominal",
+ylab="N=1000")
+```
+
+### n3=5000
+```{r}
+n3 <- 5000;
+k <- 25
+p <- 0.8
+```
+
+```{r}
+mibinomial23 <- rbinom (n3, k, p)
+```
+
+```{r}
+plot(mibinomial23, col="lightblue",
+main= "5000 biminales(k, p)",
+xlab="Num Binominal",
+ylab="N=5000")
+```
+
+```{r}
+hist(mibinomial23, col="lightblue",
+main= "5000 biminales(k, p)",
+xlab="Num Binominal",
+ylab="N=5000")
+```
+
+### n4=10000
+```{r}
+n4 <- 100;
+k <- 25
+p <- 0.8
+```
+
+```{r}
+mibinomial24 <- rbinom (n4, k, p)
+```
+
+```{r}
+plot(mibinomial24, col="brown",
+main= "10000 biminales(k, p)",
+xlab="Num Binominal",
+ylab="N=10000")
+```
+
+```{r}
+hist(mibinomial24, col="brown",
+main= "10000 biminales(k, p)",
+xlab="Num Binominal",
+ylab="N=10000")
+```
+
+## Ahora p=0.45
+
+### n1=500
+```{r}
+n1 <- 500;
+k <- 25
+p <- 0.45
+```
+
+```{r}
+mibinomial31 <- rbinom (n1, k, p)
+```
+
+```{r}
+plot(mibinomial31, col="gold",
+main= "500 biminales(k, p)",
+xlab="Num Binominal",
+ylab="N")
+```
+
+```{r}
+hist(mibinomial31, col="gold",
+main= "500 biminales(k, p)",
+xlab="Num Binominal",
+ylab="N=500")
+```
+
+
+### n2=1000
+```{r}
+n2 <- 1000;
+k <- 25
+p <- 0.45
+```
+
+```{r}
+mibinomial32 <- rbinom (n2, k, p)
+```
+
+```{r}
+plot(mibinomial32, col="gray",
+main= "1000 biminales(k, p)",
+xlab="Num Binominal",
+ylab="N=1000")
+```
+
+```{r}
+hist(mibinomial32, col="gray",
+main= "1000 biminales(k, p)",
+xlab="Num Binominal",
+ylab="N=1000")
+```
+
+### n3=5000
+```{r}
+n3 <- 5000;
+k <- 25
+p <- 0.45
+```
+
+```{r}
+mibinomial33 <- rbinom (n3, k, p)
+```
+
+```{r}
+plot(mibinomial33, col="lightblue",
+main= "5000 biminales(k, p)",
+xlab="Num Binominal",
+ylab="N=5000")
+```
+
+```{r}
+hist(mibinomial33, col="lightblue",
+main= "5000 biminales(k, p)",
+xlab="Num Binominal",
+ylab="N=5000")
+```
+
+### n4=10000
+```{r}
+n4 <- 100;
+k <- 25
+p <- 0.45
+```
+
+```{r}
+mibinomial34 <- rbinom (n4, k, p)
+```
+
+```{r}
+plot(mibinomial34, col="brown",
+main= "10000 biminales(k, p)",
+xlab="Num Binominal",
+ylab="N=10000")
+```
+
+```{r}
+hist(mibinomial34, col="brown",
+main= "10000 biminales(k, p)",
+xlab="Num Binominal",
+ylab="N=10000")
+```
+
+
+## Ahora p=0.95
+
+### n1=500
+```{r}
+n1 <- 500;
+k <- 25
+p <- 0.95
+```
+
+```{r}
+mibinomial41 <- rbinom (n1, k, p)
+```
+
+```{r}
+plot(mibinomial41, col="gold",
+main= "500 biminales(k, p)",
+xlab="Num Binominal",
+ylab="N")
+```
+
+```{r}
+hist(mibinomial41, col="gold",
+main= "500 biminales(k, p)",
+xlab="Num Binominal",
+ylab="N=500")
+```
+
+### n2=1000
+```{r}
+n2 <- 1000;
+k <- 25
+p <- 0.95
+```
+
+```{r}
+mibinomial42 <- rbinom (n2, k, p)
+```
+
+```{r}
+plot(mibinomial42, col="gray",
+main= "1000 biminales(k, p)",
+xlab="Num Binominal",
+ylab="N=1000")
+```
+
+```{r}
+hist(mibinomial42, col="gray",
+main= "1000 biminales(k, p)",
+xlab="Num Binominal",
+ylab="N=1000")
+```
+
+### n3=5000
+```{r}
+n3 <- 5000;
+k <- 25
+p <- 0.95
+```
+
+```{r}
+mibinomial43 <- rbinom (n3, k, p)
+```
+
+```{r}
+plot(mibinomial43, col="lightblue",
+main= "5000 biminales(k, p)",
+xlab="Num Binominal",
+ylab="N=5000")
+```
+
+```{r}
+hist(mibinomial43, col="lightblue",
+main= "5000 biminales(k, p)",
+xlab="Num Binominal",
+ylab="N=5000")
+```
+
+### n4=10000
+```{r}
+n4 <- 100;
+k <- 25
+p <- 0.95
+```
+
+```{r}
+mibinomial44 <- rbinom (n4, k, p)
+```
+
+```{r}
+plot(mibinomial44, col="brown",
+main= "10000 biminales(k, p)",
+xlab="Num Binominal",
+ylab="N=10000")
+```
+
+```{r}
+hist(mibinomial44, col="brown",
+main= "10000 biminales(k, p)",
+xlab="Num Binominal",
+ylab="N=10000")
+```
+
+### Comparación de las graficas de dispersión para cuando tenemos diferentes valores de p
+
+```{r}
+par(mfrow=c(1,4)) #renglon por columna
+plot(mibinomial11, col="gold",
+main= "500 biminales(k, 0.3)",
+xlab="Num Binominal",
+ylab="N")
+plot(mibinomial21, col="gold",
+main= "500 biminales(k, 0.8)",
+xlab="Num Binominal",
+ylab="N")
+plot(mibinomial31, col="gold",
+main= "500 biminales(k, 0.45)",
+xlab="Num Binominal",
+ylab="N")
+plot(mibinomial41, col="gold",
+main= "500 biminales(k, 0.95)",
+xlab="Num Binominal",
+ylab="N")
+```
+
+```{r}
+par(mfrow=c(1,4)) #renglon por columna
+plot(mibinomial12, col="gray",
+main= "1000 biminales(k, 0.3)",
+xlab="Num Binominal",
+ylab="N=1000")
+plot(mibinomial22, col="gray",
+main= "1000 biminales(k,0.8 )",
+xlab="Num Binominal",
+ylab="N=1000")
+plot(mibinomial32, col="gray",
+main= "1000 biminales(k, 0.45)",
+xlab="Num Binominal",
+ylab="N=1000")
+plot(mibinomial42, col="gray",
+main= "1000 biminales(k, 0.95)",
+xlab="Num Binominal",
+ylab="N=1000")
+```
+
+```{r}
+par(mfrow=c(1,4)) #renglon por columna
+plot(mibinomial13, col="lightblue",
+main= "5000 biminales(k, 0.3)",
+xlab="Num Binominal",
+ylab="N=5000")
+plot(mibinomial23, col="lightblue",
+main= "5000 biminales(k, 0.8)",
+xlab="Num Binominal",
+ylab="N=5000")
+plot(mibinomial33, col="lightblue",
+main= "5000 biminales(k, 0.45)",
+xlab="Num Binominal",
+ylab="N=5000")
+plot(mibinomial43, col="lightblue",
+main= "5000 biminales(k, 0.95)",
+xlab="Num Binominal",
+ylab="N=5000")
+```
+
+```{r}
+par(mfrow=c(1,4)) #renglon por columna
+plot(mibinomial14, col="brown",
+main= "10000 biminales(k, 0.3)",
+xlab="Num Binominal",
+ylab="N=10000")
+plot(mibinomial24, col="brown",
+main= "10000 biminales(k, 0.8)",
+xlab="Num Binominal",
+ylab="N=10000")
+plot(mibinomial34, col="brown",
+main= "10000 biminales(k, 0.45)",
+xlab="Num Binominal",
+ylab="N=10000")
+plot(mibinomial44, col="brown",
+main= "10000 biminales(k, 0.95)",
+xlab="Num Binominal",
+ylab="N=10000")
+```
+
+
+## Comparación de histogramas cuando tenemos diferentes valores de p
+```{r}
+par(mfrow=c(1,4)) #renglon por columna
+hist(mibinomial11, col="gold",
+main= "500 biminales(k, 0.3)",
+xlab="Num Binominal",
+ylab="N")
+hist(mibinomial21, col="gold",
+main= "500 biminales(k, 0.8)",
+xlab="Num Binominal",
+ylab="N")
+hist(mibinomial31, col="gold",
+main= "500 biminales(k, 0.45)",
+xlab="Num Binominal",
+ylab="N")
+hist(mibinomial41, col="gold",
+main= "500 biminales(k, 0.95)",
+xlab="Num Binominal",
+ylab="N")
+```
+
+```{r}
+par(mfrow=c(1,4)) #renglon por columna
+hist(mibinomial12, col="gray",
+main= "1000 biminales(k, 0.3)",
+xlab="Num Binominal",
+ylab="N=1000")
+hist(mibinomial22, col="gray",
+main= "1000 biminales(k,0.8 )",
+xlab="Num Binominal",
+ylab="N=1000")
+hist(mibinomial32, col="gray",
+main= "1000 biminales(k, 0.45)",
+xlab="Num Binominal",
+ylab="N=1000")
+hist(mibinomial42, col="gray",
+main= "1000 biminales(k, 0.95)",
+xlab="Num Binominal",
+ylab="N=1000")
+```
+
+```{r}
+par(mfrow=c(1,4)) #renglon por columna
+hist(mibinomial13, col="lightblue",
+main= "5000 biminales(k, 0.3)",
+xlab="Num Binominal",
+ylab="N=5000")
+hist(mibinomial23, col="lightblue",
+main= "5000 biminales(k, 0.8)",
+xlab="Num Binominal",
+ylab="N=5000")
+hist(mibinomial33, col="lightblue",
+main= "5000 biminales(k, 0.45)",
+xlab="Num Binominal",
+ylab="N=5000")
+hist(mibinomial43, col="lightblue",
+main= "5000 biminales(k, 0.95)",
+xlab="Num Binominal",
+ylab="N=5000")
+```
+
+```{r}
+par(mfrow=c(1,4)) #renglon por columna
+hist(mibinomial14, col="brown",
+main= "10000 biminales(k, 0.3)",
+xlab="Num Binominal",
+ylab="N=10000")
+hist(mibinomial24, col="brown",
+main= "10000 biminales(k, 0.8)",
+xlab="Num Binominal",
+ylab="N=10000")
+hist(mibinomial34, col="brown",
+main= "10000 biminales(k, 0.45)",
+xlab="Num Binominal",
+ylab="N=10000")
+hist(mibinomial44, col="brown",
+main= "10000 biminales(k, 0.95)",
+xlab="Num Binominal",
+ylab="N=10000")
+```
+
+## Ahora variamos la k, por un valor de k=50
+
+### n1=500
+```{r}
+n1 <- 500;
+k <- 50
+p <- 0.3
+```
+
+```{r}
+mibinomialk1 <- rbinom (n1, k, p)
+```
+
+```{r}
+plot(mibinomialk1, col="gold",
+main= "500 biminales(k, p)",
+xlab="Num Binominal",
+ylab="N")
+```
+
+```{r}
+hist(mibinomialk1, col="gold",
+main= "500 biminales(k, p)",
+xlab="Num Binominal",
+ylab="N=500")
+```
+
+### n2=1000
+```{r}
+n2 <- 1000;
+k <- 50
+p <- 0.3
+```
+
+```{r}
+mibinomialk2 <- rbinom (n2, k, p)
+```
+
+```{r}
+plot(mibinomialk2, col="gray",
+main= "1000 biminales(k, p)",
+xlab="Num Binominal",
+ylab="N=1000")
+```
+
+```{r}
+hist(mibinomialk2, col="gray",
+main= "1000 biminales(k, p)",
+xlab="Num Binominal",
+ylab="N=1000")
+```
+
+### n3=5000
+```{r}
+n3 <- 5000;
+k <- 50
+p <- 0.3
+```
+
+```{r}
+mibinomialk3 <- rbinom (n3, k, p)
+```
+
+```{r}
+plot(mibinomialk3, col="lightblue",
+main= "5000 biminales(k, p)",
+xlab="Num Binominal",
+ylab="N=5000")
+```
+
+```{r}
+hist(mibinomialk3, col="lightblue",
+main= "5000 biminales(k, p)",
+xlab="Num Binominal",
+ylab="N=5000")
+```
+
+### n4=10000
+```{r}
+n4 <- 100;
+k <- 50
+p <- 0.3
+```
+
+```{r}
+mibinomialk4 <- rbinom (n4, k, p)
+```
+
+```{r}
+plot(mibinomialk4, col="brown",
+main= "10000 biminales(k, p)",
+xlab="Num Binominal",
+ylab="N=10000")
+```
+
+```{r}
+hist(mibinomialk4, col="brown",
+main= "10000 biminales(k, p)",
+xlab="Num Binominal",
+ylab="N=10000")
+```
+
+
+## Ahora k=75
+
+
+### n1=500
+```{r}
+n1 <- 500;
+k <- 75
+p <- 0.3
+```
+
+```{r}
+mibinomialk5 <- rbinom (n1, k, p)
+```
+
+```{r}
+plot(mibinomialk5, col="gold",
+main= "500 biminales(k, p)",
+xlab="Num Binominal",
+ylab="N")
+```
+
+```{r}
+hist(mibinomialk5, col="gold",
+main= "500 biminales(k, p)",
+xlab="Num Binominal",
+ylab="N=500")
+```
+
+
+### n2=1000
+```{r}
+n2 <- 1000;
+k <- 75
+p <- 0.3
+```
+
+```{r}
+mibinomialk6 <- rbinom (n2, k, p)
+```
+
+```{r}
+plot(mibinomialk6, col="gray",
+main= "1000 biminales(k, p)",
+xlab="Num Binominal",
+ylab="N=1000")
+```
+
+```{r}
+hist(mibinomialk6, col="gray",
+main= "1000 biminales(k, p)",
+xlab="Num Binominal",
+ylab="N=1000")
+```
+
+### n3=5000
+```{r}
+n3 <- 5000;
+k <- 75
+p <- 0.3
+```
+
+```{r}
+mibinomialk7 <- rbinom (n3, k, p)
+```
+
+```{r}
+plot(mibinomialk7, col="lightblue",
+main= "5000 biminales(k, p)",
+xlab="Num Binominal",
+ylab="N=5000")
+```
+
+```{r}
+hist(mibinomialk7, col="lightblue",
+main= "5000 biminales(k, p)",
+xlab="Num Binominal",
+ylab="N=5000")
+```
+
+### n4=10000
+```{r}
+n4 <- 100;
+k <- 75
+p <- 0.3
+```
+
+```{r}
+mibinomialk8 <- rbinom (n4, k, p)
+```
+
+```{r}
+plot(mibinomialk8, col="brown",
+main= "10000 biminales(k, p)",
+xlab="Num Binominal",
+ylab="N=10000")
+```
+
+```{r}
+hist(mibinomialk8, col="brown",
+main= "10000 biminales(k, p)",
+xlab="Num Binominal",
+ylab="N=10000")
+```
+
+
+
+## Ahora k=100
+
+
+### n1=500
+```{r}
+n1 <- 500;
+k <- 100
+p <- 0.3
+```
+
+```{r}
+mibinomial1k <- rbinom (n1, k, p)
+```
+
+```{r}
+plot(mibinomial1k, col="gold",
+main= "500 biminales(k, p)",
+xlab="Num Binominal",
+ylab="N")
+```
+
+```{r}
+hist(mibinomial1k, col="gold",
+main= "500 biminales(k, p)",
+xlab="Num Binominal",
+ylab="N=500")
+```
+
+### n2=1000
+```{r}
+n2 <- 1000;
+k <- 100
+p <- 0.3
+```
+
+```{r}
+mibinomial2k <- rbinom (n2, k, p)
+```
+
+```{r}
+plot(mibinomial2k, col="gray",
+main= "1000 biminales(k, p)",
+xlab="Num Binominal",
+ylab="N=1000")
+```
+
+```{r}
+hist(mibinomial2k, col="gray",
+main= "1000 biminales(k, p)",
+xlab="Num Binominal",
+ylab="N=1000")
+```
+
+### n3=5000
+```{r}
+n3 <- 5000;
+k <- 100
+p <- 0.3
+```
+
+```{r}
+mibinomial3k <- rbinom (n3, k, p)
+```
+
+```{r}
+plot(mibinomial3k, col="lightblue",
+main= "5000 biminales(k, p)",
+xlab="Num Binominal",
+ylab="N=5000")
+```
+
+```{r}
+hist(mibinomial3k, col="lightblue",
+main= "5000 biminales(k, p)",
+xlab="Num Binominal",
+ylab="N=5000")
+```
+
+### n4=10000
+```{r}
+n4 <- 100;
+k <- 100
+p <- 0.3
+```
+
+```{r}
+mibinomial4k <- rbinom (n4, k, p)
+```
+
+```{r}
+plot(mibinomial4k, col="brown",
+main= "10000 biminales(k, p)",
+xlab="Num Binominal",
+ylab="N=10000")
+```
+
+```{r}
+hist(mibinomial4k, col="brown",
+main= "10000 biminales(k, p)",
+xlab="Num Binominal",
+ylab="N=10000")
+```
+
+
+## Comparación de la grafica de dispersión para cuando tenemos diferentes k
+```{r}
+par(mfrow=c(1,4)) #renglon por columna
+plot(mibinomial11, col="gold",
+main= "500 biminales(25, p)",
+xlab="Num Binominal",
+ylab="N")
+plot(mibinomialk1, col="gold",
+main= "500 biminales(50, p)",
+xlab="Num Binominal",
+ylab="N")
+plot(mibinomialk5, col="gold",
+main= "500 biminales(75, p)",
+xlab="Num Binominal",
+ylab="N")
+plot(mibinomial1k, col="gold",
+main= "500 biminales(100, p)",
+xlab="Num Binominal",
+ylab="N")
+par(mfrow=c(1,4)) #renglon por columna
+plot(mibinomial12, col="gray",
+main= "1000 biminales(25, p)",
+xlab="Num Binominal",
+ylab="N=1000")
+plot(mibinomialk2, col="gray",
+main= "1000 biminales(50, p)",
+xlab="Num Binominal",
+ylab="N=1000")
+plot(mibinomialk6, col="gray",
+main= "1000 biminales(75, p)",
+xlab="Num Binominal",
+ylab="N=1000")
+plot(mibinomial2k, col="gray",
+main= "1000 biminales(100, p)",
+xlab="Num Binominal",
+ylab="N=1000")
+par(mfrow=c(1,4)) #renglon por columna
+plot(mibinomial13, col="lightblue",
+main= "5000 biminales(25, p)",
+xlab="Num Binominal",
+ylab="N=5000")
+plot(mibinomialk3, col="lightblue",
+main= "5000 biminales(50, p)",
+xlab="Num Binominal",
+ylab="N=5000")
+plot(mibinomialk7, col="lightblue",
+main= "5000 biminales(75, p)",
+xlab="Num Binominal",
+ylab="N=5000")
+plot(mibinomial3k, col="lightblue",
+main= "5000 biminales(100, p)",
+xlab="Num Binominal",
+ylab="N=5000")
+par(mfrow=c(1,4)) #renglon por columna
+plot(mibinomial14, col="brown",
+main= "10000 biminales(25, p)",
+xlab="Num Binominal",
+ylab="N=10000")
+plot(mibinomialk4, col="brown",
+main= "10000 biminales(50, p)",
+xlab="Num Binominal",
+ylab="N=10000")
+plot(mibinomialk8, col="brown",
+main= "10000 biminales(75, p)",
+xlab="Num Binominal",
+ylab="N=10000")
+plot(mibinomial4k, col="brown",
+main= "10000 biminales(100, p)",
+xlab="Num Binominal",
+ylab="N=10000")
+```
+
+
+
+## Comparación de la grafica de dispersión para cuando tenemos diferentes k
+```{r}
+par(mfrow=c(1,4)) #renglon por columna
+hist(mibinomial11, col="gold",
+main= "500 biminales(25, p)",
+xlab="Num Binominal",
+ylab="N")
+hist(mibinomialk1, col="gold",
+main= "500 biminales(50, p)",
+xlab="Num Binominal",
+ylab="N")
+hist(mibinomialk5, col="gold",
+main= "500 biminales(75, p)",
+xlab="Num Binominal",
+ylab="N")
+hist(mibinomial1k, col="gold",
+main= "500 biminales(100, p)",
+xlab="Num Binominal",
+ylab="N")
+par(mfrow=c(1,4)) #renglon por columna
+hist(mibinomial12, col="gray",
+main= "1000 biminales(25, p)",
+xlab="Num Binominal",
+ylab="N=1000")
+hist(mibinomialk2, col="gray",
+main= "1000 biminales(50, p)",
+xlab="Num Binominal",
+ylab="N=1000")
+hist(mibinomialk6, col="gray",
+main= "1000 biminales(75, p)",
+xlab="Num Binominal",
+ylab="N=1000")
+hist(mibinomial2k, col="gray",
+main= "1000 biminales(100, p)",
+xlab="Num Binominal",
+ylab="N=1000")
+par(mfrow=c(1,4)) #renglon por columna
+hist(mibinomial13, col="lightblue",
+main= "5000 biminales(25, p)",
+xlab="Num Binominal",
+ylab="N=5000")
+hist(mibinomialk3, col="lightblue",
+main= "5000 biminales(50, p)",
+xlab="Num Binominal",
+ylab="N=5000")
+hist(mibinomialk7, col="lightblue",
+main= "5000 biminales(75, p)",
+xlab="Num Binominal",
+ylab="N=5000")
+hist(mibinomial3k, col="lightblue",
+main= "5000 biminales(100, p)",
+xlab="Num Binominal",
+ylab="N=5000")
+par(mfrow=c(1,4)) #renglon por columna
+hist(mibinomial14, col="brown",
+main= "10000 biminales(25, p)",
+xlab="Num Binominal",
+ylab="N=10000")
+hist(mibinomialk4, col="brown",
+main= "10000 biminales(50, p)",
+xlab="Num Binominal",
+ylab="N=10000")
+hist(mibinomialk8, col="brown",
+main= "10000 biminales(75, p)",
+xlab="Num Binominal",
+ylab="N=10000")
+hist(mibinomial4k, col="brown",
+main= "10000 biminales(100, p)",
+xlab="Num Binominal",
+ylab="N=10000")
+```
+
+
