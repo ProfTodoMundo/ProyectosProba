@@ -1,0 +1,932 @@
+\documentclass[a4paper,10pt,oneside]{article}
+%_______________________________________________________________
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[activeacute,spanish]{babel}
+\usepackage{amsmath, amsthm, amssymb, amsfonts}
+\usepackage{enumerate}
+\usepackage{multicol}
+\usepackage{float}
+\usepackage{url} %url                                                             fh
+\usepackage{bm} %letras griegas en negrita (uso: \bm{\alpha})
+\usepackage{makeidx}
+\usepackage{appendix}
+%\usepackage{hyperref}
+\usepackage{fancyhdr}
+\usepackage{titlesec}
+\usepackage{listings}
+\usepackage{multirow}
+\usepackage{color}
+\usepackage{subfig}
+\usepackage{tikz}
+\usepackage[figuresright]{rotating}
+\usepackage{anysize} 
+\usepackage[normalem]{ulem}
+\usepackage[breaklinks=true]{hyperref} %links
+%_______________________________________________________________
+%_______________________________________________________________
+\usepackage[
+  left=1.25cm,
+  right=1.25cm,
+  top=0.85cm,
+  bottom=1.5cm
+]{geometry}
+%_______________________________________________________________
+\author{Carlos E Mart\'inez-Rodr\'iguez}
+\date{}
+\title{Predicci\'on de sitios alost\'ericos mediante t\'ecnicas de aprendizaje supervisado y an\'alisis estructural}
+%_______________________________________________________________
+\begin{document}
+%_______________________________________________________________
+%_______________________________________________________________
+%\renewcommand{\contentsname}{\'Indice}
+\maketitle 
+\tableofcontents
+%<<>>==<<>>==<<>>==<<>>==<<>>==<<>>==<<>>==<<>>==<<>>==<<>>==
+\section{Forensic Data Science}
+%<<>>==<<>>==<<>>==<<>>==<<>>==<<>>==<<>>==<<>>==<<>>==<<>>==
+
+El \'area de \textit{Forensic Data Science} es particularmente interesante porque se encuentra en la intersecci\'on de varias disciplinas cient\'ificas, entre ellas la estad\'istica, el \textit{machine learning}, la criminolog\'ia y la ciencia forense. En los \'ultimos a\~nos este campo ha emergido como una disciplina formal cuyo objetivo es mejorar la interpretaci\'on cuantitativa de la evidencia y reducir errores dentro de los sistemas judiciales.
+
+\subsection{¿Qu\'e es Forensic Data Science?}
+
+\textit{Forensic Data Science} se refiere al uso de m\'etodos cuantitativos, estad\'isticos y computacionales para: analizar evidencia forense, evaluar hip\'otesis legales, modelar incertidumbre en evidencia, detectar patrones criminales. Este campo integra diversas \'areas del conocimiento, entre ellas: estad\'istica bayesiana, \textit{machine learning}, miner\'ia de datos, an\'alisis de redes, visi\'on computacional, an\'alisis espacial.
+
+
+\subsection{Tipos de evidencia donde se aplica}
+
+\subsubsection*{ADN y gen\'etica forense}
+
+La gen\'etica forense constituye una de las \'areas m\'as avanzadas en ciencia de datos aplicada al \'ambito forense. Entre los problemas t\'ipicos que se abordan se encuentran: an\'alisis de mezclas de ADN (muestras con m\'ultiples individuos), estimaci\'on de probabilidades de coincidencia gen\'etica, identificaci\'on de individuos. Para abordar estos problemas se utilizan m\'etodos como: inferencia bayesiana,  modelos probabil\'isticos, algoritmos de tipo \textit{Markov Chain Monte Carlo} (MCMC). Entre las herramientas m\'as conocidas se encuentran: \textit{TrueAllele}, \textit{STRmix}.
+
+
+\subsubsection*{Huellas digitales}
+
+La identificaci\'on de huellas digitales utiliza t\'ecnicas provenientes de: \textit{computer vision}, \textit{pattern recognition}. Las variables estructurales m\'as relevantes en el an\'alisis de huellas incluyen: minucias, bifurcaciones, terminaciones de crestas. Entre los algoritmos utilizados se encuentran:  \textit{Support Vector Machines} (SVM), redes neuronales, \textit{deep learning}, m\'etodos de \textit{matching} probabil\'istico.
+
+\subsubsection*{Evidencia digital}
+
+En el \'ambito de la evidencia digital, la ciencia de datos se utiliza para analizar:  discos duros, tel\'efonos m\'oviles, redes sociales, registros de sistemas (\textit{logs}). Entre las aplicaciones m\'as comunes se encuentran: detecci\'on de fraude, reconstrucci\'on de eventos, an\'alisis de comunicaciones. Las t\'ecnicas utilizadas incluyen: procesamiento de lenguaje natural (\textit{NLP}), an\'alisis de grafos, \textit{clustering}, detecci\'on de anomal\'ias.
+
+\subsection{Forensic Statistics: base matem\'atica}
+
+Una parte fundamental de \textit{Forensic Data Science} se basa en la estad\'istica bayesiana.  El concepto central en la evaluaci\'on probabil\'istica de evidencia es la \textit{Likelihood Ratio} (LR):
+
+\begin{equation}
+LR = \frac{P(E \mid H_p)}{P(E \mid H_d)}
+\end{equation}
+
+donde: $E$ representa la evidencia observada, $H_p$ corresponde a la hip\'otesis de la fiscal\'ia, $H_d$ corresponde a la hip\'otesis de la defensa. La interpretaci\'on de la raz\'on de verosimilitud es la siguiente:
+
+\begin{center}
+\begin{tabular}{c c}
+\hline
+LR & Interpretaci\'on \\
+\hline
+1 & evidencia neutra \\
+$>1$ & favorece la hip\'otesis de la fiscal\'ia \\
+$<1$ & favorece la hip\'otesis de la defensa \\
+\hline
+\end{tabular}
+\end{center}
+
+Este enfoque se utiliza ampliamente en \'areas como: an\'alisis de ADN, bal\'istica, an\'alisis de voz, identificaci\'on mediante huellas digitales.
+
+
+\subsection{Machine Learning en investigaci\'on criminal}
+
+La ciencia de datos tambi\'en se emplea para analizar patrones criminales.
+
+\subsubsection*{Predicci\'on del crimen}
+
+Para la predicci\'on de eventos criminales se utilizan datos como: ubicaci\'on geogr\'afica, horario del incidente, tipo de crimen, variables socioecon\'omicas. Entre los modelos utilizados se encuentran:  \textit{Random Forest}, \textit{Gradient Boosting}, modelos espaciales, redes neuronales.
+
+
+\subsubsection*{An\'alisis de redes criminales}
+
+En el an\'alisis de redes criminales se modelan relaciones entre individuos involucrados en actividades il\'icitas.
+
+Las herramientas utilizadas incluyen:  teor\'ia de grafos, medidas de centralidad en redes, detecci\'on de comunidades (\textit{community detection}). Estas t\'ecnicas se aplican al estudio de: carteles criminales, redes de fraude, organizaciones terroristas.
+
+\subsection{Problemas cient\'ificos abiertos}
+
+El campo de \textit{Forensic Data Science} a\'un presenta varios problemas cient\'ificos activos.
+
+\begin{enumerate}
+\item \textbf{Interpretaci\'on de evidencia}: ¿C\'omo cuantificar evidencia de forma objetiva y reproducible?
+
+\item \textbf{Sesgo en sistemas forenses}: Muchos m\'etodos tradicionales, como la identificaci\'on por huellas o bal\'istica, han sido criticados por la falta de bases estad\'isticas s\'olidas.
+
+\item \textbf{Explicabilidad de modelos de aprendizaje autom\'atico}: Los sistemas utilizados en contextos judiciales deben ser interpretables para poder ser presentados ante tribunales.
+
+\item \textbf{Integraci\'on de m\'ultiples evidencias}: En muchos casos es necesario combinar diferentes tipos de evidencia, como:  ADN, huellas, video, datos digitales.
+
+\end{enumerate}
+
+\subsection{Centros de investigaci\'on importantes}
+
+Entre los centros de investigaci\'on m\'as relevantes en el desarrollo de estad\'istica forense se encuentran: \textit{Netherlands Forensic Institute}, \textit{National Institute of Standards and Technology} (grupo de \textit{forensic statistics}),  \textit{University of Lausanne School of Criminal Justice}.
+
+\subsection{Libros clave del \'area}
+
+\subsubsection*{Estad\'istica forense}
+
+Entre los textos m\'as influyentes se encuentran: \textit{Forensic Statistics: An Introduction to Bayesian Methods}, \textit{Statistics and the Evaluation of Evidence for Forensic Scientists}. Autores importantes en este campo incluyen: Colin Aitken, Franco Taroni.
+
+\subsubsection*{Ciencia de datos forense}
+
+Un libro relevante en el \'area de an\'alisis de fraude es: \textit{Forensic Data Analytics}, de Mark Nigrini. Este texto es ampliamente utilizado en estudios de detecci\'on de fraude financiero.
+
+\subsection{Pipeline t\'ipico de Forensic Data Science}
+
+Un flujo de trabajo t\'ipico en \textit{Forensic Data Science} incluye las siguientes etapas:
+
+\begin{enumerate}
+\item Recolecci\'on de evidencia: ADN,  huellas, registros digitales.
+\item Preprocesamiento: limpieza de datos, normalizaci\'on, extracci\'on de caracter\'isticas
+\item Modelado: estad\'istica bayesiana, modelos de \textit{machine learning}
+\item Evaluaci\'on probabil\'istica: c\'alculo de \textit{likelihood ratios}, intervalos de confianza
+\item Reporte para tribunal: interpretaci\'on clara,  visualizaci\'on de resultados
+
+
+\end{enumerate}
+
+\subsection{Posibles aplicaciones}
+
+Las herramientas desarrolladas en \textit{Forensic Data Science} pueden aplicarse a problemas como: clasificaci\'on autom\'atica de huellas digitales, an\'alisis de mezclas de ADN, detecci\'on de fraude financiero, an\'alisis de redes criminales. El desarrollo de m\'etodos estad\'isticos y computacionales para estos problemas representa una l\'inea de investigaci\'on activa con aplicaciones tanto cient\'ificas como institucionales.
+
+%<<>>==<<>>==<<>>==<<>>==<<>>==<<>>==<<>>==<<>>==<<>>==<<>>==
+\section{Datasets P\'ublicos para Investigaci\'on en Forensic Data Science}
+%<<>>==<<>>==<<>>==<<>>==<<>>==<<>>==<<>>==<<>>==<<>>==<<>>==
+
+El desarrollo de m\'etodos de \textit{Forensic Data Science} requiere conjuntos de datos que permitan evaluar algoritmos estad\'isticos y de \textit{machine learning} aplicados al an\'alisis de evidencia. Existen varios datasets p\'ublicos utilizados en investigaci\'on acad\'emica y desarrollo metodol\'ogico en \'areas como criminolog\'ia, evidencia digital, biometr\'ia y detecci\'on de fraude.
+
+\subsection{Datos de Criminalidad}
+
+Uno de los conjuntos de datos m\'as utilizados en investigaci\'on criminol\'ogica es el conjunto de datos de criminalidad del \textit{Federal Bureau of Investigation} (FBI), obtenido a trav\'es del programa \textit{Uniform Crime Reporting} (UCR). Estos datos incluyen informaci\'on sobre:  Tipo de crimen, Ubicaci\'on geogr\'afica, Fecha y hora del incidente, Caracter\'isticas demogr\'aficas. Este tipo de informaci\'on permite desarrollar modelos para:  predicci\'on de \textit{crime hotspots}, an\'alisis espacial del crimen, modelado de patrones criminales. Otro dataset importante proviene de la ciudad de Chicago, disponible p\'ublicamente y ampliamente utilizado en investigaci\'on en ciencia de datos aplicada a criminolog\'ia.
+
+\subsection{Datasets de Evidencia Digital}
+
+En el \'area de \textit{digital forensics} existen datasets dise\~nados espec\'ificamente para estudiar t\'ecnicas de an\'alisis de evidencia digital. Un ejemplo importante es el conjunto de datos desarrollado por el \textit{Digital Corpora Project}, que contiene: im\'agenes completas de discos duros, registros de actividad digital, datos de sistemas operativos. Estos datasets permiten investigar problemas como: recuperaci\'on de informaci\'on eliminada, reconstrucci\'on de eventos digitales, detecci\'on de actividad maliciosa.
+
+
+\subsection{Datasets Biom\'etricos}
+
+En el \'ambito de identificaci\'on biom\'etrica existen varios datasets utilizados para investigaci\'on en reconocimiento de patrones. Entre ellos se encuentran: bases de datos de huellas digitales, bases de datos de reconocimiento facial, conjuntos de datos de reconocimiento de voz. Estos datasets permiten evaluar algoritmos de: clasificaci\'on, reconocimiento de patrones, aprendizaje profundo aplicado a biometr\'ia.
+
+\subsection{Datasets para Detecci\'on de Fraude}
+
+Otra \'area importante dentro de la ciencia de datos forense es la detecci\'on de fraude financiero. Existen datasets p\'ublicos que contienen: transacciones financieras, patrones de gasto, registros de actividad bancaria. Estos conjuntos de datos se utilizan para entrenar modelos de: detecci\'on de anomal\'ias, clasificaci\'on supervisada, aprendizaje no supervisado.
+
+
+\subsection{Importancia de los Datasets P\'ublicos}
+
+El acceso a datasets p\'ublicos es fundamental para el desarrollo de m\'etodos reproducibles en ciencia de datos forense. Permiten: comparar algoritmos de an\'alisis, validar m\'etodos estad\'isticos, desarrollar nuevas herramientas computacionales para an\'alisis de evidencia. Adem\'as, facilitan la formaci\'on de investigadores en el campo de la ciencia de datos aplicada al an\'alisis forense.
+
+\section{Papers Fundacionales en Forensic Data Science}
+
+El campo de \textit{Forensic Data Science} se ha desarrollado principalmente a partir de avances en estad\'istica forense, inferencia bayesiana y m\'etodos computacionales aplicados al an\'alisis de evidencia. Diversos trabajos acad\'emicos han sido fundamentales para establecer los principios metodol\'ogicos que hoy se utilizan en la interpretaci\'on cuantitativa de evidencia forense.
+
+\subsection{Fundamentos de Estad\'istica Forense}
+
+Uno de los trabajos m\'as influyentes en el desarrollo de la estad\'istica forense moderna es el realizado por Aitken y Taroni, quienes propusieron el uso sistem\'atico de m\'etodos bayesianos para evaluar evidencia cient\'ifica en contextos judiciales. En este enfoque, la evidencia se eval\'ua mediante el c\'alculo de la raz\'on de verosimilitud (\textit{Likelihood Ratio}), definida como:
+\begin{equation}
+LR = \frac{P(E \mid H_p)}{P(E \mid H_d)}
+\end{equation}
+donde: $E$ representa la evidencia observada, $H_p$ corresponde a la hip\'otesis de la fiscal\'ia, $H_d$ corresponde a la hip\'otesis de la defensa. Este marco probabil\'istico permite cuantificar el peso de la evidencia de manera objetiva y transparente, evitando interpretaciones subjetivas.
+
+\subsection{Evaluaci\'on Probabil\'istica de Evidencia}
+
+Otro trabajo fundamental es el art\'iculo de Taroni, Aitken, Garbolino y Biedermann, donde se desarrolla un marco formal para la evaluaci\'on probabil\'istica de evidencia forense utilizando redes bayesianas. Las redes bayesianas permiten modelar relaciones probabil\'isticas entre m\'ultiples variables asociadas con la evidencia, lo cual es particularmente \'util en casos donde existen m\'ultiples fuentes de incertidumbre. Entre las aplicaciones principales se encuentran: an\'alisis de ADN,  evaluaci\'on de huellas digitales, an\'alisis de evidencia bal\'istica, interpretaci\'on de evidencia digital.
+
+
+\subsection{Machine Learning en Ciencias Forenses}
+
+En a\~nos recientes, diversos trabajos han explorado el uso de t\'ecnicas de \textit{machine learning} para automatizar procesos de identificaci\'on y clasificaci\'on en evidencia forense. Entre las aplicaciones m\'as relevantes se encuentran: reconocimiento autom\'atico de huellas digitales, identificaci\'on facial, an\'alisis de patrones criminales, detecci\'on de fraude financiero. Los algoritmos m\'as utilizados incluyen: m\'aquinas de soporte vectorial (SVM), \textit{random forests}, redes neuronales profundas, m\'etodos de aprendizaje no supervisado. Estos enfoques han permitido mejorar la precisi\'on y reproducibilidad de los m\'etodos tradicionales utilizados en laboratorios forenses.
+
+\subsection{Importancia de la Interpretabilidad}
+
+Un aspecto crucial en el uso de modelos de aprendizaje autom\'atico en ciencia forense es la interpretabilidad de los resultados. A diferencia de otras aplicaciones de ciencia de datos, en el contexto judicial es fundamental que los m\'etodos utilizados puedan ser explicados de manera clara ante un tribunal. Por esta raz\'on, muchos investigadores enfatizan el uso de modelos probabil\'isticos interpretables y t\'ecnicas estad\'isticas robustas.
+
+\subsection{Referencias Clave}
+
+Algunos trabajos influyentes en el desarrollo del campo incluyen:
+\begin{itemize}
+\item Aitken, C. G. G. y Taroni, F. (2004). \textit{Statistics and the Evaluation of Evidence for Forensic Scientists}.
+\item Taroni, F., Aitken, C., Garbolino, P., y Biedermann, A. (2006). \textit{Bayesian Networks and Probabilistic Inference in Forensic Science}.
+\item Nigrini, M. (2011). \textit{Forensic Analytics}.
+\end{itemize}
+Estos trabajos han establecido las bases conceptuales para la aplicaci\'on de m\'etodos cuantitativos y computacionales en el an\'alisis de evidencia forense.
+
+%<<>>==<<>>==<<>>==<<>>==<<>>==<<>>==<<>>==<<>>==<<>>==<<>>==
+\section{Pipeline Metodol\'ogico en Forensic Data Science}
+%<<>>==<<>>==<<>>==<<>>==<<>>==<<>>==<<>>==<<>>==<<>>==<<>>==
+
+En este paso se propone un \textit{pipeline} general, reproducible y defendible ante auditor\'ia (y, en su caso, ante un tribunal), para desarrollar modelos de \textit{Forensic Data Science}. El objetivo es pasar de evidencia cruda a un informe cuantitativo con incertidumbre expl\'icita.
+
+\subsection{Contexto general y principios}
+
+En ciencia forense, un modelo no solo debe \textbf{predecir} o \textbf{clasificar}, sino tambi\'en: justificar sus supuestos, cuantificar incertidumbre, ser replicable (misma evidencia $\Rightarrow$ mismo resultado bajo el mismo protocolo), ser interpretable o, al menos, explicable (especialmente si se usa \textit{machine learning}).
+
+\subsection{Pipeline completo}
+
+Sea un conjunto de datos $D=\{(x_i,y_i)\}_{i=1}^n$, donde $x_i\in\mathbb{R}^p$ representa caracter\'isticas extra\'idas de evidencia (se\~nal, imagen, texto, metadatos) y $y_i$ es una etiqueta (p.\,ej. clase, fuente, o hip\'otesis).
+
+\begin{enumerate}
+\item \textbf{Definici\'on del problema forense:} Delimitar: \textit{(i)} qu\'e evidencia $E$ se observa, \textit{(ii)} qu\'e hip\'otesis se comparan, y \textit{(iii)} qu\'e salida necesita el usuario final (perito, fiscal\'ia, defensa).
+
+\item \textbf{Adquisici\'on y trazabilidad de datos}\\
+Registrar procedencia, controles, sesgos potenciales, y versiones de preprocesamiento.
+
+\item \textbf{Preprocesamiento:} limpieza (valores faltantes, duplicados, inconsistencias), normalizaci\'on/estandarizaci\'on, control de \textit{leakage} (no usar informaci\'on futura o de etiqueta en etapas previas), partici\'on entrenamiento/validaci\'on/prueba (idealmente por caso o por sujeto).
+
+
+\item \textbf{Extracci\'on de caracter\'isticas:} Ejemplos: \textit{minucias} en huellas, MFCC en voz, \textit{embeddings} en texto, descriptores en imagen, estad\'isticos de secuencia en logs digitales.
+
+\item \textbf{Modelado:} Dos rutas frecuentes:  \textbf{(A) Enfoque probabil\'istico} (recomendado en forense): raz\'on de verosimilitud, modelos bayesianos, redes bayesianas. \textbf{(B) Enfoque predictivo/ML}: clasificaci\'on, detecci\'on de anomal\'ias, \textit{clustering}, modelos espaciales.
+
+\item \textbf{Evaluaci\'on:} M\'etricas est\'andar (accuracy, F1, ROC-AUC) \textbf{y} m\'etricas forenses: calibraci\'on (probabilidades bien calibradas), tasas de error por subpoblaci\'on, estabilidad a ruido/perturbaciones, sensibilidad a sesgo del muestreo.
+
+\item \textbf{Interpretabilidad y reporte:} Incluir: variables m\'as influyentes (p.\,ej. coeficientes, importancia, SHAP si aplica), intervalos de confianza / credibilidad, an\'alisis de limitaciones, conclusi\'on cuantitativa alineada al objetivo.
+
+\end{enumerate}
+
+\subsection{Ejemplo guiado: Clasificaci\'on forense con PCA + Regresi\'on Log\'istica}
+
+\subsubsection*{Escenario}
+Supongamos un laboratorio con mediciones instrumentales (p.\,ej. espectros, se\~nales, o vectores de rasgos) de evidencia. Se busca discriminar entre dos clases:
+\[
+y\in\{0,1\},
+\]
+por ejemplo:
+\begin{itemize}
+\item $y=1$: evidencia compatible con una fuente $S_1$ (hip\'otesis $H_p$),
+\item $y=0$: evidencia compatible con fuente alternativa $S_0$ (hip\'otesis $H_d$).
+\end{itemize}
+
+\subsubsection*{Estandarizaci\'on}
+Sea $X\in\mathbb{R}^{n\times p}$ la matriz de caracter\'isticas. Se estandariza columna a columna:
+\[
+Z_{ij}=\frac{X_{ij}-\mu_j}{\sigma_j},
+\]
+donde $\mu_j$ y $\sigma_j$ son la media y desviaci\'on est\'andar de la caracter\'istica $j$ en el conjunto de entrenamiento.
+
+\subsubsection*{Reducci\'on de dimensi\'on con PCA}
+PCA busca componentes principales:
+\[
+T = ZW,
+\]
+donde $W\in\mathbb{R}^{p\times k}$ contiene los primeros $k$ autovectores de la matriz de covarianza (o correlaci\'on) de $Z$, y $T\in\mathbb{R}^{n\times k}$ son las coordenadas en el espacio reducido. Criterios comunes para elegir $k$: varianza explicada acumulada ($\geq 90\%$ o $\geq 95\%$), validaci\'on cruzada en el desempe\~no del clasificador.
+
+\subsubsection*{Clasificador: Regresi\'on log\'istica}
+Se ajusta un modelo:
+\[
+P(y=1\mid t)=\pi(t)=\frac{1}{1+\exp\left(-(\beta_0+\beta^\top t)\right)},
+\]
+donde $t\in\mathbb{R}^k$ es el vector PCA del caso. Regla de decisi\'on con umbral $\tau$:
+\[
+\hat{y}=
+\begin{cases}
+1 & \text{si } \pi(t)\ge \tau,\\
+0 & \text{si } \pi(t)< \tau.
+\end{cases}
+\]
+
+\subsubsection*{Conexi\'on forense: salida tipo Likelihood Ratio (LR)}
+En un marco forense es deseable un \textit{peso de evidencia}. Una forma (simplificada) es convertir una probabilidad calibrada a una raz\'on de probabilidades (\textit{odds}):
+\[
+\text{odds}(t)=\frac{\pi(t)}{1-\pi(t)}.
+\]
+Si se dispone de una calibraci\'on adecuada para interpretar esto como soporte relativo entre hip\'otesis, se puede reportar:
+\[
+LR(t)\approx \frac{\pi(t)}{1-\pi(t)}.
+\]
+\textbf{Nota:} en entornos periciales formales, el LR suele derivarse de modelos generativos (p.\,ej. densidades bajo $H_p$ y $H_d$). Esta aproximaci\'on es \'util como puente conceptual cuando se trabaja con clasificadores discriminativos, pero debe justificarse y validarse cuidadosamente.
+
+\subsubsection*{Evaluaci\'on recomendada}
+\begin{itemize}
+\item \textbf{Validaci\'on cruzada estratificada} (p.\,ej. $K=5$ o $10$).
+\item \textbf{Matriz de confusi\'on} y m\'etricas: sensibilidad, especificidad, F1.
+\item \textbf{ROC-AUC} para explorar umbrales $\tau$.
+\item \textbf{Calibraci\'on} (curva de calibraci\'on y \textit{Brier score}).
+\end{itemize}
+
+\subsubsection*{Reporte (plantilla breve)}
+\begin{itemize}
+\item Descripci\'on de evidencia y condiciones de adquisici\'on.
+\item Preprocesamiento aplicado (incluyendo par\'ametros).
+\item N\'umero de componentes PCA $k$ y varianza explicada.
+\item Modelo final (tipo, hiperpar\'ametros).
+\item Desempe\~no en prueba independiente o CV (con intervalos).
+\item Limitaciones y supuestos.
+\item Conclusi\'on cuantitativa (probabilidad o LR, seg\'un corresponda) y su interpretaci\'on.
+\end{itemize}
+
+
+%<<>>==<<>>==<<>>==<<>>==<<>>==<<>>==<<>>==<<>>==<<>>==<<>>==
+\section{Modelado Bayesiano en Forensic Data Science y Simulaci\'on de Datos Sint\'eticos}
+%<<>>==<<>>==<<>>==<<>>==<<>>==<<>>==<<>>==<<>>==<<>>==<<>>==
+
+S\'i, es totalmente posible (y muy recomendable) \textbf{simular datos sint\'eticos} para profundizar en la parte bayesiana, especialmente cuando: no hay acceso a datos reales por privacidad o cadena de custodia, se requiere evaluar desempe\~no bajo condiciones controladas, se quiere estudiar calibraci\'on, sesgos, y sensibilidad a supuestos.
+
+
+\subsection{Marco bayesiano b\'asico: hip\'otesis y evidencia}
+
+Sea $E$ la evidencia observada (p.\,ej. un vector de caracter\'isticas extra\'idas de una huella, voz, ADN, espectro, etc.). En forense suele compararse:
+\begin{itemize}
+\item $H_p$: ``la evidencia proviene de la fuente del sospechoso'' (hip\'otesis de fiscal\'ia),
+\item $H_d$: ``la evidencia proviene de otra fuente'' (hip\'otesis alternativa / defensa).
+\end{itemize}
+
+La cantidad central es la \textbf{raz\'on de verosimilitud} (Likelihood Ratio):
+\begin{equation}
+LR(E)=\frac{p(E\mid H_p)}{p(E\mid H_d)}.
+\end{equation}
+
+Con probabilidades a priori $P(H_p)$ y $P(H_d)$, el \textbf{odds posterior} es:
+\begin{equation}
+\frac{P(H_p\mid E)}{P(H_d\mid E)} \;=\; LR(E)\cdot \frac{P(H_p)}{P(H_d)}.
+\end{equation}
+
+\textbf{Idea clave para simulaci\'on sint\'etica:} Para simular datos sint\'eticos necesitas especificar modelos generativos bajo cada hip\'otesis:
+\[
+E \sim p(\cdot\mid H_p)\quad\text{y}\quad E \sim p(\cdot\mid H_d).
+\]
+
+Luego puedes: generar muchos casos $E^{(1)},\dots,E^{(N)}$, calcular $LR(E^{(i)})$, evaluar error, calibraci\'on, robustez, e interpretabilidad.
+
+
+\subsection{Modelo sint\'etico 1: Evidencia univariada (caso did\'actico)}
+
+Sup\'on que la evidencia es escalar $E\in\mathbb{R}$ (p.\,ej. una medida resumen de una se\~nal).
+
+\subsection{Modelo}
+\begin{align}
+E\mid H_p &\sim \mathcal{N}(\mu_p,\sigma^2),\\
+E\mid H_d &\sim \mathcal{N}(\mu_d,\sigma^2).
+\end{align}
+
+Entonces el LR tiene forma cerrada:
+\begin{equation}
+LR(E)=\frac{\phi(E;\mu_p,\sigma^2)}{\phi(E;\mu_d,\sigma^2)},
+\end{equation}
+donde $\phi(\cdot;\mu,\sigma^2)$ es la densidad normal. Tomando logaritmo:
+\begin{equation}
+\log LR(E)=\log\phi(E;\mu_p,\sigma^2)-\log\phi(E;\mu_d,\sigma^2).
+\end{equation}
+
+\subsection{Simulaci\'on sint\'etica}
+Elige par\'ametros (por ejemplo): $\mu_p=1,\quad \mu_d=0,\quad \sigma=1$. Luego genera: $N_p$ muestras de $E$ bajo $H_p$, $N_d$ muestras de $E$ bajo $H_d$, y calcula $LR(E)$ para cada muestra.
+
+\subsection{Modelo sint\'etico 2: Evidencia multivariada (m\'as realista)}
+
+Ahora $E=x\in\mathbb{R}^p$ (vector de caracter\'isticas).
+
+\subsection{Modelo generativo gaussiano}
+\begin{align}
+x\mid H_p &\sim \mathcal{N}_p(\mu_p,\Sigma_p),\\
+x\mid H_d &\sim \mathcal{N}_p(\mu_d,\Sigma_d).
+\end{align}
+
+El LR queda:
+\begin{equation}
+LR(x)=\frac{\mathcal{N}_p(x;\mu_p,\Sigma_p)}{\mathcal{N}_p(x;\mu_d,\Sigma_d)}.
+\end{equation}
+
+Este modelo es \'util para estudiar: separaci\'on entre clases, efecto de correlaciones, mal-especificaci\'on (cuando $\Sigma_p\neq \Sigma_d$), selecci\'on de caracter\'isticas y PCA.
+
+\subsection{Modelo sint\'etico 3: Poblaci\'on (Defense) como mezcla}
+
+En muchos contextos forenses, $H_d$ representa una \textbf{poblaci\'on} heterog\'enea. Un modelo m\'as realista es una mezcla:
+\begin{equation}
+x\mid H_d \sim \sum_{k=1}^{K}\pi_k\,\mathcal{N}_p(x;\mu_k,\Sigma_k),
+\qquad \sum_{k=1}^K \pi_k = 1.
+\end{equation}
+
+Esto permite simular: subpoblaciones, efectos demogr\'aficos (sesgo de muestreo), cambios de dominio (\textit{dataset shift}). En la pr\'actica, $\mu_p,\Sigma_p,\mu_d,\Sigma_d$ son desconocidos. Un enfoque bayesiano asigna priors.
+
+\subsection{Prior conjugado (Normal-Inversa-Wishart)}
+Para el caso multivariado, un prior cl\'asico es:
+\begin{align}
+\Sigma &\sim \mathcal{IW}(\nu_0,\Lambda_0),\\
+\mu\mid \Sigma &\sim \mathcal{N}_p(\mu_0,\Sigma/\kappa_0).
+\end{align}
+
+Dado un conjunto de entrenamiento $X=\{x_1,\dots,x_n\}$, se obtiene el posterior anal\'itico (conjugado) y la predictiva:
+\begin{equation}
+p(x_{\text{new}}\mid X) = \int p(x_{\text{new}}\mid \mu,\Sigma)\,p(\mu,\Sigma\mid X)\,d\mu\,d\Sigma,
+\end{equation}
+que resulta en una distribuci\'on tipo \textit{t} multivariada (en el caso conjugado). Entonces el LR bayesiano puede definirse usando predictivas:
+\begin{equation}
+LR_{\text{Bayes}}(x)=\frac{p(x\mid X_p,H_p)}{p(x\mid X_d,H_d)},
+\end{equation}
+donde $X_p$ y $X_d$ son datos de entrenamiento bajo cada hip\'otesis/poblaci\'on.
+%<<>>==<<>>==<<>>==<<>>==<<>>==<<>>==<<>>==<<>>==<<>>==<<>>==
+\section{Protocolo de simulaci\'on sint\'etica (recomendado)}
+%<<>>==<<>>==<<>>==<<>>==<<>>==<<>>==<<>>==<<>>==<<>>==<<>>==
+
+\subsection{Dise\~no experimental}
+\begin{enumerate}
+\item Elegir dimensi\'on $p$ y tama\~nos $N_{\text{train}},N_{\text{test}}$.
+\item Especificar modelos generativos bajo $H_p$ y $H_d$ (gaussiano o mezcla).
+\item Generar conjuntos: $X_p^{\text{train}},\;X_d^{\text{train}},\;X^{\text{test}}$.
+\item Ajustar el modelo bayesiano (posterior).
+\item Calcular $LR_{\text{Bayes}}(x)$ para cada $x\in X^{\text{test}}$.
+\item Evaluar: discriminaci\'on (ROC/DET usando $\log LR$), calibraci\'on (si $\log LR$ est\'a bien escalado), sensibilidad a priors (\,$\nu_0,\Lambda_0,\kappa_0$\,), robustez a cambios de poblaci\'on (mezclas en $H_d$).
+
+\end{enumerate}
+
+\textbf{Notas pr\'acticas importantes}
+
+\begin{itemize}
+\item \textbf{Simular es valioso}, pero hay que declarar qu\'e tan realista es el generador.
+\item Para forense, es com\'un estudiar $\log_{10}LR$ (m\'as interpretable en reportes).
+\item Si usas modelos discriminativos (p.\,ej. regresi\'on log\'istica), la salida no es un LR por defecto; en Bayes, lo natural es ir por predictivas o por modelos generativos.
+\end{itemize}
+
+\section{Investigaci\'on en Ciencia Forense y Estad\'istica en M\'exico}
+
+El desarrollo de m\'etodos cuantitativos aplicados a ciencia forense en M\'exico es todav\'ia un campo emergente. Sin embargo, existen instituciones acad\'emicas y grupos de investigaci\'on que trabajan en \'areas relacionadas como: antropolog\'ia forense, gen\'etica forense, criminolog\'ia cuantitativa, an\'alisis de redes criminales, identificaci\'on humana. Estas l\'ineas de investigaci\'on constituyen la base para el desarrollo de \textit{Forensic Data Science} en el pa\'is.
+
+\subsection{Universidad Nacional Aut\'onoma de M\'exico (UNAM)}
+
+La UNAM cuenta con m\'ultiples grupos que trabajan en ciencias forenses. Entre ellos destacan: Instituto de Investigaciones Jur\'idicas, Instituto de Investigaciones Antropol\'ogicas, Escuela Nacional de Antropolog\'ia e Historia (ENAH). Estas instituciones participan en proyectos de: identificaci\'on de restos humanos, an\'alisis de fosas clandestinas, reconstrucci\'on de contextos forenses,  desarrollo de metodolog\'ias cient\'ificas para identificaci\'on humana. Investigaciones recientes han resaltado la necesidad de enfoques integrales y cuantitativos para abordar el gran n\'umero de cuerpos no identificados en el pa\'is. [\textit{forensic-mexico-context}]
+
+\subsection{Equipo Mexicano de Antropolog\'ia Forense (EMAF)}
+
+El Equipo Mexicano de Antropolog\'ia Forense es una organizaci\'on cient\'ifica independiente dedicada a: identificaci\'on de restos humanos, an\'alisis de fosas clandestinas, apoyo a familias de personas desaparecidas. Su trabajo combina: antropolog\'ia forense, gen\'etica, bases de datos de identificaci\'on, an\'alisis estad\'istico de coincidencias.
+
+\subsection{Instituto Nacional de Ciencias Penales}
+
+El Instituto Nacional de Ciencias Penales (INACIPE) desarrolla investigaci\'on en:  criminolog\'ia, pol\'itica criminal, an\'alisis de evidencia legal. Este instituto podr\'ia beneficiarse de metodolog\'ias de \textit{Forensic Data Science}.
+
+\subsection{Investigaci\'on cuantitativa sobre crimen en M\'exico}
+
+Aunque no siempre se identifica como ciencia forense, existen investigadores en M\'exico que aplican m\'etodos avanzados de ciencia de datos al estudio del crimen.
+
+\subsection{An\'alisis de redes criminales}
+
+Investigadores han utilizado: teor\'ia de redes, aprendizaje autom\'atico, an\'alisis de grafos, para estudiar fen\'omenos como: evasi\'on fiscal, redes criminales, tr\'afico de personas. Estos estudios muestran que los patrones de interacci\'on entre actores criminales pueden ser detectados mediante an\'alisis estructural de redes. [\textit{network-crime-mexico}]
+
+\subsection{Crisis forense en M\'exico y necesidad de m\'etodos cuantitativos}
+
+M\'exico enfrenta actualmente una crisis forense significativa. Se estima que decenas de miles de restos humanos permanecen sin identificar en instalaciones forenses del pa\'is [\textit{network-crime-mexico}]. Este contexto ha impulsado la necesidad de desarrollar: sistemas de bases de datos forenses, m\'etodos estad\'isticos para identificaci\'on, algoritmos de comparaci\'on biom\'etrica,  modelos probabil\'isticos para evidencia gen\'etica. El desarrollo de herramientas basadas en ciencia de datos podr\'ia contribuir significativamente a mejorar los procesos de identificaci\'on humana y an\'alisis de evidencia.
+
+\subsection{Oportunidad cient\'ifica}
+
+A diferencia de Europa o Estados Unidos, donde la estad\'istica forense es un campo consolidado, en M\'exico existe una gran oportunidad para desarrollar: modelos bayesianos para evaluaci\'on de evidencia, an\'alisis de mezclas de ADN, identificaci\'on probabil\'istica, an\'alisis de redes criminales. La magnitud de los problemas forenses en el pa\'is hace que la integraci\'on de ciencia de datos y estad\'istica avanzada sea un \'area de investigaci\'on con alto impacto cient\'ifico y social.
+
+\subsection{Investigaci\'on y Datos Abiertos para Forensic Data Science en M\'exico}
+
+El desarrollo de m\'etodos de \textit{Forensic Data Science} en M\'exico puede apoyarse en tres pilares fundamentales: grupos acad\'emicos con experiencia en an\'alisis cuantitativo del crimen, instituciones con infraestructura cient\'ifica relevante, disponibilidad de bases de datos abiertas.
+
+\subsection{Investigadores e instituciones cercanas al \'area}
+
+Aunque el campo espec\'ifico de \textit{forensic statistics} a\'un es incipiente en M\'exico, existen investigadores que trabajan en \'areas cercanas como criminolog\'ia cuantitativa, an\'alisis de redes criminales y estad\'istica aplicada a seguridad p\'ublica.
+
+\subsection{Centro de Investigaci\'on y Docencia Econ\'omicas (CIDE)}
+
+El CIDE cuenta con investigadores que han desarrollado modelos cuantitativos para estudiar fen\'omenos criminales en M\'exico, incluyendo: an\'alisis estad\'istico del crimen organizado, modelos econom\'etricos de violencia, an\'alisis espacial del crimen. Estas l\'ineas de investigaci\'on utilizan herramientas como: regresi\'on estad\'istica, modelos espaciales, an\'alisis de redes.
+
+
+\section{Bases de datos abiertas en M\'exico}
+
+M\'exico cuenta con varias bases de datos p\'ublicas \'utiles para investigaci\'on en ciencia de datos aplicada al crimen.
+
+\subsection{Datos Abiertos del Gobierno de M\'exico}
+
+El portal nacional de datos abiertos ofrece informaci\'on sobre: incidencia delictiva, registros policiales, informaci\'on geogr\'afica del crimen. Estas bases de datos permiten realizar: an\'alisis temporal de criminalidad, an\'alisis espacial del crimen, detecci\'on de patrones.
+
+\subsection{Secretariado Ejecutivo del Sistema Nacional de Seguridad P\'ublica}
+
+Esta instituci\'on publica datos mensuales de incidencia delictiva. Las variables incluyen: tipo de delito, estado y municipio, fecha del registro. Estos datos se utilizan frecuentemente para: an\'alisis estad\'istico del crimen, modelos predictivos, estudios de pol\'iticas p\'ublicas.
+
+\subsection{INEGI}
+
+El Instituto Nacional de Estad\'istica y Geograf\'ia produce varios conjuntos de datos relevantes.
+
+Entre ellos destacan: ENVIPE (Encuesta Nacional de Victimizaci\'on), registros administrativos de delitos, datos geoespaciales. Estos datos permiten estudiar: subregistro del crimen, patrones de victimizaci\'on, correlaciones socioecon\'omicas del delito.
+
+\section{\'Areas de oportunidad}
+
+La combinaci\'on de: bases de datos abiertas, m\'etodos bayesianos, aprendizaje autom\'atico, an\'alisis de redes criminales; abre la posibilidad de desarrollar en M\'exico una l\'inea de investigaci\'on s\'olida en \textit{Forensic Data Science}. Esta \'area podr\'ia contribuir tanto al avance cient\'ifico como a la mejora de los sistemas de an\'alisis criminal y forense del pa\'is.
+
+\subsection{Propuesta de Investigaci\'on: Bayesian Forensic Data Science en M\'exico}
+
+El desarrollo de metodolog\'ias bayesianas para el an\'alisis de evidencia forense representa una oportunidad cient\'ifica importante en M\'exico. La disponibilidad de datos abiertos sobre criminalidad y la magnitud de los problemas forenses del pa\'is hacen posible plantear proyectos de investigaci\'on con impacto cient\'ifico y social.
+
+\subsubsection*{Objetivo del proyecto}
+
+El objetivo general del proyecto es desarrollar modelos bayesianos para el an\'alisis probabil\'istico de evidencia criminal y patrones delictivos utilizando datos abiertos disponibles en M\'exico. Entre los objetivos espec\'ificos se encuentran: desarrollar modelos probabil\'isticos para evaluar evidencia criminal, aplicar m\'etodos bayesianos para an\'alisis de patrones delictivos, integrar t\'ecnicas de ciencia de datos y aprendizaje autom\'atico.
+
+\subsubsection*{Problema cient\'ifico}
+
+En muchos sistemas de justicia, la interpretaci\'on de evidencia se basa en m\'etodos heur\'isticos o determin\'isticos.
+
+Un enfoque bayesiano permite cuantificar expl\'icitamente la incertidumbre. En este contexto, la evidencia $E$ se analiza comparando dos hip\'otesis:
+
+\begin{itemize}
+\item $H_p$: la evidencia es consistente con la hip\'otesis de la fiscal\'ia,
+\item $H_d$: la evidencia es consistente con una hip\'otesis alternativa.
+\end{itemize}
+
+El peso de la evidencia puede expresarse mediante la raz\'on de verosimilitud:
+\begin{equation}
+LR(E) = \frac{P(E|H_p)}{P(E|H_d)}
+\end{equation}
+Este enfoque es ampliamente utilizado en gen\'etica forense y an\'alisis probabil\'istico de evidencia.
+
+\subsection{Datos}
+
+El proyecto podr\'ia utilizar fuentes de datos abiertas disponibles en M\'exico, tales como: incidencia delictiva del Secretariado Ejecutivo del Sistema Nacional de Seguridad P\'ublica, encuestas de victimizaci\'on del INEGI, datos geoespaciales sobre criminalidad. Estos conjuntos de datos permiten estudiar patrones espaciales y temporales del crimen.
+
+\subsection{Metodolog\'ia}
+
+La metodolog\'ia propuesta consta de varias etapas.
+
+\subsubsection*{Simulaci\'on de datos sint\'eticos}
+
+Antes de aplicar modelos a datos reales, se pueden generar conjuntos de datos sint\'eticos utilizando modelos probabil\'isticos. Por ejemplo, se pueden generar vectores de caracter\'isticas $x$ bajo dos distribuciones:
+\begin{align}
+x | H_p &\sim \mathcal{N}(\mu_p,\Sigma_p) \\
+x | H_d &\sim \mathcal{N}(\mu_d,\Sigma_d)
+\end{align}
+Estos datos permiten evaluar el comportamiento de los modelos bajo condiciones controladas.
+
+\subsubsection*{Reducci\'on de dimensionalidad}
+
+Cuando los datos tienen muchas variables, se pueden aplicar t\'ecnicas como An\'alisis de Componentes Principales (PCA). Sea $X$ la matriz de datos estandarizada. PCA busca una transformaci\'on lineal:
+\begin{equation}
+T = XW
+\end{equation}
+donde $W$ contiene los vectores propios de la matriz de covarianza.
+
+\subsubsection*{Modelos bayesianos}
+
+Los par\'ametros del modelo pueden estimarse usando inferencia bayesiana. Por ejemplo, si las medias son desconocidas, se pueden utilizar priors normales:
+\begin{align}
+\mu_p &\sim \mathcal{N}(\mu_0,\tau^2 I) \\
+\mu_d &\sim \mathcal{N}(\mu_0,\tau^2 I)
+\end{align}
+La distribuci\'on posterior se obtiene mediante el teorema de Bayes:
+\begin{equation}
+P(\theta|X) \propto P(X|\theta)P(\theta)
+\end{equation}
+
+\subsection{Resultados esperados}
+
+El proyecto podr\'ia producir: modelos probabil\'isticos para evaluaci\'on de evidencia, algoritmos para detecci\'on de patrones criminales, herramientas de ciencia de datos aplicadas a criminolog\'ia.
+
+\subsection{Impacto}
+
+El desarrollo de herramientas de \textit{Forensic Data Science} en M\'exico podr\'ia contribuir a: mejorar el an\'alisis de evidencia criminal, apoyar investigaciones forenses, desarrollar capacidades cient\'ificas en an\'alisis cuantitativo del crimen. Adem\'as, este tipo de investigaci\'on puede fortalecer la integraci\'on entre estad\'istica, ciencia de datos y ciencias forenses en el pa\'is.
+
+\subsubsection*{Experimento completo en \textsf{R}: Simulaci\'on Bayesiana Forense con Likelihood Ratios}
+
+Esta secci\'on propone un experimento reproducible para: simular evidencia sint\'etica bajo dos hip\'otesis ($H_p$ y $H_d$), ajustar modelos bayesianos generativos, calcular \textit{Likelihood Ratios} (LR) v\'ia densidades predictivas, evaluar desempe\~no (ROC) y calibraci\'on (Brier / ECE) usando $\log LR$.
+
+\subsubsection*{Planteamiento probabil\'istico}
+
+Sea $x\in\mathbb{R}^p$ un vector de rasgos extra\'idos de evidencia. Modelos generativos:
+\begin{align}
+x \mid H_p &\sim \mathcal{N}_p(\mu_p,\Sigma_p),\\
+x \mid H_d &\sim \mathcal{N}_p(\mu_d,\Sigma_d).
+\end{align}
+
+En un enfoque bayesiano, $\mu$ y $\Sigma$ son desconocidos y se les asigna un prior conjugado \textit{Normal-Inversa-Wishart} (NIW):
+\begin{align}
+\Sigma &\sim \mathcal{IW}(\nu_0,\Lambda_0),\\
+\mu\mid\Sigma &\sim \mathcal{N}_p(\mu_0,\Sigma/\kappa_0).
+\end{align}
+
+La distribuci\'on predictiva posterior para una nueva observaci\'on $x$ (con NIW) es una $t$ multivariada:
+\[
+p(x\mid X) = t_{\nu_n-p+1}\left(x; \mu_n,\ \frac{\kappa_n+1}{\kappa_n(\nu_n-p+1)}\Lambda_n\right),
+\]
+donde $(\mu_n,\kappa_n,\nu_n,\Lambda_n)$ son los hiperpar\'ametros posteriores. Entonces, para una evidencia $x$:
+\begin{equation}
+LR_{\text{Bayes}}(x) = \frac{p(x\mid X_p,H_p)}{p(x\mid X_d,H_d)}.
+\end{equation}
+
+\subsection{Dise\~no del experimento}
+
+\begin{enumerate}
+\item Elegir dimensi\'on $p$ y separaci\'on entre clases (control de dificultad).
+\item Simular conjuntos de entrenamiento: $X_p^{\text{train}}$ y $X_d^{\text{train}}$.
+\item Simular conjunto de prueba mezclado con etiqueta verdadera $y\in\{0,1\}$.
+\item Ajustar NIW por clase y calcular $LR_{\text{Bayes}}(x)$ para cada caso.
+\item Evaluar: discriminaci\'on: ROC-AUC usando $s(x)=\log LR(x)$, calibraci\'on: convertir $s$ a probabilidad y calcular Brier/ECE, estabilidad: repetir con distintas semillas o escenarios.
+\end{enumerate}
+
+\subsubsection*{C\'odigo \textsf{R} (listo para copiar y ejecutar)}
+
+\begin{verbatim}
+# ============================================================
+# Bayesian Forensic Simulation: NIW + predictive t + LR
+# ============================================================
+
+# Paquetes (solo base + MASS para mvrnorm)
+if (!requireNamespace("MASS", quietly = TRUE)) install.packages("MASS")
+library(MASS)
+
+set.seed(123)
+
+# ------------------------------
+# Utilidades matematicas
+# ------------------------------
+
+# log densidad de t multivariada: x ~ mvt(df, mean, Sigma)
+log_dmvt <- function(x, mean, Sigma, df) {
+  # x: vector p
+  # mean: vector p
+  # Sigma: matriz p x p (escala)
+  p <- length(x)
+  xc <- matrix(x - mean, ncol = 1)
+  # estabilizar: usar chol + solve triangular
+  R <- chol(Sigma)
+  # Mahalanobis: (x-mean)' Sigma^{-1} (x-mean)
+  z <- backsolve(R, xc, transpose = TRUE)
+  quad <- sum(z^2)
+  logdet <- 2 * sum(log(diag(R)))
+
+  # log constante
+  # log Gamma((df+p)/2) - log Gamma(df/2) - (p/2)log(df*pi) - 0.5 log|Sigma|
+  lc <- lgamma((df + p) / 2) - lgamma(df / 2) - (p / 2) * log(df * pi) - 0.5 * logdet
+  # log kernel
+  lk <- -((df + p) / 2) * log1p(quad / df)
+  lc + lk
+}
+
+# NIW posterior update
+niw_posterior <- function(X, mu0, kappa0, nu0, Lambda0) {
+  # X: n x p
+  X <- as.matrix(X)
+  n <- nrow(X)
+  p <- ncol(X)
+  xbar <- colMeans(X)
+  # scatter
+  S <- t(X - matrix(xbar, n, p, byrow=TRUE)) %*% (X - matrix(xbar, n, p, byrow=TRUE))
+
+  kappa_n <- kappa0 + n
+  nu_n <- nu0 + n
+  mu_n <- (kappa0 * mu0 + n * xbar) / kappa_n
+
+  # Lambda_n = Lambda0 + S + (kappa0*n/kappa_n) (xbar-mu0)(xbar-mu0)'
+  d <- matrix(xbar - mu0, ncol=1)
+  Lambda_n <- Lambda0 + S + (kappa0 * n / kappa_n) * (d %*% t(d))
+
+  list(mu = mu_n, kappa = kappa_n, nu = nu_n, Lambda = Lambda_n)
+}
+
+# predictive t parameters from NIW posterior
+predictive_params <- function(post) {
+  mu_n <- post$mu
+  kappa_n <- post$kappa
+  nu_n <- post$nu
+  Lambda_n <- post$Lambda
+  p <- length(mu_n)
+  df <- nu_n - p + 1
+  # scale matrix for multivariate t
+  Sigma <- (kappa_n + 1) / (kappa_n * df) * Lambda_n
+  list(mean = mu_n, Sigma = Sigma, df = df)
+}
+
+# Calibracion: convertir logLR a prob via logistic con prior odds (aqui 0.5/0.5)
+logit <- function(z) 1/(1+exp(-z))
+
+# ECE (Expected Calibration Error) para clasificacion binaria
+ece_binary <- function(p_hat, y, bins = 10) {
+  stopifnot(length(p_hat) == length(y))
+  breaks <- seq(0, 1, length.out = bins + 1)
+  bin_id <- cut(p_hat, breaks = breaks, include.lowest = TRUE, labels = FALSE)
+  ece <- 0
+  n <- length(y)
+  for (b in 1:bins) {
+    idx <- which(bin_id == b)
+    if (length(idx) == 0) next
+    acc <- mean(y[idx])
+    conf <- mean(p_hat[idx])
+    ece <- ece + (length(idx)/n) * abs(acc - conf)
+  }
+  ece
+}
+
+# AUC ROC (implementacion simple por ranking)
+auc_roc <- function(score, y) {
+  # y in {0,1}; score mayor => predice 1
+  r <- rank(score, ties.method = "average")
+  n1 <- sum(y == 1)
+  n0 <- sum(y == 0)
+  # estadistico U de Mann-Whitney
+  U <- sum(r[y == 1]) - n1*(n1+1)/2
+  U / (n1*n0)
+}
+
+# ------------------------------
+# 1) Escenario sintetico controlable
+# ------------------------------
+p <- 5
+n_train <- 200
+n_test  <- 500
+
+# Separacion entre clases (sube esto para problema mas facil)
+delta <- 0.8
+
+mu_p_true <- rep(delta, p)
+mu_d_true <- rep(0, p)
+
+# Covarianzas verdaderas (puedes jugar con esto)
+Sigma_p_true <- diag(p)
+Sigma_d_true <- diag(p)
+
+Xp_train <- MASS::mvrnorm(n_train, mu = mu_p_true, Sigma = Sigma_p_true)
+Xd_train <- MASS::mvrnorm(n_train, mu = mu_d_true, Sigma = Sigma_d_true)
+
+# Test mezclado
+y_test <- rbinom(n_test, 1, 0.5)
+X_test <- matrix(NA, n_test, p)
+for (i in 1:n_test) {
+  if (y_test[i] == 1) X_test[i,] <- MASS::mvrnorm(1, mu_p_true, Sigma_p_true)
+  if (y_test[i] == 0) X_test[i,] <- MASS::mvrnorm(1, mu_d_true, Sigma_d_true)
+}
+
+# ------------------------------
+# 2) Priors NIW (elige priors debiles)
+# ------------------------------
+mu0 <- rep(0, p)
+kappa0 <- 0.01
+nu0 <- p + 2
+Lambda0 <- diag(p)
+
+post_p <- niw_posterior(Xp_train, mu0, kappa0, nu0, Lambda0)
+post_d <- niw_posterior(Xd_train, mu0, kappa0, nu0, Lambda0)
+
+pred_p <- predictive_params(post_p)
+pred_d <- predictive_params(post_d)
+
+# ------------------------------
+# 3) Calcular LR bayesiano para cada x_test
+# ------------------------------
+logLR <- numeric(n_test)
+for (i in 1:n_test) {
+  lp <- log_dmvt(X_test[i,], pred_p$mean, pred_p$Sigma, pred_p$df)
+  ld <- log_dmvt(X_test[i,], pred_d$mean, pred_d$Sigma, pred_d$df)
+  logLR[i] <- lp - ld
+}
+
+# Convertir a probabilidad con prior 0.5 (odds=1): P(Hp|x)= logistic(logLR)
+p_hat <- logit(logLR)
+
+# ------------------------------
+# 4) Evaluacion
+# ------------------------------
+auc <- auc_roc(logLR, y_test)
+brier <- mean((p_hat - y_test)^2)
+ece <- ece_binary(p_hat, y_test, bins = 10)
+
+cat("AUC (ROC)        =", round(auc, 4), "\n")
+cat("Brier score      =", round(brier, 4), "\n")
+cat("ECE (10 bins)    =", round(ece, 4), "\n")
+
+# ------------------------------
+# 5) Graficas utiles
+# ------------------------------
+par(mfrow=c(1,3))
+
+# (i) hist logLR por clase
+hist(logLR[y_test==0], breaks=30, main="logLR (y=0)", xlab="logLR")
+hist(logLR[y_test==1], breaks=30, main="logLR (y=1)", xlab="logLR")
+
+# (ii) calibration plot (reliability diagram)
+bins <- 10
+breaks <- seq(0,1,length.out=bins+1)
+bin_id <- cut(p_hat, breaks=breaks, include.lowest=TRUE, labels=FALSE)
+bin_conf <- tapply(p_hat, bin_id, mean)
+bin_acc  <- tapply(y_test, bin_id, mean)
+plot(bin_conf, bin_acc, xlim=c(0,1), ylim=c(0,1),
+     xlab="Confianza promedio", ylab="Frecuencia y=1",
+     main="Calibration (10 bins)")
+abline(0,1)
+\end{verbatim}
+
+\subsubsection*{C\'omo interpretar los resultados}
+
+\textbf{AUC}: mide separaci\'on usando $s(x)=\log LR(x)$. Si $AUC\approx 0.5$, el problema es indistinguible; si se acerca a $1$, hay buena discriminaci\'on. \textbf{Brier}: error cuadr\'atico medio de probabilidades. Penaliza mala calibraci\'on. \textbf{ECE}: desviaci\'on promedio ponderada entre confianza y frecuencia real.
+
+
+\subsubsection*{Extensiones naturales (para acercarte a un caso real)}
+
+\textbf{Poblaci\'on heterog\'enea en $H_d$}: reemplazar $H_d$ por una mezcla gaussiana y comparar contra NIW (mis-especificaci\'on). \textbf{Alta dimensi\'on}: aumentar $p$ y aplicar PCA antes del modelado; estudiar el efecto sobre $LR$ y calibraci\'on. \textbf{Cambio de dominio}: entrenar con $(\mu_d,\Sigma_d)$ y probar con una poblaci\'on distinta; observar degradaci\'on y sesgos.
+
+%<<>>==<<>>==<<>>==<<>>==<<>>==<<>>==<<>>==<<>>==<<>>==<<>>==
+\section{Roles posibles para un especialista en estad\'istica forense}
+%<<>>==<<>>==<<>>==<<>>==<<>>==<<>>==<<>>==<<>>==<<>>==<<>>==
+
+Un experto en m\'etodos estad\'isticos y ciencia de datos aplicados al \'ambito forense puede desempe\~nar varios tipos de funciones.
+
+\subsection{Perito estad\'istico}
+
+En muchos sistemas judiciales existe la figura del \textit{perito}, es decir, un especialista que proporciona an\'alisis t\'ecnico sobre evidencia cient\'ifica.
+
+Un estad\'istico forense podr\'ia: evaluar probabil\'isticamente evidencia cient\'ifica, analizar coincidencias de evidencia (por ejemplo ADN o biometr\'ia), evaluar la fuerza estad\'istica de la evidencia presentada en un juicio, elaborar informes t\'ecnicos para tribunales. Este rol es com\'un en pa\'ises donde la \textit{forensic statistics} est\'a consolidada.
+
+\subsection{Consultor en an\'alisis de datos criminales}
+
+Las fiscal\'ias y dependencias de seguridad generan grandes vol\'umenes de datos relacionados con: reportes policiales, registros de delitos, datos geoespaciales, evidencia digital. Un especialista en ciencia de datos puede desarrollar modelos para: detecci\'on de patrones delictivos, an\'alisis espacial del crimen, predicci\'on de eventos criminales, an\'alisis de redes criminales.
+
+\subsection{Asesor en laboratorios forenses}
+
+Los laboratorios forenses analizan evidencia f\'isica como: ADN, huellas dactilares, evidencia digital, an\'alisis de voz. Los m\'etodos estad\'isticos pueden utilizarse para: estimar probabilidades de coincidencia, evaluar incertidumbre en las mediciones, desarrollar modelos probabil\'isticos para identificaci\'on.
+
+\subsection{Desarrollo de software anal\'itico}
+
+Otra posibilidad consiste en desarrollar herramientas computacionales para an\'alisis de evidencia o datos criminales. Estas herramientas pueden incluir: software para an\'alisis probabil\'istico de evidencia, plataformas de an\'alisis espacial del crimen, sistemas de an\'alisis de redes criminales.
+
+
+\section{Principales investigadores}
+
+El campo de la estad\'istica forense ha sido desarrollado principalmente por un peque\~no grupo de investigadores que han integrado m\'etodos estad\'isticos rigurosos en la interpretaci\'on de evidencia cient\'ifica. Sus contribuciones han establecido los fundamentos te\'oricos y metodol\'ogicos que actualmente se utilizan en laboratorios forenses y tribunales.
+
+\begin{itemize} 
+
+\item Colin G. G. Aitken,  es uno de los pioneros en la aplicaci\'on de estad\'istica bayesiana al an\'alisis de evidencia forense. Sus contribuciones incluyen:  desarrollo del marco probabil\'istico para evaluaci\'on de evidencia, formalizaci\'on del uso de \textit{likelihood ratios}, desarrollo de m\'etodos estad\'isticos aplicados a ADN forense. Uno de sus libros m\'as influyentes es: \textit{Statistics and the Evaluation of Evidence for Forensic Scientists}. Este trabajo estableci\'o las bases modernas para el an\'alisis probabil\'istico de evidencia.
+
+\item Franco Taroni, ha contribuido significativamente al desarrollo de m\'etodos probabil\'isticos y redes bayesianas aplicadas a ciencia forense. Entre sus contribuciones se encuentran:  uso de redes bayesianas para modelar evidencia compleja, integraci\'on de m\'ultiples fuentes de evidencia, desarrollo de metodolog\'ias probabil\'isticas para tribunales. Uno de sus trabajos m\'as importantes es: \textit{Bayesian Networks and Probabilistic Inference in Forensic Science}. Este libro presenta herramientas para modelar relaciones probabil\'isticas entre distintos tipos de evidencia.
+
+\item Alex Biedermann, es uno de los investigadores m\'as activos en el desarrollo contempor\'aneo de estad\'istica forense. Su trabajo se enfoca en:  modelado bayesiano de evidencia, interpretaci\'on probabil\'istica de resultados forenses, desarrollo de marcos te\'oricos para la evaluaci\'on de evidencia. Ha trabajado extensamente en la Universidad de Lausana, uno de los centros m\'as importantes de investigaci\'on en ciencias forenses.
+
+\item David Lucy, ha realizado contribuciones importantes en: an\'alisis estad\'istico de huellas dactilares, evaluaci\'on de incertidumbre en identificaci\'on biom\'etrica, modelos probabil\'isticos aplicados a evidencia f\'isica. Sus trabajos han sido influyentes en la discusi\'on sobre la confiabilidad de m\'etodos tradicionales de identificaci\'on.
+\end{itemize}
+
+\section{Centros de investigaci\'on importantes}
+
+El desarrollo de la estad\'istica forense ha estado fuertemente asociado con algunos centros acad\'emicos y laboratorios.
+
+\begin{itemize}
+\item University of Lausanne en Suiza alberga uno de los programas m\'as importantes de investigaci\'on en ciencia forense. En este centro se desarrollan investigaciones sobre:  an\'alisis probabil\'istico de evidencia, redes bayesianas, integraci\'on de m\'ultiples fuentes de evidencia.
+
+\item Netherlands Forensic Institute de los Pa\'ises Bajos es uno de los laboratorios m\'as avanzados del mundo. En este instituto se utilizan m\'etodos estad\'isticos avanzados para: an\'alisis de ADN, biometr\'ia, evidencia digital.
+
+\item Universidad de Edimburgo ha sido un centro importante en el desarrollo de estad\'istica aplicada a evidencia forense. Investigadores en esta instituci\'on han trabajado en: modelos bayesianos, an\'alisis de ADN, evaluaci\'on de evidencia biom\'etrica.
+\end{itemize}
+
+\section{Plan de trabajo}
+
+El establecimiento de una l\'inea de investigaci\'on en \textit{Bayesian Forensic Data Science} requiere una estrategia gradual que combine desarrollo metodol\'ogico, generaci\'on de datos sint\'eticos, publicaciones acad\'emicas y colaboraci\'on con instituciones del sistema de justicia. Se propone una estrategia en cuatro etapas que puede desarrollarse en un horizonte de aproximadamente cinco a\~nos.
+
+\subsection{Fase I: Fundamentos metodol\'ogicos (A\~no 1)}
+
+La primera etapa consiste en desarrollar la base te\'orica y computacional del programa de investigaci\'on.
+
+\subsubsection*{Objetivos}
+
+Desarrollar modelos bayesianos para evaluaci\'on de evidencia, dise\~nar simulaciones sint\'eticas que permitan estudiar el comportamiento de los modelos,
+ establecer un marco computacional reproducible en \textsf{R}.
+
+
+\subsubsection*{L\'ineas metodol\'ogicas iniciales}
+
+Se pueden explorar problemas fundamentales como: Calibraci\'on de \textit{likelihood ratios}, comparaci\'on entre modelos generativos y discriminativos, impacto de la dimensionalidad en la evaluaci\'on de evidencia.
+
+\subsubsection*{Resultados esperados}
+
+Art\'iculos metodol\'ogicos en estad\'istica aplicada, repositorios abiertos con c\'odigo reproducible, formaci\'on de estudiantes de licenciatura o maestr\'ia.
+
+\subsection{Fase II: Aplicaci\'on a problemas criminales (A\~nos 2--3)}
+
+En esta etapa se integran datos reales provenientes de fuentes abiertas.
+
+\subsubsection*{Posibles datasets}
+
+Incidencia delictiva (Secretariado Ejecutivo del Sistema Nacional de Seguridad P\'ublica), encuestas de victimizaci\'on (INEGI), datos geoespaciales del crimen.
+
+\subsubsection*{Problemas de investigaci\'on}
+
+Entre los problemas que pueden estudiarse se encuentran: an\'alisis espacial del crimen, detecci\'on de patrones criminales, an\'alisis de redes delictivas. Se pueden utilizar modelos como: procesos puntuales espaciales, modelos bayesianos jer\'arquicos, modelos de mezcla.
+
+\subsection{Fase III: Colaboraci\'on institucional (A\~nos 3--4)}
+
+Una vez desarrolladas herramientas metodol\'ogicas, se pueden establecer colaboraciones con instituciones relacionadas con el an\'alisis forense.
+
+\subsubsection*{Instituciones potenciales}
+
+Fiscal\'ias estatales, institutos de ciencias forenses, laboratorios de gen\'etica forense. Las colaboraciones pueden enfocarse en: desarrollo de herramientas anal\'iticas, capacitaci\'on en an\'alisis de datos, evaluaci\'on estad\'istica de evidencia.
+
+\subsection{Fase IV: Consolidaci\'on y transferencia (A\~nos 4--5)}
+
+La etapa final busca consolidar la l\'inea de investigaci\'on y transferir los resultados a aplicaciones pr\'acticas.
+
+\subsubsection*{Resultados posibles}
+
+Desarrollo de software anal\'itico, consultor\'ia t\'ecnica para instituciones p\'ublicas, creaci\'on de programas de formaci\'on en ciencia de datos forense.
+
+\subsection{Impacto acad\'emico y profesional}
+
+El desarrollo de una l\'inea de investigaci\'on en \textit{Forensic Data Science} puede generar impacto en m\'ultiples dimensiones. Impacto acad\'emico: publicaciones en estad\'istica aplicada, direcci\'on de tesis en ciencia de datos, colaboraci\'on interdisciplinaria.
+
+\subsubsection*{Impacto profesional}
+
+Asesor\'ia t\'ecnica para instituciones p\'ublicas, desarrollo de herramientas anal\'iticas, participaci\'on en proyectos de investigaci\'on aplicada.
+
+%<<>>==<<>>==<<>>==<<>>==<<>>==<<>>==<<>>==<<>>==<<>>==<<>>==
+\end{document}
