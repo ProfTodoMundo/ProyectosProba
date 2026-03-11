@@ -1,0 +1,73 @@
+\babel@toc {spanish}{}\relax 
+\contentsline {section}{\numberline {1}Forensic Data Science}{2}{section.1}%
+\contentsline {subsection}{\numberline {1.1}¿Qu\'e es Forensic Data Science?}{2}{subsection.1.1}%
+\contentsline {subsection}{\numberline {1.2}Tipos de evidencia donde se aplica}{2}{subsection.1.2}%
+\contentsline {subsection}{\numberline {1.3}Forensic Statistics: base matem\'atica}{3}{subsection.1.3}%
+\contentsline {subsection}{\numberline {1.4}Machine Learning en investigaci\'on criminal}{3}{subsection.1.4}%
+\contentsline {subsection}{\numberline {1.5}Problemas cient\'ificos abiertos}{3}{subsection.1.5}%
+\contentsline {subsection}{\numberline {1.6}Centros de investigaci\'on importantes}{3}{subsection.1.6}%
+\contentsline {subsection}{\numberline {1.7}Libros clave del \'area}{3}{subsection.1.7}%
+\contentsline {subsection}{\numberline {1.8}Pipeline t\'ipico de Forensic Data Science}{4}{subsection.1.8}%
+\contentsline {subsection}{\numberline {1.9}Posibles aplicaciones}{4}{subsection.1.9}%
+\contentsline {section}{\numberline {2}Datasets P\'ublicos para Investigaci\'on en Forensic Data Science}{4}{section.2}%
+\contentsline {subsection}{\numberline {2.1}Datos de Criminalidad}{4}{subsection.2.1}%
+\contentsline {subsection}{\numberline {2.2}Datasets de Evidencia Digital}{4}{subsection.2.2}%
+\contentsline {subsection}{\numberline {2.3}Datasets Biom\'etricos}{4}{subsection.2.3}%
+\contentsline {subsection}{\numberline {2.4}Datasets para Detecci\'on de Fraude}{4}{subsection.2.4}%
+\contentsline {subsection}{\numberline {2.5}Importancia de los Datasets P\'ublicos}{5}{subsection.2.5}%
+\contentsline {section}{\numberline {3}Papers Fundacionales en Forensic Data Science}{5}{section.3}%
+\contentsline {subsection}{\numberline {3.1}Fundamentos de Estad\'istica Forense}{5}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.2}Evaluaci\'on Probabil\'istica de Evidencia}{5}{subsection.3.2}%
+\contentsline {subsection}{\numberline {3.3}Machine Learning en Ciencias Forenses}{5}{subsection.3.3}%
+\contentsline {subsection}{\numberline {3.4}Importancia de la Interpretabilidad}{5}{subsection.3.4}%
+\contentsline {subsection}{\numberline {3.5}Referencias Clave}{5}{subsection.3.5}%
+\contentsline {section}{\numberline {4}Pipeline Metodol\'ogico en Forensic Data Science}{6}{section.4}%
+\contentsline {subsection}{\numberline {4.1}Contexto general y principios}{6}{subsection.4.1}%
+\contentsline {subsection}{\numberline {4.2}Pipeline completo}{6}{subsection.4.2}%
+\contentsline {subsection}{\numberline {4.3}Ejemplo guiado: Clasificaci\'on forense con PCA + Regresi\'on Log\'istica}{6}{subsection.4.3}%
+\contentsline {section}{\numberline {5}Modelado Bayesiano en Forensic Data Science y Simulaci\'on de Datos Sint\'eticos}{7}{section.5}%
+\contentsline {subsection}{\numberline {5.1}Marco bayesiano b\'asico: hip\'otesis y evidencia}{7}{subsection.5.1}%
+\contentsline {subsection}{\numberline {5.2}Modelo sint\'etico 1: Evidencia univariada (caso did\'actico)}{8}{subsection.5.2}%
+\contentsline {subsection}{\numberline {5.3}Modelo}{8}{subsection.5.3}%
+\contentsline {subsection}{\numberline {5.4}Simulaci\'on sint\'etica}{8}{subsection.5.4}%
+\contentsline {subsection}{\numberline {5.5}Modelo sint\'etico 2: Evidencia multivariada (m\'as realista)}{8}{subsection.5.5}%
+\contentsline {subsection}{\numberline {5.6}Modelo generativo gaussiano}{8}{subsection.5.6}%
+\contentsline {subsection}{\numberline {5.7}Modelo sint\'etico 3: Poblaci\'on (Defense) como mezcla}{8}{subsection.5.7}%
+\contentsline {subsection}{\numberline {5.8}Prior conjugado (Normal-Inversa-Wishart)}{9}{subsection.5.8}%
+\contentsline {section}{\numberline {6}Protocolo de simulaci\'on sint\'etica (recomendado)}{9}{section.6}%
+\contentsline {subsection}{\numberline {6.1}Dise\~no experimental}{9}{subsection.6.1}%
+\contentsline {section}{\numberline {7}Investigaci\'on en Ciencia Forense y Estad\'istica en M\'exico}{9}{section.7}%
+\contentsline {subsection}{\numberline {7.1}Universidad Nacional Aut\'onoma de M\'exico (UNAM)}{9}{subsection.7.1}%
+\contentsline {subsection}{\numberline {7.2}Equipo Mexicano de Antropolog\'ia Forense (EMAF)}{9}{subsection.7.2}%
+\contentsline {subsection}{\numberline {7.3}Instituto Nacional de Ciencias Penales}{10}{subsection.7.3}%
+\contentsline {subsection}{\numberline {7.4}Investigaci\'on cuantitativa sobre crimen en M\'exico}{10}{subsection.7.4}%
+\contentsline {subsection}{\numberline {7.5}An\'alisis de redes criminales}{10}{subsection.7.5}%
+\contentsline {subsection}{\numberline {7.6}Crisis forense en M\'exico y necesidad de m\'etodos cuantitativos}{10}{subsection.7.6}%
+\contentsline {subsection}{\numberline {7.7}Oportunidad cient\'ifica}{10}{subsection.7.7}%
+\contentsline {subsection}{\numberline {7.8}Investigaci\'on y Datos Abiertos para Forensic Data Science en M\'exico}{10}{subsection.7.8}%
+\contentsline {subsection}{\numberline {7.9}Investigadores e instituciones cercanas al \'area}{10}{subsection.7.9}%
+\contentsline {subsection}{\numberline {7.10}Centro de Investigaci\'on y Docencia Econ\'omicas (CIDE)}{10}{subsection.7.10}%
+\contentsline {section}{\numberline {8}Bases de datos abiertas en M\'exico}{10}{section.8}%
+\contentsline {subsection}{\numberline {8.1}Datos Abiertos del Gobierno de M\'exico}{10}{subsection.8.1}%
+\contentsline {subsection}{\numberline {8.2}Secretariado Ejecutivo del Sistema Nacional de Seguridad P\'ublica}{10}{subsection.8.2}%
+\contentsline {subsection}{\numberline {8.3}INEGI}{11}{subsection.8.3}%
+\contentsline {section}{\numberline {9}\'Areas de oportunidad}{11}{section.9}%
+\contentsline {subsection}{\numberline {9.1}Propuesta de Investigaci\'on: Bayesian Forensic Data Science en M\'exico}{11}{subsection.9.1}%
+\contentsline {subsection}{\numberline {9.2}Datos}{11}{subsection.9.2}%
+\contentsline {subsection}{\numberline {9.3}Metodolog\'ia}{11}{subsection.9.3}%
+\contentsline {subsection}{\numberline {9.4}Resultados esperados}{12}{subsection.9.4}%
+\contentsline {subsection}{\numberline {9.5}Impacto}{12}{subsection.9.5}%
+\contentsline {subsection}{\numberline {9.6}Dise\~no del experimento}{12}{subsection.9.6}%
+\contentsline {section}{\numberline {10}Roles posibles para un especialista en estad\'istica forense}{16}{section.10}%
+\contentsline {subsection}{\numberline {10.1}Perito estad\'istico}{16}{subsection.10.1}%
+\contentsline {subsection}{\numberline {10.2}Consultor en an\'alisis de datos criminales}{16}{subsection.10.2}%
+\contentsline {subsection}{\numberline {10.3}Asesor en laboratorios forenses}{16}{subsection.10.3}%
+\contentsline {subsection}{\numberline {10.4}Desarrollo de software anal\'itico}{16}{subsection.10.4}%
+\contentsline {section}{\numberline {11}Principales investigadores}{16}{section.11}%
+\contentsline {section}{\numberline {12}Centros de investigaci\'on importantes}{17}{section.12}%
+\contentsline {section}{\numberline {13}Plan de trabajo}{17}{section.13}%
+\contentsline {subsection}{\numberline {13.1}Fase I: Fundamentos metodol\'ogicos (A\~no 1)}{17}{subsection.13.1}%
+\contentsline {subsection}{\numberline {13.2}Fase II: Aplicaci\'on a problemas criminales (A\~nos 2--3)}{17}{subsection.13.2}%
+\contentsline {subsection}{\numberline {13.3}Fase III: Colaboraci\'on institucional (A\~nos 3--4)}{17}{subsection.13.3}%
+\contentsline {subsection}{\numberline {13.4}Fase IV: Consolidaci\'on y transferencia (A\~nos 4--5)}{18}{subsection.13.4}%
+\contentsline {subsection}{\numberline {13.5}Impacto acad\'emico y profesional}{18}{subsection.13.5}%
